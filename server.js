@@ -1,4 +1,4 @@
-require('express-async-errors')
+// require('express-async-errors')
 const http = require('http');
 const express = require('express');
 const app = express();
@@ -10,7 +10,7 @@ const routes = require('./src/routes');
 // const databaseConfig = require('./src/config');
 const port = process.env.PORT;
 
-preMiddlewares(app);
+// preMiddlewares(app);
 
 // app.use('/api', routes())
 
