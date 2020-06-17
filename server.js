@@ -1,3 +1,4 @@
+const nodemailer = require('nodemailer');
 require('express-async-errors')
 const http = require('http');
 const express = require('express');
@@ -31,3 +32,41 @@ server.on('error', (error) => {
 
 
 module.exports = app
+
+// Add verify (callback) call to test connection and authentication to email
+transporter.verify(function(error, success) {
+  if (error) {
+       console.log(error);
+  } else {
+       console.log('Server is ready to take our messages');
+  }
+});
+
+// setup the email details
+var transport = nodemailer.createTransport({
+  host: "smtp.mail.com",
+  port: 2525,
+  auth: {
+    user: "",
+    pass: ""
+  },
+  debug: true, // show debug output
+  logger: true // log information in console
+});
+
+// Email message options
+var mailOptions = {
+  from: '"Example Team" <from@example.com>',
+  to: 'user1@example.com, user2@example.com',
+  subject: 'Nice Nodemailer test',
+  text: 'Hey there, it’s our first message sent with Nodemailer ;) ', 
+  html: '<b>Hey there! </b><br> This is our first message sent with Nodemailer',
+};
+
+// Deliver a mail
+transport.sendMail(mailOptions, (error, info) => {
+  if (error) {
+      return console.log(error);
+  }
+  console.log('Message sent: %s', info.messageId);
+});
