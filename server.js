@@ -7,12 +7,15 @@ const server = http.createServer(app);
 const preMiddlewares = require('./src/middlewares/preMiddlewares');
 const errorMiddlewares = require('./src/middlewares/errorMiddlewares');
 const routes = require('./src/routes');
+const requestRoutes = require('./src/routes/requests');
 const databaseConfig = require('./src/config/db');
 const port = process.env.PORT;
 
 preMiddlewares(app);
 
+//Api routes
 app.use('/api', routes())
+app.use("/api/v1/requests", requestRoutes);
 
 app.use('/', (req, res) => {
   res.status(200).sendFile(express.static("public/index.html"));
