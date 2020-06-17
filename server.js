@@ -8,7 +8,7 @@ const server = http.createServer(app);
 // const preMiddlewares = require('./src/middlewares/preMiddlewares');
 // const errorMiddlewares = require('./src/middlewares/errorMiddlewares');
 // const routes = require('./src/routes');
-// const databaseConfig = require('./src/config');
+const databaseConfig = require('./src/config/db');
 const port = 2020 || process.env.PORT;
 
 // preMiddlewares(app);
