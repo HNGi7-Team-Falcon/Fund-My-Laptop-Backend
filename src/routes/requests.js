@@ -1,17 +1,17 @@
 const express = require('express');
-const {
-  createRequest,
-  updateRequest
+const { 
+  createRequest, 
+  updateRequest 
 } = require('../controllers/requests');
 
 const router = express.Router();
 
 router
-    .route('/')
-    .post(createRequest);
+  .route('/')
+  .post(createRequest);
 
 router
   .route('/:id')
-  .put(updateRequest)
+  .put(updateRequest);
 
 module.exports = router;
