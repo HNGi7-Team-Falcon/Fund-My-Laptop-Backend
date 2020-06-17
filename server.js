@@ -12,10 +12,12 @@ const port = process.env.PORT;
 
 preMiddlewares;
 
-app.use('/api', routes())
+app.use('/api', routes);
+
+app.use(express.static('public'));
 
 app.use('/', (req, res) => {
-  res.status(200).sendFile(express.static("public/index.html"));
+  res.status(200).sendFile('./public/index.html');
 })
 
 errorMiddlewares(app)
