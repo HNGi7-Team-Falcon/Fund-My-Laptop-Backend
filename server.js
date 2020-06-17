@@ -7,10 +7,10 @@ const server = http.createServer(app);
 const preMiddlewares = require('./src/middlewares/preMiddlewares');
 const errorMiddlewares = require('./src/middlewares/errorMiddlewares');
 const routes = require('./src/routes');
-const databaseConfig = require('./src/config/db');
+const databaseConfig = require('./src/config');
 const port = process.env.PORT;
 
-preMiddlewares(app);
+preMiddlewares;
 
 app.use('/api', routes())
 
