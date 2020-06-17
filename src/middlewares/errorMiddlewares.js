@@ -1,6 +1,6 @@
 const app = require("./../../server")
-const CustomError = require("../helpers/CustomError");
-const { response } = require("../helpers/Message")
+const CustomError = require("../utils/CustomError");
+const { response } = require("../utils/Message")
 
 
 
