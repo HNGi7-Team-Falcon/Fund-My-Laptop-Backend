@@ -1,6 +1,7 @@
 // require('express-async-errors')
 const http = require('http');
 const express = require('express');
+const path = require("path")
 const app = express();
 const server = http.createServer(app);
 
@@ -15,7 +16,7 @@ const port = 2020 || process.env.PORT;
 // app.use('/api', routes())
 
 app.use('/', (req, res) => {
-  res.status(200).send("Fund my laptop is under construction");
+  res.status(200).sendFile(path.join(__dirname+'/public/index.html'));
 })
 
 // errorMiddlewares(app)

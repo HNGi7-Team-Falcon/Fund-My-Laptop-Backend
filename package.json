@@ -4,7 +4,7 @@
   "description": "Fund my laptop",
   "main": "server.js",
   "scripts": {
-    "start": "node -r dotenv/config server.js",
+    "start": "node server.js",
     "dev": "nodemon -r dotenv/config server.js"
   },
   "keywords": [],
@@ -12,9 +12,5 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "jest": "^26.0.1",
-    "nodemon": "^1.19.4"
   }
 }
