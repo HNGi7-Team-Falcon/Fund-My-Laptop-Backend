@@ -24,6 +24,12 @@ class RequestService {
   async findById(requestId) {
     return Request.findById(requestId);
   }
+
+  async get(data) {
+    // Return requests data from database
+
+    return data;
+  }
 }
 
 module.exports = new RequestService();
