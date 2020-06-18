@@ -39,5 +39,5 @@ networks:
     driver: bridge
 
 volumes:
-  dbdata:
+  # dbdata:
   node_modules:  
