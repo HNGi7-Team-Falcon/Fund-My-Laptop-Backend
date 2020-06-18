@@ -14,7 +14,6 @@ class UserContoller {
         const data = await UserServ.login(req.body);
         res.status(200).send(response("User login successful", data));
     }
-  
 
     async update(req, res) {
         const data = await UserServ.update(req.params, req.body);
