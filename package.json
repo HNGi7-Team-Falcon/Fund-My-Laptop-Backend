@@ -4,7 +4,7 @@
   "description": "Fund my laptop",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon -r dotenv/config server.js",
+    "dev": "nodemon -r dotenv/config src/bin/www.js",
     "start": "node -r dotenv/config src/bin/www.js",
     "test": "jest"
   },

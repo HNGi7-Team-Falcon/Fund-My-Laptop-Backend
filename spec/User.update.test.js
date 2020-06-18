@@ -9,13 +9,14 @@ describe('Update user info', () => {
 });
 
 describe('login', () => {
-  it('should update user info', async () => {
+  it('should login user info', async () => {
     const res = await request(app).post('/login')
     .send({
       email:"me@gmail.com",
       password:"password"
     })
     expect(res.statusCode).toEqual(200);
+    
     
   });
 });
