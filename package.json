@@ -11,8 +11,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.19"
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.19",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.10"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1",
+    "nodemon": "^1.19.4"
   }
 }
