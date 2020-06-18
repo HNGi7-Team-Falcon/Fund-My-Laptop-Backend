@@ -13,7 +13,7 @@ describe('login', () => {
     const res = await request(app).post('/login')
     .send({
       name:"me@gmail.com",
-      password:"pass"
+      password:"password"
     })
     expect(res.statusCode).toEqual(200);
     
