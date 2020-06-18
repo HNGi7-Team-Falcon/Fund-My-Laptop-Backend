@@ -1,17 +1,7 @@
-const response = require("./../utils/response");
-const UserServ = require("./../services/UserService");
-
-class UserContoller {
-
-    async create(req, res) {
-        const data = await UserServ.create(req.body);
-        res.status(201).send(response("User account created", data));
-    }
-
-    async login(req, res){
-        const data = await UserServ.login(req.body);
-        res.status(200).send(response("User login successful", data));
-    }
+const AdminServ = require("../services/AdminService");const response = require("../utils/response");
+const CustomError = require('../utils/CustomError')class UserContoller {
+  async register(req, res) {
+    const data = await AdminServ.create(req.body);
+    res.status(201).send(response("User account created", data));
+  }
 }
-
-module.exports = new UserContoller();    
