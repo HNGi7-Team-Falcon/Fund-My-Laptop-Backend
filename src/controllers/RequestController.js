@@ -46,17 +46,9 @@ class RequestController {
 
   async getRequests(req, res) {
     // Pull from DB
-    try {
-      // Find Requests and sort by most recent requests
-      const requests = await Request.find({ user: req.user.id }).sort({
-        date: -1,
-      });
-
-      res.json(requests);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server Error");
-    }
+    
+    const data = await RequestServ.get(req.body);
+    res.status(200).send(response("Request Gotten Successfully", data));
   }
 }
 
