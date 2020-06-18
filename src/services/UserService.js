@@ -13,7 +13,7 @@ class UserService {
     const user = new User(data);
 
     const token = await jwt.sign({ id: user._id }, jwtSecret, { expiresIn: 36000 });
-
+    
     await user.save();
 
     return {

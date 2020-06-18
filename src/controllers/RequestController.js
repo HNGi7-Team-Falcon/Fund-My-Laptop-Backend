@@ -9,21 +9,39 @@ class RequestController {
     }
 
     async update(req, res){
-        const data = await RequestServ.update(req.body);
+
+        // Validate Request
+    if(!req.body) {
+        return res.status(400).send(response("Fill in the necessary details", data));
+      } else{
+        const data = await RequestServ.update(req.params.requestId, {
+            amount: req.body.amount,
+            description: req.body.description,
+            title: req.body.title,
+          });
         res.status(200).send(response("Request updated successfully", data));
+
+      }
+
     }
 
-    async getRequests(req, res) { 
+    async getRequests(req, res) {
         // Pull from DB
-        try {
-            // Find Requests and sort by most recent requests
-            const requests = await Request.find({ user: req.user.id }).sort({ date: -1 });
+        const data = await RequestServ.get(req.body);
+        res.status(200).send(response("Request Gotten Successfully", data));
+      }
 
-            res.json(requests);
-        } catch (err) {
-            console.error(err.message);
-            res.status(500).send('Server Error'); 
-        }
+      
+
+    async getRequest(req, res){
+        const data = await RequestServ.getOne(req.params.requestId);
+        res.status(200).send(response(`${req.params.requestId} has been gotten successfully`, data));
+    }
+
+    async delRequest(req, res){
+        
+        const data = await RequestServ.delete(req.params.deleteId)
+        res.status(200).send(response("Request deleted successfully", data));
     }
 }
 
