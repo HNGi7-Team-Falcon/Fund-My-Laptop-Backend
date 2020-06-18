@@ -12,6 +12,24 @@ class RequestController {
     res.status(200).send(response("Request updated successfully", data));
   }
 
+  async findById(req, res) {
+    try {
+      const data = await RequestServ.findById(req.params.requestId);
+      res.status(200).send(response("Request updated successfully", data));
+    } catch (error) {
+      res.status(401).send({ message: error.message });
+    }
+  }
+
+  async findAll(req, res) {
+    try {
+      const data = await RequestServ.findAll();
+      res.status(200).send(response("Request updated successfully", data));
+    } catch (error) {
+      res.status(401).send({ message: error.message });
+    }
+  }
+
   async delete(req, res) {
     try {
       const request = await RequestServ.delete(req.params.requestId);

@@ -20,6 +20,14 @@ class RequestService {
   async delete(requestId) {
     return Request.findByIdAndRemove(requestId);
   }
+
+  async findById(requestId) {
+    return Request.findById(requestId);
+  }
+
+  async findAll() {
+    return Request.find();
+  }
 }
 
 module.exports = new RequestService();
