@@ -19,6 +19,13 @@ class UserContoller {
         const data = await UserServ.update(req.params, req.body);
         res.status(204).send(response("User Resource updated successfully", data));
     }
+    
+    //storing favorite requests
+    async favorites(req,res){
+      const data = await UserServ.newFavorite(req.body);
+      //message returned should be a flash message
+      res.status(200).send(response("Request added to favorites", data)); 
+   }
 }
 
 module.exports = new UserContoller(); 

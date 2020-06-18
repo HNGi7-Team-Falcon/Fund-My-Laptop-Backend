@@ -11,6 +11,7 @@ class RequestService {
       uid: request._id,
       name: request.name,
       email: request.email,
+      fundStatus: request.isFunded
     };
   }
 
@@ -24,6 +25,10 @@ class RequestService {
 
   async findById(requestId) {
     return Request.findById(requestId);
+  }
+
+  async find(period1, period2) {
+    return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
   }
 }
 
