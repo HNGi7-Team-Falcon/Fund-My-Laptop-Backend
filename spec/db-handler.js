@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
-const uri = process.env.MONGODB_URI;
 
 module.exports.connect = async () => {
-
+    const uri = process.env.MONGODB_URI;
     const dbOptions = {
         useNewUrlParser: true,
         useCreateIndex: true,
@@ -11,10 +10,7 @@ module.exports.connect = async () => {
         useFindAndModify: false
     };
     
-    await mongoose
-    .connect(uri, dbOptions)
-    .then(() => console.log("Connected to database!"))
-    .catch((error) => console.log("Error!. Couldn't connect to database ", error));
+    await mongoose.connect(uri, dbOptions);
 };
 
 module.exports.closeDatabase = async () => {
