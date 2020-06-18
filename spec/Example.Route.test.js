@@ -8,15 +8,4 @@ describe('TEST:HOME page endpoint', () => {
   });
 });
 
-describe('login', () => {
-  it('should login user info', async () => {
-    const res = await request(app).post('/login')
-    .send({
-      email:"me@gmail.com",
-      password:"password"
-    })
-    expect(res.statusCode).toEqual(200);
-    
-    
-  });
-});
+
