@@ -5,15 +5,18 @@ const path = require("path")
 const app = express();
 const server = http.createServer(app);
 
-// const preMiddlewares = require('./src/middlewares/preMiddlewares');
-// const errorMiddlewares = require('./src/middlewares/errorMiddlewares');
-// const routes = require('./src/routes');
-// const databaseConfig = require('./src/config');
-const port = 2020 || process.env.PORT;
+const preMiddlewares = require('./src/middlewares/preMiddlewares');
+const errorMiddlewares = require('./src/middlewares/errorMiddlewares');
+const routes = require('./src/routes');
+const requestRoutes = require('./src/routes/requests');
+const databaseConfig = require('./src/config/db');
+const port = process.env.PORT;
 
 // preMiddlewares(app);
 
-// app.use('/api', routes())
+//Api routes
+app.use('/api', routes())
+app.use("/api/v1/requests", requestRoutes);
 
 app.use('/', (req, res) => {
   res.status(200).sendFile(path.join(__dirname+'/public/index.html'));
