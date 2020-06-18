@@ -45,7 +45,19 @@ class UserService {
 
     }
   }
-  
+
+  async update(data) {
+    if (!data.id) throw new CustomError('No specified user with the id');
+
+    const user = await User.findOneAndUpdate({ _id: data.id });
+
+    return {
+      uid: user._id,
+      name: user.name,
+      email: user.email
+    }
+  }
+
 }
 
 module.exports = new UserService()
