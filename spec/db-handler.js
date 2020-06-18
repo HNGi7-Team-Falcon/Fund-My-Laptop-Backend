@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
+const { MongoMemoryServer } = require('mongodb-memory-server');
+
+const mongodb = new MongoMemoryServer();
 
 module.exports.connect = async () => {
-    const uri = process.env.MONGODB_URI;
+    const uri = await mongodb.getConnectionString(); 
     const dbOptions = {
         useNewUrlParser: true,
         useCreateIndex: true,
@@ -16,6 +18,7 @@ module.exports.connect = async () => {
 module.exports.closeDatabase = async () => {
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
+  await mongodb.stop();
 };
 
 module.exports.clearDatabase = async () => {
