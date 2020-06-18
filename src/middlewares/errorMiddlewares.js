@@ -11,6 +11,7 @@ module.exports = (app) => {
      });
 
      app.use((error, req, res, next) => {
+          console.log(error)
           if (error instanceof CustomError) {
                res.status(error.status).send(response(error.message, null, false));
           } else if (error.name == "CastError") {
@@ -26,4 +27,5 @@ module.exports = (app) => {
           }
      });
 
+     return app
 }

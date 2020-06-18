@@ -10,4 +10,6 @@ module.exports = (app) => {
      app.use(express.urlencoded({ extended: false }));
      app.use(express.static("/public"));
      app.use('/uploads', express.static("/uploads"));
+
+     return app
 }
