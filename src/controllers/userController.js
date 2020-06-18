@@ -14,4 +14,4 @@ class UserContoller {
     }
 }
 
-module.exports = new UserContoller();
+module.exports = new UserContoller();    
