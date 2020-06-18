@@ -7,3 +7,15 @@ describe('Update user info', () => {
     expect(res.statusCode).toEqual(200);
   });
 });
+
+describe('login', () => {
+  it('should update user info', async () => {
+    const res = await request(app).post('/login')
+    .send({
+      name:"me@gmail.com",
+      password:"pass"
+    })
+    expect(res.statusCode).toEqual(200);
+    
+  });
+});
