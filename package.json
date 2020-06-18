@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node -r dotenv/config server.js",
-    "dev": "nodemon -r dotenv/config server.js"
+    "dev": "nodemon -r dotenv/config server.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "nodemailer": "^6.4.10"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^1.1.5",
     "jest": "^26.0.1",
     "nodemon": "^1.19.4"
   }
