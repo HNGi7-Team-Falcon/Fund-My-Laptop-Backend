@@ -5,5 +5,7 @@ module.exports = () => {
   router.post("/", RequestCtrl.create);
   router.put("/:requestId", RequestCtrl.update);
 
+  router.get('/', RequestCtrl.getRequests);
+
   return router;
 };
