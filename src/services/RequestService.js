@@ -5,57 +5,71 @@ const jwt = require("jsonwebtoken");
 const jwtSecret = process.env.JWT_SECRET;
 
 class RequestService {
-
-  
-
   async create(data) {
     const request = new Request(data);
     const token = await jwt.sign({ id: request._id }, jwtSecret, { expiresIn: 36000 });
     await request.save();
 
     return {
-      token: token,
+      // token: token,
       uid: request._id,
       name: request.name,
       email: request.email,
-    }
+      fundStatus: request.isFunded
+    };
   }
 
-  async get(data) {
-    // Return requests data from database
+//   async get(data) {
+//     // Return requests data from database
+//     return data;
+//   }
+
+  
+
+//   async getOne(data) {
+//     const getResult = Request.findById(data);
+    
+//     return getResult;
+
+//   }
+
+  
+
+//   async update(data, options = {})  {
+    
+//     // Find user and update it with the request body
+//   const updateRequest =  Request.findByIdAndUpdate(data, options, {new: true})
+
+//     return updateRequest;
+//   };
+
+//   async delete(data) {
+
+//     const result = Request.findByIdAndRemove(data);
+
+//     // console.log(result);
+//     return result;
+
+
+
+//   } 
+    
+// };
+  async update(data) {
     return data;
   }
 
-  
-
-  async getOne(data) {
-    const getResult = Request.findById(data);
-    
-    return getResult;
-
+  async delete(requestId) {
+    return Request.findByIdAndRemove(requestId);
   }
 
-  
+  async findById(requestId) {
+    return Request.findById(requestId);
+  }
 
-  async update(data, options = {})  {
-    
-    // Find user and update it with the request body
-  const updateRequest =  Request.findByIdAndUpdate(data, options, {new: true})
+  async find(period1, period2) {
+    return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
+  }
+}
 
-    return updateRequest;
-  };
-
-  async delete(data) {
-
-    const result = Request.findByIdAndRemove(data);
-
-    // console.log(result);
-    return result;
-
-
-
-  } 
-    
-};
-
-module.exports = new RequestService()
+module.exports = new RequestService();

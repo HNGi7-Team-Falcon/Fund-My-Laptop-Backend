@@ -17,6 +17,10 @@ const RequestSchema = new mongoose.Schema({
       type: Number,
       required: true
    },
+   isFunded: {
+      type: Boolean,
+      default: false
+   },
    description: {
       type: String,
       required: true,
