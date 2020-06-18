@@ -4,8 +4,8 @@
   "description": "Fund my laptop",
   "main": "server.js",
   "scripts": {
-    "start": "node -r dotenv/config bin/www.js",
-    "dev": "nodemon -r dotenv/config bin/www.js",
+    "start": "node -r dotenv/config src/bin/www.js",
+    "dev": "nodemon -r dotenv/config src/bin/www.js",
     "test": "jest"
   },
   "keywords": [],

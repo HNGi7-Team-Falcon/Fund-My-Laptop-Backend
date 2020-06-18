@@ -19,6 +19,10 @@ class UserContoller {
         const data = await UserServ.update(req.params, req.body);
         res.status(204).send(response("User Resource updated successfully", data));
     }
+
+    async favorites(req, res) {
+      res.status(204).send(response("User Resource updated successfully", data));
+    }
 }
 
 module.exports = new UserContoller(); 
