@@ -14,19 +14,23 @@ class RequestController {
 
   async findById(req, res) {
     try {
-      const data = await RequestServ.findById(req.params.requestId);
-      res.status(200).send(response("Request updated successfully", data));
+      const request = await RequestServ.findById(req.params.requestId);
+      if (!request) {
+        console.log(request);
+        return res.status(404).send(response("Request not found", request));
+      }
+      res.status(200).send(response("Request details", request));
     } catch (error) {
-      res.status(401).send({ message: error.message });
+      res.send(response(request));
     }
   }
 
   async findAll(req, res) {
     try {
-      const data = await RequestServ.findAll();
-      res.status(200).send(response("Request updated successfully", data));
+      const request = await RequestServ.findAll();
+      res.status(200).send(response("All requests", request));
     } catch (error) {
-      res.status(401).send({ message: error.message });
+      res.send(response(request));
     }
   }
 
@@ -34,20 +38,18 @@ class RequestController {
     try {
       const request = await RequestServ.delete(req.params.requestId);
       if (!request) {
-        return res.status(404).send({
-          message: "Request not found with id " + req.params.requestId,
-        });
+        return res
+          .status(404)
+          .send(
+            response(
+              `Request not found with Id: ${req.params.requestId}`,
+              request
+            )
+          );
       }
-      res.status(200).send(response("Request updated successfully", request));
+      res.status(200).send(response("Request deleted successfully", request));
     } catch (error) {
-      if (error.kind === "ObjectId" || error.name === "NotFound") {
-        return res.status(404).send({
-          message: "Request not found",
-        });
-      }
-      return res.status(404).send({
-        message: "Could not delete request",
-      });
+      res.send(response(request));
     }
   }
 }
