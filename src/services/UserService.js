@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
-const CustomError = require("../helpers/CustomError");
+const User = require("./../models/User");
+const CustomError = require("./../utils/CustomError");
 
 const jwtSecret = process.env.JWT_SECRET;
 

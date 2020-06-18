@@ -1,5 +1,5 @@
 const response = require("./../utils/response");
-const UserServ = require("../services/UserService");
+const UserServ = require("./../services/UserService");
 
 class UserContoller {
 
@@ -10,7 +10,7 @@ class UserContoller {
 
     async login(req, res){
         const data = await UserServ.login(req.body);
-        res.status(201).send(response("User login successful", data));
+        res.status(200).send(response("User login successful", data));
     }
 }
 
