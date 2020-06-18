@@ -4,6 +4,7 @@ const UserServ = require("./../services/UserService");
 class UserContoller {
 
     async create(req, res) {
+        console.log("why")
         const data = await UserServ.create(req.body);
         res.status(201).send(response("User account created", data));
     }
