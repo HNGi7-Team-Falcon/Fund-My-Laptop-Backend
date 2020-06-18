@@ -1,0 +1,43 @@
+version: "3"
+services:
+  nodejs:
+    build: .
+    # links:
+    #   - db
+    container_name: falcon-nodejs
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # - MONGO_URI=$MONGO_URI
+      - PORT=$PORT
+    ports:
+      - "2020:2020"
+    # volumes:
+    #   - .:/home/node/app
+    #   - node_modules:/home/node/app/node_modules
+    # networks:
+    #   - app-network
+    # command: ./wait-for.sh falcon-db:5517 -- /home/node/app/node_modules/.bin/nodemon index.js
+  # db:
+  #   image: mongo:4.1.8-xenial
+  #   command: mongod --port 5515
+  #   container_name: falcon-db
+  #   restart: unless-stopped
+  #   env_file: .env
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
+  #     - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+  #   volumes:  
+  #     - dbdata:/data/db 
+  #   ports:
+  #     - "5515:27017"
+  #   networks:
+  #     - app-network
+      
+# networks:
+#   app-network:
+#     driver: bridge
+
+volumes:
+  # dbdata:
+  node_modules:  
