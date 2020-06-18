@@ -1,6 +1,6 @@
 # FundMyLaptop
 
-A website where people can raise money for their laptop purchase or fix
+A website where people can raise money for their laptop purchase or repair
 
 ## Installing
 
