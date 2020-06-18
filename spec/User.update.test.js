@@ -12,7 +12,7 @@ describe('login', () => {
   it('should update user info', async () => {
     const res = await request(app).post('/login')
     .send({
-      name:"me@gmail.com",
+      email:"me@gmail.com",
       password:"password"
     })
     expect(res.statusCode).toEqual(200);
