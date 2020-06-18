@@ -17,8 +17,9 @@ afterAll(async () => await dbHandler.closeDatabase());
 
 describe('user', () => {
   it('can be created correctly', async () => {
-    expect(1).toBe(1);
-  })
+    expect(async () => await userService.create(mockUser))
+      .not.toThrow();
+  });
 });
 
 const mockUser = {

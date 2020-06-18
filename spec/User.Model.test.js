@@ -16,11 +16,12 @@ afterAll(async () => await dbHandler.closeDatabase());
 
 describe('user', () => {
   it('can be created correctly', () => {
-    expect(1).toBe(1);
-  })
+    expect(async () => await userService.create(mockUser))
+      .not.toThrow();
+  });
 });
 
-const userExample = {
-  name: 'Fluffy Dragon',
-  email: 'fluffydragon@gmail.com'
+const mockUser = {
+  name: 'Usman Suleiman',
+  email: 'usmansbk@gmail.com'
 };
