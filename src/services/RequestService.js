@@ -24,10 +24,6 @@ class RequestService {
   async findById(requestId) {
     return Request.findById(requestId);
   }
-
-  async findAll() {
-    return Request.find();
-  }
 }
 
 module.exports = new RequestService();
