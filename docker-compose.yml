@@ -2,13 +2,13 @@ version: "3"
 services:
   nodejs:
     build: .
-    links:
-      - db
+    # links:
+    #   - db
     container_name: falcon-nodejs
     restart: unless-stopped
     env_file: .env
     environment:
-      - MONGO_URI=$MONGO_URI
+      # - MONGO_URI=$MONGO_URI
       - PORT=$PORT
     ports:
       - "2020:2020"
