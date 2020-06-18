@@ -27,7 +27,7 @@ app.use('/', (req, res) => {
 
 server.listen(port, () => {
   console.log(`::: server listening on port ${port}. Open via http://localhost:${port}/`);
-
+  databaseConfig()
 });
 
 server.on('error', (error) => {
