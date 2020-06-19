@@ -19,8 +19,6 @@ class UserService {
     });
     user.token = token;
     await user.save();
-    const token = jwt.sign({ id: user._id }, jwtSecret, { expiresIn: 36000 });
-
 
     return {
       token: token,
