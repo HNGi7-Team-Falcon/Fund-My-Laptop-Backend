@@ -16,11 +16,12 @@ beforeAll(async () => {
 
 // clear all test data after every test.
 afterEach(async () => {
-  console.log('clear')
+  console.log('aftereach')
   await dbHandler.clearDatabase();
 });
 // Remove and close the db and server.
 afterAll(async () => {
+  console.log('afterall')
   await dbHandler.closeDatabase();
 });
 
@@ -69,12 +70,14 @@ describe('user', () => {
 
   it('can be updated correctly', async () => {
     const result = await userService.create(mockUser2);
+    console.log('create new user');
     expect(result.uid).toBeDefined();
     const mockUpdate = {
       id: result.uid,
       name: 'Senbon Zakura',
       email:mockUser2.email 
     };
+    console.log('user created');
     expect(async () => await userService.update(mockUpdate))
       .not
       .toThrow();

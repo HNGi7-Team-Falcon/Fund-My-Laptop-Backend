@@ -33,6 +33,6 @@ module.exports.closeDatabase = async () => {
 module.exports.clearDatabase = async () => {
   const collections = mongoose.connection.collections;
   for (let key in collections) {
-    // await collections[key].deleteMany({});
+    await collections[key].deleteMany({});
   }
 }
