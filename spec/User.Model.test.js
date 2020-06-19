@@ -41,9 +41,21 @@ describe('user', () => {
       .toThrow();
   });
 
-  it('requires a name', () => {
+  it('requires a name, email, and password', () => {
     expect(async () => {
       await userService.create(noName);
+    })
+      .rejects
+      .toThrow();
+
+    expect(async () => {
+      await userService.create(noEmail);
+    })
+      .rejects
+      .toThrow();
+
+    expect(async () => {
+      await userService.create(noPassword);
     })
       .rejects
       .toThrow();
@@ -99,5 +111,17 @@ const unverifiedUser = {
 const noName = {
   email: 'usmansbk3@gmail.com',
   password: 'ittadakimasu',
+  verified: true
+};
+
+const noEmail = {
+  name: 'Usman Suleiman',
+  password: 'ittadakimasu',
+  verified: true
+};
+
+const noPassword = {
+  name: 'Usman Suleiman',
+  email: 'usmansbk1@gmail.com',
   verified: true
 };
