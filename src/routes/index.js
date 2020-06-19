@@ -5,6 +5,8 @@ const requestRoute = require("./requestRoute");
 const recommendationRoute = require("./recommendationRoute");
 const paymentRoute = require("./paymentRoute");
 
+const TrendCtrl = require('../controllers/TrendController');
+
 module.exports = () => {
   router.get("/test", (req, res) => res.send("Yeah it works!"));
 
@@ -12,6 +14,10 @@ module.exports = () => {
   router.use("/request", requestRoute());
   router.use("/vouch", recommendationRoute());
   router.use("/payment", paymentRoute);
+  router.use("/trend", TrendCtrl.getTrends);
 
-  return router;
+
+
+
+     return router;
 };

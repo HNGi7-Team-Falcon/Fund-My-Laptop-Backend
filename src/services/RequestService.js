@@ -1,9 +1,13 @@
 const Request = require("./../models/Request");
 const CustomError = require("./../utils/CustomError");
+const jwt = require("jsonwebtoken");
+
+const jwtSecret = process.env.JWT_SECRET;
 
 class RequestService {
   async create(data) {
     const request = new Request(data);
+    const token = await jwt.sign({ id: request._id }, jwtSecret, { expiresIn: 36000 });
     await request.save();
     return request;
   }
@@ -32,14 +36,9 @@ class RequestService {
   async find(period1, period2) {
     return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
   }
-  async findSuspended() {
-    return Request.find({isSuspended: true});
-  }
-  async suspend(requestId) {
-    return Request.findOneAndUpdate({_id: requestId}, {isSuspended: true}, {new: true});
-  }
-  async activeButNotFunded() {
-    return Request.find({$and: [{isactive: true}, {isFunded: false}]});
+
+  async findAll() {
+    return Request.find();
   }
 }
 
