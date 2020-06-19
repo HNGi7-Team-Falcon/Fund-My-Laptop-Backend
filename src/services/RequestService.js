@@ -15,7 +15,16 @@ class RequestService {
   }
 
   async update(data) {
-    return data;
+    const filter = { _id: data.id };
+    const update = {...data};
+    delete update.id;
+    const request = await User.findOneAndUpdate(filter, update, {
+      new: true
+    });
+
+    if (!request) throw new CustomError("Item may have been deleted");
+
+    return request;
   }
 
   async delete(requestId) {
