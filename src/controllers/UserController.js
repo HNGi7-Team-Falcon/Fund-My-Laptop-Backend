@@ -21,7 +21,7 @@ class UserContoller {
 
     async delete(req, res) {
         const data = await UserServ.delete(req.params, req.body);
-        res.status(204).send(response('User deleted successfully', {}));
+        res.status(204).send(response('User deleted successfully', data));
     }
 
     //storing favorite requests
