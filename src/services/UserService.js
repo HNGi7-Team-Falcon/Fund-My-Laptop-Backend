@@ -78,6 +78,19 @@ class UserService {
       email: user.email,
     };
   }
+
+  async delete(data) {
+    if (!data.id) throw new CustomError('No user with the specified id');;
+
+    const user = await User.findOneAndDelete({ _id: data.id });
+
+    return {
+      uid: user._id,
+      name: user.name,
+      email: user.email
+    }
+  }
+
 }
 
 module.exports = new UserService();

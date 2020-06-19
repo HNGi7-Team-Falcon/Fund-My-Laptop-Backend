@@ -1,3 +1,7 @@
+const request = require('supertest');
+const app = require('../server');
+
+
 /**
  * @author Usman Suleiman
  * Story title: TEST:User Model
