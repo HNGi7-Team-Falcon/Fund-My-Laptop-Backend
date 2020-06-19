@@ -9,7 +9,14 @@ class RequestService {
     const request = new Request(data);
     const token = await jwt.sign({ id: request._id }, jwtSecret, { expiresIn: 36000 });
     await request.save();
-    return request;
+
+    return {
+      //This token is not necessary here. This is a protected route so just get the user_id from the request (req)
+      // token: token,
+      uid: request._id,
+      name: request.name,
+      email: request.email,
+    };
   }
 
   async update(data) {
@@ -20,7 +27,7 @@ class RequestService {
       new: true
     });
 
-    if (!request) throw new CustomError("Item does not exist");
+    if (!request) throw new CustomError("Item may have been deleted");
 
     return request;
   }
