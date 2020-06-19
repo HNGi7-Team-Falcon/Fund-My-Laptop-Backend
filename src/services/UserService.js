@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+require('dotenv').config();
 const User = require("./../models/User");
 const CustomError = require("./../utils/CustomError");
 const Favs = require("./../models/Favorites"); // favorites model
@@ -8,17 +9,18 @@ const jwtSecret = process.env.JWT_SECRET;
 
 class UserService {
   async create(data) {
-    if (await User.findOne({ email: data.email }))
+    if (await User.findOne({ email: data.email })){
       throw new CustomError("Email already exists");
+    }
 
     const user = new User(data);
-
     const token = await jwt.sign({ id: user._id }, jwtSecret, {
       expiresIn: 36000,
     });
     user.token = token;
-
     await user.save();
+    const token = jwt.sign({ id: user._id }, jwtSecret, { expiresIn: 36000 });
+
 
     return {
       token: token,

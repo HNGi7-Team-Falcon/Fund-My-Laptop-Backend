@@ -57,9 +57,11 @@ const UserSchema = new Schema({
 });
 
 // Encrypt password using bcrypt
-UserSchema.pre("save", async function (next) {
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
+
+UserSchema.pre('validate', true, async function (next) {
+    const user = this;
+    user.password = await bcrypt.hash(user.password, 10);
+    next();
 });
 
 module.exports = mongoose.model("user", UserSchema);
