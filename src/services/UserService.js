@@ -64,7 +64,7 @@ class UserService {
   async update(data) {
     if (!data.id) throw new CustomError("No specified user with the id");
 
-    const user = await User.findOne({ _id: data.id }, { name: data.name, email: data.email});
+    const user = await User.findOneAndUpdate({ _id: data.id }, { name: data.name, email: data.email});
 
     return {
       uid: user._id,
@@ -72,6 +72,19 @@ class UserService {
       email: user.email,
     };
   }
+
+  async delete(data) {
+    if (!data.id) throw new CustomError('No user with the specified id');;
+
+    const user = await User.findOneAndDelete({ _id: data.id });
+
+    return {
+      uid: user._id,
+      name: user.name,
+      email: user.email
+    }
+  }
+
 }
 
 module.exports = new UserService();

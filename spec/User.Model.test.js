@@ -4,7 +4,7 @@ const app = require('../server');
 
 /**
  * @author Usman Suleiman
- * Story title: User Model
+ * Story title: TEST:User Model
  * Ticket Id: #45803
  */
 const mongoose = require('mongoose');
@@ -21,7 +21,6 @@ beforeAll(async () => {
 afterEach(async () => {
   await dbHandler.clearDatabase();
 });
-
 // Remove and close the db and server.
 afterAll(async () => {
   await dbHandler.closeDatabase();
@@ -29,39 +28,67 @@ afterAll(async () => {
 
 
 describe('user', () => {
-  it('can be created correctly', async () => {
+  it('can be created correctly', () => {
     expect(async () => {
       await userService.create(mockUser);
     })
       .not.toThrow();
   });
 
-  it('requires name', async () => {
-    const user = await userService.create(noName);
-    expect(user.name).toBeDefined();
+  it('needs to be verified', () => {
+    expect(async () => {
+      await userService.create(unverifiedUser);
+    })
+      .rejects
+      .toThrow();
   });
 
-  // it('can be updated correctly', async () => {
-  //   await userService.create(mockUser);
-  //   const result = await userModel.findOne();
-  //   console.log(result);
-  //   const mockUpdate = {
-  //     id: result.uid,
-  //     name: 'Senbon Zakura',
-  //     email: 'shinigami@yahoo.com',
-  //   };
-  //   expect(result.name).toBeDefined();
-  // });
+  it('requires a name', () => {
+    expect(async () => {
+      await userService.create(noName);
+    })
+      .rejects
+      .toThrow();
+  });
+
+});
+
+describe('user', () => {
+  it('can be updated correctly', async () => {
+    const result = await userService.create(mockUser2);
+    const mockUpdate = {
+      id: result.uid,
+      name: 'Senbon Zakura',
+      email: 'shinigami@yahoo.com',
+    };
+    expect(async () => await userService.update(mockUpdate))
+      .not
+      .toThrow();
+  });
 });
 
 const mockUser = {
   name: 'Usman Suleiman',
-  email: 'usmansbk@gmail.com',
-  password: 'ittadakimasu'
+  email: 'usmansbk1@gmail.com',
+  password: 'ittadakimasu',
+  verified: true
+};
+
+const mockUser2 = {
+  name: 'Usman Suleiman',
+  email: 'usmansbkx@gmail.com',
+  password: 'ittadakimasu',
+  verified: true
+};
+
+const unverifiedUser = {
+  name: 'Usman moon',
+  email: 'usmansbk2@gmail.com',
+  password: 'alacakazm'
 };
 
 const noName = {
-  email: 'usmansbk2@gmail.com',
-  password: 'alacakazm'
-}
-
+  email: 'usmansbk3@gmail.com',
+  password: 'ittadakimasu',
+  verified: true
+};

@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon -r dotenv/config src/bin/www.js",
-    "test": "jest --runInBand ./spec"
+    "test": "jest" 
   },
   "jest": {
     "testEnvironment":"node"
