@@ -1,3 +1,8 @@
+/**
+ * YOU'RE NOT SUPPOSED TO BE HERE
+ * DON'T TOUCH THIS FILE 
+ * @author Usman Suleiman
+ */
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 
