@@ -1,8 +1,5 @@
-const request = require('supertest');
-const app = require('../server');
-
-
 /**
+ * DON'T TOUCH THIS FILE - IT'S MY TASK
  * @author Usman Suleiman
  * Story title: TEST:User Model
  * Ticket Id: #45803
