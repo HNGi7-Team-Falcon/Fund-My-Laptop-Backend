@@ -52,9 +52,6 @@ describe('user', () => {
       .toThrow();
   });
 
-});
-
-describe('user', () => {
   it('exists after being created', async () => {
     await userService.create(mockUser3);
     const createdUser = await userModel.findOne();
