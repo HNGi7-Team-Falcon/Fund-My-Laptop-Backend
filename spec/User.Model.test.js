@@ -1,5 +1,7 @@
 /**
  * @author Usman Suleiman
+ * ticket title: User Model
+ * title Id: #45803
  */
 const mongoose = require('mongoose');
 const dbHandler = require('./db-handler');
