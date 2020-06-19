@@ -14,16 +14,10 @@ module.exports = () => {
   router.use("/request", requestRoute());
   router.use("/vouch", recommendationRoute());
   router.use("/payment", paymentRoute);
-
-<<<<<<< HEAD
-     router.use("/trend", TrendCtrl.getTrends);
+  router.use("/trend", TrendCtrl.getTrends);
 
 
 
 
      return router;
 };
-=======
-  return router;
-};
->>>>>>> 630feb01b99d796aa2bbe78ad7db29721e4a1575
