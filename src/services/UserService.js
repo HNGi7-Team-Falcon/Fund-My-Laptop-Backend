@@ -48,18 +48,30 @@ class UserService {
   }
 
   //favorites storage in DB
-  async newFavorite(data){
-     if(await Favs.findOne({requestID: data.requestID}))
+  async newFavorite(data) {
+    if (await Favs.findOne({ requestID: data.requestID }))
       throw new CustomError("Request is already a favorite");
 
-      const favRequest = new Favs(data);
-      await favRequest.save();
+    const favRequest = new Favs(data);
+    await favRequest.save();
   }
-  
+
   async update(data) {
     if (!data.id) throw new CustomError('No specified user with the id');
 
     const user = await User.findOneAndUpdate({ _id: data.id });
+
+    return {
+      uid: user._id,
+      name: user.name,
+      email: user.email
+    }
+  }
+
+  async delete(data) {
+    if (!data.id) throw new CustomError('No user with the specified id');;
+
+    const user = await User.findOneAndDelete({ _id: data.id });
 
     return {
       uid: user._id,
