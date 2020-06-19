@@ -1,11 +1,8 @@
-const app = require("./../../server")
-const CustomError = require("../utils/CustomError");
-const response = require("../utils/response")
+const CustomError = require("./../utils/CustomError");
+const response = require("./../utils/response")
 
 
 module.exports = (app) => {
-
-
      app.use((req, res, next) => {
           throw new CustomError("Invalid request", 400);
      });
