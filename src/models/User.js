@@ -58,10 +58,8 @@ const UserSchema = new Schema({
 
 // Encrypt password using bcrypt
 
-UserSchema.pre('validate', true, async function (next) {
-    const user = this;
-    user.password = await bcrypt.hash(user.password, 10);
-    next();
+UserSchema.pre('save', async function () {
+  this.password = await bcrypt.hash(this.password, 10);
 });
 
 module.exports = mongoose.model("user", UserSchema);

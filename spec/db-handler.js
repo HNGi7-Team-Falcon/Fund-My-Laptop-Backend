@@ -8,7 +8,6 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 
 const mongod = new MongoMemoryServer();
 
-jest.setTimeout(30000)
 
 module.exports.connect = async () => {
     const uri = await mongod.getConnectionString(); 
