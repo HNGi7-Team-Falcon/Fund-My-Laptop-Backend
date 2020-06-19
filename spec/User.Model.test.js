@@ -4,7 +4,6 @@
  * Story title: TEST:User Model
  * Ticket Id: #45803
  */
-const mongoose = require('mongoose');
 const dbHandler = require('./db-handler');
 const userService = require('../src/services/UserService');
 const userModel = require('../src/models/User');
@@ -15,8 +14,7 @@ beforeAll(async () => {
 });
 
 // clear all test data after every test.
-afterEach(async () => {
-  console.log('aftereach')
+beforeEach(async () => {
   await dbHandler.clearDatabase();
 });
 // Remove and close the db and server.
@@ -42,20 +40,20 @@ describe('user', () => {
       .toThrow();
   });
 
-  it('requires a name, email, and password', () => {
-    expect(async () => {
+  it('requires a name, email, and password', async () => {
+    await expect(async () => {
       await userService.create(noName);
     })
       .rejects
       .toThrow();
 
-    expect(async () => {
+    await expect(async () => {
       await userService.create(noEmail);
     })
       .rejects
       .toThrow();
 
-    expect(async () => {
+    await expect(async () => {
       await userService.create(noPassword);
     })
       .rejects
@@ -70,17 +68,12 @@ describe('user', () => {
 
   it('can be updated correctly', async () => {
     const result = await userService.create(mockUser2);
-    console.log('create new user');
-    expect(result.uid).toBeDefined();
-    const mockUpdate = {
-      id: result.uid,
-      name: 'Senbon Zakura',
-      email:mockUser2.email 
+    const filter = { _id: result.uid };
+    const update = {
+      name: 'Uzumaki Naruto'
     };
-    console.log('user created');
-    expect(async () => await userService.update(mockUpdate))
-      .not
-      .toThrow();
+    const updated = await userModel.findOneAndUpdate(filter, update, { new: true });
+    expect(updated.name).toBe(update.name);
   });
 });
 
