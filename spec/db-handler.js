@@ -8,7 +8,7 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 
 const mongod = new MongoMemoryServer();
 
-jest.setTimeout(30000)
+jest.setTimeout(30000);
 
 module.exports.connect = async () => {
     const uri = await mongod.getConnectionString(); 
@@ -18,8 +18,10 @@ module.exports.connect = async () => {
         useUnifiedTopology: true,
         useFindAndModify: false,
     };
-    
-    await mongoose.connect(uri, dbOptions);
+   
+    if (!mongoose.connection.readyState) {
+      await mongoose.connect(uri, dbOptions);
+    }
 };
 
 module.exports.closeDatabase = async () => {
@@ -30,9 +32,7 @@ module.exports.closeDatabase = async () => {
 
 module.exports.clearDatabase = async () => {
   const collections = mongoose.connection.collections;
-
-  for (const key in collections) {
-    const collection = collections[key];
-    await collection.deleteMany();
+  for (let key in collections) {
+    // await collections[key].deleteMany({}).catch(() => null);
   }
 }
