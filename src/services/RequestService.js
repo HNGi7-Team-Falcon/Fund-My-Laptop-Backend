@@ -11,7 +11,6 @@ class RequestService {
       uid: request._id,
       name: request.name,
       email: request.email,
-      fundStatus: request.isFunded
     };
   }
 
@@ -29,6 +28,12 @@ class RequestService {
 
   async find(period1, period2) {
     return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
+  }
+  async findSuspended() {
+    return Request.find({isSuspended: true});
+  }
+  async suspend(requestId) {
+    return Request.findByIdAndUpdate ({_id: requestId}, {isSuspended: true});
   }
 }
 
