@@ -11,7 +11,6 @@ class RequestController {
     res.status(201).send(response("Requests retrieved", data));
   }
 
-<<<<<<< HEAD
   // @desc    Get all Requests
   // @route   GET /requests
   // @access  Private
@@ -20,24 +19,6 @@ class RequestController {
     res.status(200).send(response("Requests retrieved", data));
   }
 
-||||||| merged common ancestors
-=======
-  async getSuspendedRequests(req, res) {
-    const data = await RequestServ.findSuspended();
-    res.status(201).send(response("Requests retrieved", data));
-  }
-
-  async suspendRequest(req, res) {
-    requestId = req.params.requestId;
-    const data = await RequestServ.suspend(requestId);
-    res.status(201).send(response("Request suspended", data));
-  }
-  async getactiveButNotFundedRequests(req, res) {
-    const data = await RequestServ.activeButNotFunded();
-    res.status(201).send(response("Requests retrieved", data));
-  }
-
->>>>>>> 630feb01b99d796aa2bbe78ad7db29721e4a1575
 }
 
 module.exports = new RequestController();
