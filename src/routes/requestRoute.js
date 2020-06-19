@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const authenticate = require("../middlewares/authenticatorMiddleware");
 const RequestCtrl = require("./../controllers/RequestController");
-const AdminRequestCtrl = require("./../controllers/admin/RequestController");
+// const AdminRequestCtrl = require("./../controllers/admin/RequestController");
 
 module.exports = () => {
   router.get("/:requestId", authenticate, RequestCtrl.findById);
