@@ -56,7 +56,6 @@ const UserSchema = new Schema({
 UserSchema.pre('validate', true, async function (next) {
     const user = this;
     user.password = await bcrypt.hash(user.password, 10);
-    console.log('adfafddddddddddddddddd', user.password)
     next();
 })
 
