@@ -11,6 +11,14 @@ class RequestController {
     res.status(201).send(response("Requests retrieved", data));
   }
 
+  // @desc    Get all Requests
+  // @route   GET /requests
+  // @access  Private
+  async getRequests(res) {
+    const data = await RequestServ.findAll();
+    res.status(200).send(response("Requests retrieved", data));
+  }
+
 }
 
 module.exports = new RequestController();

@@ -30,6 +30,10 @@ class RequestService {
   async find(period1, period2) {
     return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
   }
+
+  async findAll() {
+    return Request.find();
+  }
 }
 
 module.exports = new RequestService();
