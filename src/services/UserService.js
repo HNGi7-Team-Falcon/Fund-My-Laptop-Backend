@@ -14,14 +14,14 @@ class UserService {
     }
 
     const user = new User(data);
-    const token = await jwt.sign({ id: user._id }, jwtSecret, {
+    const token = jwt.sign({ id: user._id }, jwtSecret, {
       expiresIn: 36000,
     });
     user.token = token;
     await user.save();
 
     return {
-      token: token,
+      token,
       uid: user._id,
       name: user.name,
       email: user.email,
@@ -39,7 +39,7 @@ class UserService {
     const isCorrect = await bcrypt.compare(data.password, user.password);
     if (!isCorrect) throw new CustomError("Incorrect email or password");
 
-    const token = await jwt.sign({ id: user._id }, jwtSecret, {
+    const token = jwt.sign({ id: user._id }, jwtSecret, {
       expiresIn: 36000,
     });
     user.token = token;
@@ -64,7 +64,7 @@ class UserService {
   async update(data) {
     if (!data.id) throw new CustomError("No specified user with the id");
 
-    const user = await User.findOneAndUpdate({ _id: data.id });
+    const user = await User.findOne({ _id: data.id }, { name: data.name, email: data.email});
 
     return {
       uid: user._id,

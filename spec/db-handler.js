@@ -1,15 +1,22 @@
+/**
+ * YOU'RE NOT SUPPOSED TO BE HERE
+ * DON'T TOUCH THIS FILE 
+ * @author Usman Suleiman
+ */
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 
-const mongodb = new MongoMemoryServer();
+const mongod = new MongoMemoryServer();
+
+jest.setTimeout(30000)
 
 module.exports.connect = async () => {
-    const uri = await mongodb.getConnectionString(); 
+    const uri = await mongod.getConnectionString(); 
     const dbOptions = {
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true,
-        useFindAndModify: false
+        useFindAndModify: false,
     };
     
     await mongoose.connect(uri, dbOptions);
@@ -18,7 +25,7 @@ module.exports.connect = async () => {
 module.exports.closeDatabase = async () => {
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
-  await mongodb.stop();
+  await mongod.stop();
 };
 
 module.exports.clearDatabase = async () => {

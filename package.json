@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon -r dotenv/config src/bin/www.js",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand ./spec"
   },
   "jest": {
     "testEnvironment":"node"
@@ -34,5 +34,8 @@
     "mongodb-memory-server": "^6.6.1",
     "nodemon": "^1.19.4",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

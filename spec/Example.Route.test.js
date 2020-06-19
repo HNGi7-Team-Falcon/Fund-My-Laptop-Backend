@@ -1,5 +1,10 @@
- // DONT EDIT/DELETE THIS FILE
-
+/**
+ * DO NOT EDIT OR DELETE THIS FILE
+ * YOU ARE EXPECTED TO CREATE YOUR OWN FILE FOLLOWING THIS FORMAT AND ADD IT TO
+ * THE SPEC FOLDER, AS YOU DID IN STAGE TWO
+ * FOLLOW THE NAME FORMAT
+ * @author Usman Suleiman
+ */
 const request = require('supertest');
 const app = require('../server');
 
