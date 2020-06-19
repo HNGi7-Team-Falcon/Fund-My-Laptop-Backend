@@ -18,7 +18,7 @@ class RequestService {
     const filter = { _id: data.id };
     const update = {...data};
     delete update.id;
-    const request = await User.findOneAndUpdate(filter, update, {
+    const request = await Request.findOneAndUpdate(filter, update, {
       new: true
     });
 

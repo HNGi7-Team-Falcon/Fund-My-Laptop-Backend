@@ -37,13 +37,12 @@ afterAll(async () => {
 describe('PUT /api/request/:id', () => {
   it('should allow authenticated request', async () => {
     const signInResposne = await server(app).post(signInRoute).send(me);
-    console.log(signInResposne);
-    // const { data: {token} } = signInResposne.body; // get our authentication token
-    // const res = await server(app).post(newRequestRoute)
-    //   .send(mockRequest)
-    //   .set('Authorization', 'Bearer ' + token);
+    const { data: {token} } = signInResposne.body; // get our authentication token
+    const res = await server(app).put(newRequestRoute + id)
+      .send(mockRequest)
+      .set('Authorization', 'Bearer ' + token);
   
-    // expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toEqual(200);
   });
 
   it('should reject unauthenticated request', async () => {
