@@ -6,7 +6,7 @@
  * URL: https://app.clubhouse.io/startng/story/45822/test-update-request-route
  */
 
-const request = require('supertest');
+const server = require('supertest');
 const app = require('../server');
 const dbHandler = require('./db-handler');
 
@@ -19,12 +19,12 @@ beforeAll(async () => {
   await dbHandler.connect();
 
   // Sign me up
-  await request(app).post(signUpRoute).send(me);
+  await server(app).post(signUpRoute).send(me);
 
   // Gotta do some jwt authentication here later - TODO
 
   // Create a new request
-  await request(app).post(newRequestRoute).send(mockRequest); 
+  await server(app).post(newRequestRoute).send(mockRequest); 
 });
 
 afterAll(async () => {
@@ -36,12 +36,12 @@ afterAll(async () => {
 
 describe('PUT /api/request/:id', () => {
   it('should allow authenticated request', async () => {
-    const res = await request(app).get('/');
+    const res = await server(app).get('/');
     expect(res.statusCode).toEqual(200);
   });
 
-  it('should request unauthenticated request', async () => {
-    const res = await request(app).get('/');
+  it('should reject unauthenticated request', async () => {
+    const res = await server(app).get('/');
     expect(res.statusCode).toEqual(200);
   });
 
