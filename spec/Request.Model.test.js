@@ -3,10 +3,10 @@
  * @author Usman Suleiman
  * Story title: TEST:Request Model
  * Ticket Id: #45816
- * URL https://app.clubhouse.io/startng/story/45803/test-user-model
+ * URL https://app.clubhouse.io/startng/story/45816/test-request-model
  */
 const dbHandler = require('./db-handler');
-const userService = require('../src/services/RequestService'); // Import the db service here
+const requestService = require('../src/services/RequestService'); // Import the db service here
 
 // Connect to a test databse before running any tests.
 beforeAll(async () => {
@@ -25,16 +25,63 @@ afterAll(async () => {
 
 // All your test suite goes after this line
 
-describe('user', () => {
+describe('request', () => {
   it('can be created correctly', () => {
-    expect(async () => await userService.create(mockUser))
+    expect(async () => await requestService.create(mockRequest))
       .not.toThrow();
+  });
+
+  it('requires title, imageURL, amount, and descriptoin', () => {
+    expect(async () => await requestService.create(noTitle))
+      .rejects.toThrow();
+    expect(async () => await requestService.create(noAmount))
+      .rejects.toThrow();
+    expect(async () => await requestService.create(noImage))
+      .rejects.toThrow();
+    expect(async () => await requestService.create(noDescription))
+      .rejects.toThrow();
+  });
+
+  it('should accept amount in number', async () => {
+    const res = await requestService.create(numberString);
+    expect(res.name).toBeFalsy();
   });
 });
 
-const mockUser = {
-  name: 'Example Person',
-  email: 'example@gmail.com',
-  password: 'liquidxmetal',
-  verified: true,
+const mockRequest = {
+  title: 'MacBook Pro 2020 for ReactNative Development',
+  imageURL: 'https://goodmockups.com/wp-content/uploads/2017/06/Free-MacBook-Mockup-PSD-4.jpg',
+  amount: 1000000, // equivalent to 3 kidneys,
+  description: 'I need this MacBook. Im not gonna lie. I just need it to feel among'
+};
+
+const noTitle = {
+  imageURL: 'https://goodmockups.com/wp-content/uploads/2017/06/Free-MacBook-Mockup-PSD-4.jpg',
+  amount: 1000000, // equivalent to 3 kidneys,
+  description: 'I need this MacBook. Im not gonna lie. I just need it to feel among'
+};
+
+const noImage = {
+  title: 'MacBook Pro 2020 for ReactNative Development',
+  amount: 1000000, // equivalent to 3 kidneys,
+  description: 'I need this MacBook. Im not gonna lie. I just need it to feel among'
+};
+
+const noAmount= {
+  title: 'MacBook Pro 2020 for ReactNative Development',
+  imageURL: 'https://goodmockups.com/wp-content/uploads/2017/06/Free-MacBook-Mockup-PSD-4.jpg',
+  description: 'I need this MacBook. Im not gonna lie. I just need it to feel among'
+};
+
+const noDescription = {
+  title: 'MacBook Pro 2020 for ReactNative Development',
+  imageURL: 'https://goodmockups.com/wp-content/uploads/2017/06/Free-MacBook-Mockup-PSD-4.jpg',
+  amount: 1000000, // equivalent to 3 kidneys,
+};
+
+const numberString = {
+  title: 'MacBook Pro 2020 for ReactNative Development',
+  imageURL: 'https://goodmockups.com/wp-content/uploads/2017/06/Free-MacBook-Mockup-PSD-4.jpg',
+  amount: '1000000', // equivalent to 3 kidneys,
+  description: 'I need this MacBook. Im not gonna lie. I just need it to feel among'
 };
