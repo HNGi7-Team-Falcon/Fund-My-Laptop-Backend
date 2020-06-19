@@ -7,9 +7,9 @@ let uri = process.env.MONGODB_URI;
 
 (async () => {
   if (process.env.NODE_ENV !== 'production') {
-    console.log('using in-memory-server for development');
     const mongod = new MongoMemoryServer();
     uri = await mongod.getConnectionString();
+    console.log('MongoDB', uri);
   }
 })();
 
