@@ -1,4 +1,6 @@
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+require('dotenv').config();
 const User = require("./../models/User");
 const CustomError = require("./../utils/CustomError");
 const Favs = require("./../models/Favorites"); // favorites model
@@ -6,15 +8,16 @@ const Favs = require("./../models/Favorites"); // favorites model
 const jwtSecret = process.env.JWT_SECRET;
 
 class UserService {
-
   async create(data) {
-    if (await User.findOne({ email: data.email }))
+    if (await User.findOne({ email: data.email })){
       throw new CustomError("Email already exists");
+    }
 
     const user = new User(data);
-
-    const token = await jwt.sign({ id: user._id }, jwtSecret, { expiresIn: 36000 });
-
+    const token = await jwt.sign({ id: user._id }, jwtSecret, {
+      expiresIn: 36000,
+    });
+    user.token = token;
     await user.save();
 
     return {
@@ -22,7 +25,7 @@ class UserService {
       uid: user._id,
       name: user.name,
       email: user.email,
-    }
+    };
   }
 
   async login(data) {
@@ -33,18 +36,20 @@ class UserService {
 
     if (!user) throw new CustomError("Incorrect email");
 
-    const isCorrect = await bcrypt.compare(data.password, user.password)
+    const isCorrect = await bcrypt.compare(data.password, user.password);
     if (!isCorrect) throw new CustomError("Incorrect email or password");
 
-    const token = await jwt.sign({ id: user._id }, jwtSecret, { expiresIn: 36000 });
+    const token = await jwt.sign({ id: user._id }, jwtSecret, {
+      expiresIn: 36000,
+    });
+    user.token = token;
 
     return {
       token: token,
       uid: user._id,
       name: user.name,
       email: user.email,
-
-    }
+    };
   }
 
   //favorites storage in DB
@@ -57,15 +62,15 @@ class UserService {
   }
 
   async update(data) {
-    if (!data.id) throw new CustomError('No specified user with the id');
+    if (!data.id) throw new CustomError("No specified user with the id");
 
     const user = await User.findOneAndUpdate({ _id: data.id });
 
     return {
       uid: user._id,
       name: user.name,
-      email: user.email
-    }
+      email: user.email,
+    };
   }
 
   async delete(data) {
@@ -82,4 +87,4 @@ class UserService {
 
 }
 
-module.exports = new UserService()
+module.exports = new UserService();
