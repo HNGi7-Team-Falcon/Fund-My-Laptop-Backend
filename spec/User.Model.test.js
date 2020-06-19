@@ -80,7 +80,7 @@ describe('user', () => {
     const filter = { _id: result.uid };
     const operation = await userModel.deleteOne(filter);
     expect(operation.ok).toBe(1);
-  })
+  });
 });
 
 const mockUser = {
