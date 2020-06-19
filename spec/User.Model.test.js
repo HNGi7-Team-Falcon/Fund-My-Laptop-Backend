@@ -51,21 +51,28 @@ describe('user', () => {
 
 describe('user', () => {
   it('can be updated correctly', async () => {
-    await userService.create(mockUser);
-    const result = await userModel.findOne();
+    const result = await userService.create(mockUser2);
     const mockUpdate = {
       id: result.uid,
       name: 'Senbon Zakura',
       email: 'shinigami@yahoo.com',
     };
-    const updated = await userService.update(mockUpdate);
-    expect(updated.name).toBeDefined();
+    expect(async () => await userService.update(mockUpdate))
+      .not
+      .toThrow();
   });
 });
 
 const mockUser = {
   name: 'Usman Suleiman',
   email: 'usmansbk1@gmail.com',
+  password: 'ittadakimasu',
+  verified: true
+};
+
+const mockUser2 = {
+  name: 'Usman Suleiman',
+  email: 'usmansbkx@gmail.com',
   password: 'ittadakimasu',
   verified: true
 };

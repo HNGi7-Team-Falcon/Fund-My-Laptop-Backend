@@ -8,6 +8,7 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 
 const mongod = new MongoMemoryServer();
 
+jest.setTimeout(30000);
 
 module.exports.connect = async () => {
     const uri = await mongod.getConnectionString(); 
@@ -29,7 +30,6 @@ module.exports.closeDatabase = async () => {
 
 module.exports.clearDatabase = async () => {
   const collections = mongoose.connection.collections;
-
   for (let key in collections) {
     await collections[key].deleteMany({});
   }
