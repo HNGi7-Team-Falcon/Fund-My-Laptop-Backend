@@ -62,9 +62,15 @@ class UserService {
   }
 
   async update(data) {
-    if (!data.id) throw new CustomError("No specified user with the id");
 
-    const user = await User.findOneAndUpdate({ _id: data.id }, { name: data.name, email: data.email});
+    const filter = { _id: data.id };
+    const update = {...data};
+    delete update.id;
+    const user = await User.findOneAndUpdate(filter, update, {
+      new: true
+    });
+
+    if (!user) throw new CustomError("No specified user with the id");
 
     return {
       uid: user._id,
