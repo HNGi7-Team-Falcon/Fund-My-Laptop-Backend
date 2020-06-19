@@ -15,6 +15,7 @@ beforeAll(async () => {
 
 // clear all test data after every test.
 afterEach(async () => {
+  console.log('clear')
   await dbHandler.clearDatabase();
 });
 // Remove and close the db and server.
@@ -50,12 +51,19 @@ describe('user', () => {
 });
 
 describe('user', () => {
+  it('exists after being created', async () => {
+    await userService.create(mockUser3);
+    const createdUser = await userModel.findOne();
+    expect(createdUser.name).toBe(mockUser3.name);
+  });
+
   it('can be updated correctly', async () => {
     const result = await userService.create(mockUser2);
+    expect(result.uid).toBeDefined();
     const mockUpdate = {
       id: result.uid,
       name: 'Senbon Zakura',
-      email: 'shinigami@yahoo.com',
+      email:mockUser2.email 
     };
     expect(async () => await userService.update(mockUpdate))
       .not
@@ -73,6 +81,13 @@ const mockUser = {
 const mockUser2 = {
   name: 'Usman Suleiman',
   email: 'usmansbkx@gmail.com',
+  password: 'ittadakimasu',
+  verified: true
+};
+
+const mockUser3 = {
+  name: 'Usman Suleiman',
+  email: 'usmansbky@gmail.com',
   password: 'ittadakimasu',
   verified: true
 };
