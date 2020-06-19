@@ -1,5 +1,5 @@
-const response = require("./../utils/response");
-const RecommendationServ = require("./../services/RecommendationService");
+const response = require("../utils/response");
+const RecommendationServ = require("../services/RecommendationService");
 
 class RecommendationController {
   async delete(req, res) {

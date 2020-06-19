@@ -1,4 +1,4 @@
-const Recommendation = require("./../models/Recommendation");
+const Recommendation = require("../models/Recommendation");
 
 class RecommendationService {
   async delete(recommendationId) {
