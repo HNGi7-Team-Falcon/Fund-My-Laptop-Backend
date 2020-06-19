@@ -24,8 +24,6 @@ afterAll(async () => {
   await dbHandler.closeDatabase();
 });
 
-// All your test suite goes after this line
-
 describe('request', () => {
   it('can be created correctly', () => {
     expect(async () => await requestService.create(mockRequest))
