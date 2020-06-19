@@ -18,8 +18,10 @@ module.exports.connect = async () => {
         useUnifiedTopology: true,
         useFindAndModify: false,
     };
-    
-    await mongoose.connect(uri, dbOptions);
+   
+    if (!mongoose.connection.readyState) {
+      await mongoose.connect(uri, dbOptions);
+    }
 };
 
 module.exports.closeDatabase = async () => {
@@ -30,7 +32,9 @@ module.exports.closeDatabase = async () => {
 
 module.exports.clearDatabase = async () => {
   const collections = mongoose.connection.collections;
-  for (let key in collections) {
-    await collections[key].deleteMany({});
+  if (mongoose.connection.readyState) {
+    for (let key in collections) {
+      await collections[key].deleteMany({});
+    }
   }
 }
