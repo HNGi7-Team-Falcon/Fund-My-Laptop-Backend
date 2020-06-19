@@ -1,9 +1,8 @@
 /**
  * @author Usman Suleiman
- * ticket title: User Model
- * title Id: #45803
+ * Story title: User Model
+ * Ticket Id: #45803
  */
-const mongoose = require('mongoose');
 const dbHandler = require('./db-handler');
 const userService = require('../src/services/UserService');
 
@@ -21,14 +20,20 @@ describe('user', () => {
     expect(async () => await userService.create(mockUser))
       .not.toThrow();
   });
-  // it('can be updated correctly', () => {
-  //   const mockUpdate = {
-  //     name: 'Senbon Zakura',
-  //     email: 'shinigami@yahoo.com',
-  //   };
-  //   expect(async () => await userService.create(mockUser))
-  //     .not.toThrow();
-  // });
+});
+
+describe('user', () => {
+  it('can be updated correctly', async () => {
+    const result = await userService.create(mockUser);
+    console.log(result);
+    const mockUpdate = {
+      id: result.uid,
+      name: 'Senbon Zakura',
+      email: 'shinigami@yahoo.com',
+    };
+    expect(async () => await userService.update(mockUpdate))
+      .not.toThrow();
+  });
 });
 
 const mockUser = {
