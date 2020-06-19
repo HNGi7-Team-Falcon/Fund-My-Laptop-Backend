@@ -24,6 +24,16 @@ class RecommendationController {
       res.send(response(recommendation));
     }
   }
+
+  async getUserRecommendations(req, res) {
+    const recommendations = await RecommendationServ.getUserRecommendations(req.params.user_id);
+    return res.status(200).json(
+        {
+            message: 'User recommendations', 
+            data: recommendations, 
+            success: true
+        });
+  }
 }
 
 module.exports = new RecommendationController();
