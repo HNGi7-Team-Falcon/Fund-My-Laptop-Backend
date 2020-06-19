@@ -7,9 +7,6 @@
     "dev": "nodemon -r dotenv/config src/bin/www.js",
     "test": "jest" 
   },
-  "jest": {
-    "testEnvironment":"node"
-     },
   "keywords": [],
   "author": "",
   "license": "ISC",
