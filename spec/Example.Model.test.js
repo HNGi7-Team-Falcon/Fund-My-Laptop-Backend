@@ -35,6 +35,6 @@ describe('user', () => {
 const mockUser = {
   name: 'Example Person',
   email: 'example@gmail.com',
-  password: 'liquid_metal',
+  password: 'liquidxmetal',
   verified: true,
 };

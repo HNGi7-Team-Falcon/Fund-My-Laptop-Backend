@@ -1,6 +1,6 @@
 /**
  * @author Usman Suleiman
- * Story title: User Model
+ * Story title: TEST:User Model
  * Ticket Id: #45803
  */
 const mongoose = require('mongoose');
@@ -25,16 +25,19 @@ afterAll(async () => {
 
 
 describe('user', () => {
-  it('can be created correctly', async () => {
+  it('can be created correctly', () => {
     expect(async () => {
       await userService.create(mockUser);
     })
       .not.toThrow();
   });
 
-  it('requires name', async () => {
-    const user = await userService.create(noName);
-    expect(user.name).toBeDefined();
+  it('needs to be verified', () => {
+    expect(async () => {
+      await userService.create(unverifiedUser);
+    })
+      .rejects
+      .toThrow();
   });
 
   // it('can be updated correctly', async () => {
@@ -53,8 +56,15 @@ describe('user', () => {
 const mockUser = {
   name: 'Usman Suleiman',
   email: 'usmansbk@gmail.com',
-  password: 'ittadakimasu'
+  password: 'ittadakimasu',
+  verified: true
 };
+
+const unverifiedUser = {
+  name: 'Usman moon',
+  email: 'usmansbk2@gmail.com',
+  password: 'alacakazm'
+}
 
 const noName = {
   email: 'usmansbk2@gmail.com',
