@@ -11,7 +11,6 @@ class RequestService {
       uid: request._id,
       name: request.name,
       email: request.email,
-      fundStatus: request.isFunded
     };
   }
 
