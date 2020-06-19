@@ -5,13 +5,7 @@ class RequestService {
   async create(data) {
     const request = new Request(data);
     await request.save();
-    return {
-      //This token is not necessary here. This is a protected route so just get the user_id from the request (req)
-      // token: token,
-      uid: request._id,
-      name: request.name,
-      email: request.email,
-    };
+    return request;
   }
 
   async update(data) {
@@ -22,7 +16,7 @@ class RequestService {
       new: true
     });
 
-    if (!request) throw new CustomError("Item may have been deleted");
+    if (!request) throw new CustomError("Item does not exist");
 
     return request;
   }

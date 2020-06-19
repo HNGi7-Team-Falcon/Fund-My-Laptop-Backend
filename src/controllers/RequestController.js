@@ -4,10 +4,14 @@ const RequestServ = require("./../services/RequestService");
 class RequestController {
   async create(req, res) {
     const data = await RequestServ.create(req.body);
-    res.status(201).send(response("Request created", data));
+    res.status(201).send(("Request created", data));
   }
 
   async update(req, res) {
+    const request = await RequestServ.findById(req.params.requestId);
+    if (!request) {
+      return res.status(404).send(response("Request not found", request));
+    }
     const data = await RequestServ.update(req.body);
     res.status(200).send(response("Request updated successfully", data));
   }
@@ -16,7 +20,6 @@ class RequestController {
     try {
       const request = await RequestServ.findById(req.params.requestId);
       if (!request) {
-        console.log(request);
         return res.status(404).send(response("Request not found", request));
       }
       res.status(200).send(response("Request details", request));

@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const response = require("../utils/response");
 
 const jwtSecret = process.env.JWT_SECRET;
 
@@ -21,7 +20,7 @@ const auth = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    res.status(405).send('Please authenticate');
+    res.status(403).send('Please authenticate');
   }
 };
 

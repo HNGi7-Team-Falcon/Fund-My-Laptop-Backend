@@ -5,7 +5,7 @@ const AdminRequestCtrl = require("./../controllers/admin/RequestController");
 
 module.exports = () => {
   router.get("/:requestId", authenticate, RequestCtrl.findById);
-  router.post("/", authenticate, RequestCtrl.create);
+  router.post("/new", authenticate, RequestCtrl.create);
   router.put("/:requestId", authenticate, RequestCtrl.update);
   router.delete("/:requestId", authenticate, RequestCtrl.delete);
 
