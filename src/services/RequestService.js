@@ -33,10 +33,7 @@ class RequestService {
     return Request.find({isSuspended: true});
   }
   async suspend(requestId) {
-    return Request.findOneAndUpdate({_id: requestId}, {isSuspended: true}, {new: true});
-  }
-  async activeButNotFunded() {
-    return Request.find({$and: [{isactive: true}, {isFunded: false}]});
+    return Request.findByIdAndUpdate ({_id: requestId}, {isSuspended: true});
   }
 }
 
