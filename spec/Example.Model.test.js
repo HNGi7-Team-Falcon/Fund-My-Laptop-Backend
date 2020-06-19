@@ -25,5 +25,6 @@ describe('user', () => {
 
 const mockUser = {
   name: 'Example Person',
-  email: 'example@gmail.com'
+  email: 'example@gmail.com',
+  password: 'liquid_metal_',
 };

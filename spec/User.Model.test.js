@@ -21,9 +21,18 @@ describe('user', () => {
     expect(async () => await userService.create(mockUser))
       .not.toThrow();
   });
+  // it('can be updated correctly', () => {
+  //   const mockUpdate = {
+  //     name: 'Senbon Zakura',
+  //     email: 'shinigami@yahoo.com',
+  //   };
+  //   expect(async () => await userService.create(mockUser))
+  //     .not.toThrow();
+  // });
 });
 
 const mockUser = {
   name: 'Usman Suleiman',
-  email: 'usmansbk@gmail.com'
+  email: 'usmansbk@gmail.com',
+  password: 'ittadakimasu'
 };
