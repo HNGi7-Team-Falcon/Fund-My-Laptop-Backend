@@ -1,10 +1,6 @@
 const response = require("./../utils/response");
 const UserServ = require("./../services/UserService");
-<<<<<<< HEAD
-const { ConnectionStates } = require("mongoose");
-=======
 const User = require("../models/User");
->>>>>>> 23dea110bb98bfc190c632da35dc8f6bed668ad7
 
 class UserContoller {
 

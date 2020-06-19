@@ -12,14 +12,8 @@ module.exports = () => {
 
   router.get('/', RequestCtrl.getRequests);
 
-<<<<<<< HEAD
-  router.get('/:requestId', RequestCtrl.getRequest);
-
-  router.delete("/:deleteId", RequestCtrl.delRequest);
-=======
   //ADMIN routes. adminMiddleware yet to be added
   router.get('/', AdminRequestCtrl.getFundedRequests);
->>>>>>> 23dea110bb98bfc190c632da35dc8f6bed668ad7
 
   return router;
 };

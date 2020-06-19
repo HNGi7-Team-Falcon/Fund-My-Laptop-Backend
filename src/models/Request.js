@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const paginate = require('mongoose-aggregate-paginate-v2');
 
 //@ DESC: model for new requests by fundee
 //@ Values: Takes in title of post, imageURL from cloudinary, amount, desc & date of request
@@ -34,6 +33,5 @@ const RequestSchema = new mongoose.Schema({
 }
 );
 
-RequestSchema.plugin(paginate);
 
 module.exports = mongoose.model('Request', RequestSchema);

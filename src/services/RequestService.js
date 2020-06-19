@@ -19,42 +19,6 @@ class RequestService {
     };
   }
 
-//   async get(data) {
-//     // Return requests data from database
-//     return data;
-//   }
-
-  
-
-//   async getOne(data) {
-//     const getResult = Request.findById(data);
-    
-//     return getResult;
-
-//   }
-
-  
-
-//   async update(data, options = {})  {
-    
-//     // Find user and update it with the request body
-//   const updateRequest =  Request.findByIdAndUpdate(data, options, {new: true})
-
-//     return updateRequest;
-//   };
-
-//   async delete(data) {
-
-//     const result = Request.findByIdAndRemove(data);
-
-//     // console.log(result);
-//     return result;
-
-
-
-//   } 
-    
-// };
   async update(data) {
     return data;
   }
