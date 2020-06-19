@@ -1,3 +1,7 @@
+const request = require('supertest');
+const app = require('../server');
+
+
 /**
  * @author Usman Suleiman
  * Story title: User Model
@@ -60,3 +64,4 @@ const noName = {
   email: 'usmansbk2@gmail.com',
   password: 'alacakazm'
 }
+
