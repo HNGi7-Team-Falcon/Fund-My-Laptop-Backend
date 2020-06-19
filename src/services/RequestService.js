@@ -6,6 +6,7 @@ class RequestService {
     const request = new Request(data);
     await request.save();
     return {
+      //This token is not necessary here. This is a protected route so just get the user_id from the request (req)
       // token: token,
       uid: request._id,
       name: request.name,
@@ -23,6 +24,14 @@ class RequestService {
 
   async findById(requestId) {
     return Request.findById(requestId);
+  }
+
+  async find(period1, period2) {
+    return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
+  }
+
+  async findAll() {
+    return Request.find();
   }
 }
 
