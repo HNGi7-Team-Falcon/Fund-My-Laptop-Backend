@@ -11,19 +11,12 @@ class RequestController {
     res.status(201).send(response("Requests retrieved", data));
   }
 
-  async getSuspendedRequests(req, res) {
-    const data = await RequestServ.findSuspended();
-    res.status(201).send(response("Requests retrieved", data));
-  }
-
-  async suspendRequest(req, res) {
-    requestId = req.params.requestId;
-    const data = await RequestServ.suspend(requestId);
-    res.status(201).send(response("Request suspended", data));
-  }
-  async getactiveButNotFundedRequests(req, res) {
-    const data = await RequestServ.activeButNotFunded();
-    res.status(201).send(response("Requests retrieved", data));
+  // @desc    Get all Requests
+  // @route   GET /requests
+  // @access  Private
+  async getRequests(res) {
+    const data = await RequestServ.findAll();
+    res.status(200).send(response("Requests retrieved", data));
   }
 
 }
