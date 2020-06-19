@@ -17,7 +17,6 @@ beforeAll(async () => {
 afterEach(async () => {
   await dbHandler.clearDatabase();
 });
-
 // Remove and close the db and server.
 afterAll(async () => {
   await dbHandler.closeDatabase();
@@ -40,22 +39,33 @@ describe('user', () => {
       .toThrow();
   });
 
-  // it('can be updated correctly', async () => {
-  //   await userService.create(mockUser);
-  //   const result = await userModel.findOne();
-  //   console.log(result);
-  //   const mockUpdate = {
-  //     id: result.uid,
-  //     name: 'Senbon Zakura',
-  //     email: 'shinigami@yahoo.com',
-  //   };
-  //   expect(result.name).toBeDefined();
-  // });
+  it('requires a name', () => {
+    expect(async () => {
+      await userService.create(noName);
+    })
+      .rejects
+      .toThrow();
+  });
+
+});
+
+describe('user', () => {
+  it('can be updated correctly', async () => {
+    await userService.create(mockUser);
+    const result = await userModel.findOne();
+    const mockUpdate = {
+      id: result.uid,
+      name: 'Senbon Zakura',
+      email: 'shinigami@yahoo.com',
+    };
+    const updated = await userService.update(mockUpdate);
+    expect(updated.name).toBeDefined();
+  });
 });
 
 const mockUser = {
   name: 'Usman Suleiman',
-  email: 'usmansbk@gmail.com',
+  email: 'usmansbk1@gmail.com',
   password: 'ittadakimasu',
   verified: true
 };
@@ -64,9 +74,10 @@ const unverifiedUser = {
   name: 'Usman moon',
   email: 'usmansbk2@gmail.com',
   password: 'alacakazm'
-}
+};
 
 const noName = {
-  email: 'usmansbk2@gmail.com',
-  password: 'alacakazm'
-}
+  email: 'usmansbk3@gmail.com',
+  password: 'ittadakimasu',
+  verified: true
+};
