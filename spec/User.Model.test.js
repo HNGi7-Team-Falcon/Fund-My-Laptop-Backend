@@ -4,19 +4,30 @@ const app = require('../server');
 
 /**
  * @author Usman Suleiman
+ * ticket title: User Model
+ * title Id: #45803
  */
+const mongoose = require('mongoose');
 const dbHandler = require('./db-handler');
+const userService = require('../src/services/UserService');
 
+// Connect to a test databse before running any tests.
+beforeAll(async () => await dbHandler.connect());
 
-describe('login', () => {
-    it('should login user info', async () => {
-      const res = await request(app).post('/login')
-      .send({
-        email:"me@gmail.com",
-        password:"password"
-      })
-      expect(res.statusCode).toEqual(200);
-      
-      
-    });
+// clear all test data after every test.
+afterEach(async () => await dbHandler.clearDatabase());
+
+// Remove and close the db and server.
+afterAll(async () => await dbHandler.closeDatabase());
+
+describe('user', () => {
+  it('can be created correctly', () => {
+    expect(async () => await userService.create(mockUser))
+      .not.toThrow();
   });
+});
+
+const mockUser = {
+  name: 'Usman Suleiman',
+  email: 'usmansbk@gmail.com'
+};

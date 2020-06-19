@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 const User = require("./../models/User");
 const CustomError = require("./../utils/CustomError");
 const Favs = require("./../models/Favorites"); // favorites model

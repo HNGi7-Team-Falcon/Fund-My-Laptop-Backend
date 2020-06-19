@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
-const uri = process.env.MONGODB_URI;
+const { MongoMemoryServer } = require('mongodb-memory-server');
+
+const mongodb = new MongoMemoryServer();
 
 module.exports.connect = async () => {
-
+    const uri = await mongodb.getConnectionString(); 
     const dbOptions = {
         useNewUrlParser: true,
         useCreateIndex: true,
@@ -11,15 +12,13 @@ module.exports.connect = async () => {
         useFindAndModify: false
     };
     
-    await mongoose
-    .connect(uri, dbOptions)
-    .then(() => console.log("Connected to database!"))
-    .catch((error) => console.log("Error!. Couldn't connect to database ", error));
+    await mongoose.connect(uri, dbOptions);
 };
 
 module.exports.closeDatabase = async () => {
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
+  await mongodb.stop();
 };
 
 module.exports.clearDatabase = async () => {
