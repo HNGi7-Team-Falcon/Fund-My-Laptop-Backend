@@ -5,7 +5,6 @@ const User = require("../models/User");
 class UserContoller {
 
     async create(req, res) {
-        console.log("why")
         const data = await UserServ.create(req.body);
         res.status(201).send(response("User account created", data));
     }
@@ -17,15 +16,20 @@ class UserContoller {
 
     async update(req, res) {
         const data = await UserServ.update(req.params, req.body);
-        res.status(204).send(response("User Resource updated successfully", data));
+        res.status(201).send(response("User Resource updated successfully", data));
     }
-    
+
+    async delete(req, res) {
+        const data = await UserServ.delete(req.params, req.body);
+        res.status(204).send(response('User deleted successfully', {}));
+    }
+
     //storing favorite requests
-    async favorites(req,res){
-      const data = await UserServ.newFavorite(req.body);
-      //message returned should be a flash message
-      res.status(200).send(response("Request added to favorites", data)); 
-   }
+    async favorites(req, res) {
+        const data = await UserServ.newFavorite(req.body);
+        //message returned should be a flash message
+        res.status(200).send(response("Request added to favorites", data));
+    }
 }
 
 module.exports = new UserContoller(); 
