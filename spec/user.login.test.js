@@ -21,7 +21,7 @@ afterEach(async () => await dbHandler.clearDatabase());
 afterAll(async () => await dbHandler.closeDatabase());
 
 describe('user', () => {
-  it('can be created correctly', () => {
+  it('can be login correctly', () => {
     expect(async () => await userService.login(mockUser))
       .not.toThrow();
   });
