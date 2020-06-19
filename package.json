@@ -4,10 +4,12 @@
   "description": "Fund my laptop",
   "main": "server.js",
   "scripts": {
-    "start": "node -r dotenv/config src/bin/www.js",
     "dev": "nodemon -r dotenv/config src/bin/www.js",
-    "test": "jest"
+    "test": "jest --runInBand ./spec"
   },
+  "jest": {
+    "testEnvironment":"node"
+     },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,12 +23,19 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.19",
     "morgan": "^1.10.0",
-    "node-forge": "^0.9.1",
-    "nodemailer": "^6.4.10"
+    "nodemailer": "^6.4.10",
+    "pm2": "^4.4.0"
   },
   "devDependencies": {
+    "node-forge": "^0.9.1",
+    "nodemailer": "^6.4.10",
+    "@shelf/jest-mongodb": "^1.1.5",
     "jest": "^26.0.1",
+    "mongodb-memory-server": "^6.6.1",
     "nodemon": "^1.19.4",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
