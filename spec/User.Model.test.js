@@ -3,6 +3,7 @@
  * @author Usman Suleiman
  * Story title: TEST:User Model
  * Ticket Id: #45803
+ * URL https://app.clubhouse.io/startng/story/45803/test-user-model
  */
 const dbHandler = require('./db-handler');
 const userService = require('../src/services/UserService');
