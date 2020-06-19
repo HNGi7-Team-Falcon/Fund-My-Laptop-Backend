@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 require('dotenv').config();
 const User = require("./../models/User");
 const CustomError = require("./../utils/CustomError");
-const Favs = require("./../models/Favorites"); // favorites model
+const Favs = require("./../models/Favorites"); 
 
 const jwtSecret = process.env.JWT_SECRET;
 
@@ -23,8 +23,6 @@ class UserService {
     return {
       token,
       uid: user._id,
-      name: user.name,
-      email: user.email,
     };
   }
 
@@ -34,10 +32,10 @@ class UserService {
 
     const user = await User.findOne({ email: data.email });
 
-    if (!user) throw new CustomError("Incorrect email");
+    if (!user) throw new CustomError("Invalid Credentials");
 
     const isCorrect = await bcrypt.compare(data.password, user.password);
-    if (!isCorrect) throw new CustomError("Incorrect email or password");
+    if (!isCorrect) throw new CustomError("Invalid Credentials");
 
     const token = jwt.sign({ id: user._id }, jwtSecret, {
       expiresIn: 36000,
@@ -47,13 +45,12 @@ class UserService {
     return {
       token: token,
       uid: user._id,
-      name: user.name,
-      email: user.email,
     };
   }
 
   //favorites storage in DB
   async newFavorite(data) {
+    
     if (await Favs.findOne({ requestID: data.requestID }))
       throw new CustomError("Request is already a favorite");
 
@@ -64,12 +61,18 @@ class UserService {
   async update(data) {
     if (!data.id) throw new CustomError("No specified user with the id");
 
-    const user = await User.findOne({ _id: data.id }, { name: data.name, email: data.email});
+    const id = data.id;
+
+    for(detail in data){
+      if ( data[detail] === id ) {
+        delete data[detail]
+      }
+    }
+
+    const user = await User.findByIdAndUpdate({ _id: data.id }, data);
 
     return {
       uid: user._id,
-      name: user.name,
-      email: user.email,
     };
   }
 }

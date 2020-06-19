@@ -12,7 +12,7 @@ const {
   card_payment,
   validate_payment,
   verify_payment,
-} = require("./../controllers/flutterController");
+} = require("../controllers/paymentController");
 
 //routes for making payment, validating OTP and verifying payment
 router.post("/pay", authenticate, card_payment);

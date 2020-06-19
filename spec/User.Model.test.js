@@ -41,17 +41,6 @@ describe('user', () => {
     expect(user.name).toBeDefined();
   });
 
-  // it('can be updated correctly', async () => {
-  //   await userService.create(mockUser);
-  //   const result = await userModel.findOne();
-  //   console.log(result);
-  //   const mockUpdate = {
-  //     id: result.uid,
-  //     name: 'Senbon Zakura',
-  //     email: 'shinigami@yahoo.com',
-  //   };
-  //   expect(result.name).toBeDefined();
-  // });
 });
 
 const mockUser = {

@@ -2,7 +2,7 @@ const Request = require("./../models/Request");
 const CustomError = require("./../utils/CustomError");
 
 class RequestService {
-  async create(data) {
+  create(data) {
     const request = new Request(data);
     await request.save();
     return {
@@ -15,21 +15,34 @@ class RequestService {
     };
   }
 
-  async update(data) {
-    return data;
+   update(id,data) {
+
+    return Request.findByIdAndUpdate(
+      id,
+      data,
+      {
+        new: true,
+        runValidators: true
+      }
+      )
   }
 
-  async delete(requestId) {
+  delete(requestId) {
     return Request.findByIdAndRemove(requestId);
   }
 
-  async findById(requestId) {
+  findById(requestId) {
     return Request.findById(requestId);
   }
 
-  async find(period1, period2) {
+  find(period1, period2) {
     return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
   }
+
+  findAll() {
+    return Request.find();
+  }
+
 }
 
 module.exports = new RequestService();
