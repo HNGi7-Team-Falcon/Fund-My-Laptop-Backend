@@ -18,10 +18,10 @@ class UserService {
       expiresIn: 36000,
     });
     user.token = token;
-    user.save();
+    await user.save();
 
     return {
-      token: token,
+      token,
       uid: user._id,
       name: user.name,
       email: user.email,
@@ -64,7 +64,7 @@ class UserService {
   async update(data) {
     if (!data.id) throw new CustomError("No specified user with the id");
 
-    const user = await User.findOneAndUpdate({ _id: data.id }, { name: data.name, email: data.email});
+    const user = await User.findOne({ _id: data.id }, { name: data.name, email: data.email});
 
     return {
       uid: user._id,
