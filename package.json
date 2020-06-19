@@ -4,6 +4,7 @@
   "description": "Fund my laptop",
   "main": "server.js",
   "scripts": {
+    "start": "node -r dotenv/config src/bin/www.js",
     "dev": "nodemon -r dotenv/config src/bin/www.js",
     "test": "jest" 
   },
@@ -31,5 +32,8 @@
     "mongodb-memory-server": "^6.6.1",
     "nodemon": "^1.19.4",
     "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

@@ -13,6 +13,7 @@ const dbHandler = require('./db-handler');
 const route = '/api/request/';
 const newRequestRoute = '/api/request/';
 const signUpRoute = '/api/users/';
+const signInRoute = '/api/users/login';
 
 beforeAll(async () => {
   // spin database
@@ -36,7 +37,12 @@ afterAll(async () => {
 
 describe('PUT /api/request/:id', () => {
   it('should allow authenticated request', async () => {
-    const res = await server(app).get('/');
+    const signUpResposne = await server(app).post(signInRoute).send(me);
+    const { data: {token} } = signUpResposne.body; // get our authentication token
+    const res = await server(app).post(newRequestRoute)
+      .set('Bearer', token);
+    console.log(res);
+  
     expect(res.statusCode).toEqual(200);
   });
 
