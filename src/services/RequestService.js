@@ -29,14 +29,9 @@ class RequestService {
   async find(period1, period2) {
     return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
   }
-  async findSuspended() {
-    return Request.find({isSuspended: true});
-  }
-  async suspend(requestId) {
-    return Request.findOneAndUpdate({_id: requestId}, {isSuspended: true}, {new: true});
-  }
-  async activeButNotFunded() {
-    return Request.find({$and: [{isactive: true}, {isFunded: false}]});
+
+  async findAll() {
+    return Request.find();
   }
 }
 
