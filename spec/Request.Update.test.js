@@ -20,12 +20,12 @@ beforeAll(async () => {
   await dbHandler.connect();
 
   // Sign me up
-  await server(app).post(signUpRoute).send(me);
-
-  // Gotta do some jwt authentication here later - TODO
+  const signUpResponse = await server(app).post(signUpRoute).send(me);
+  const { data: {token} } = signUpResponse.body; // get our authentication token
 
   // Create a new request
-  await server(app).post(newRequestRoute).send(mockRequest); 
+  await server(app).post(newRequestRoute).send(mockRequest)
+      .set('Bearer', token); // Gotta do some jwt authentication here later - TODO
 });
 
 afterAll(async () => {
@@ -41,14 +41,19 @@ describe('PUT /api/request/:id', () => {
     const { data: {token} } = signUpResposne.body; // get our authentication token
     const res = await server(app).post(newRequestRoute)
       .set('Bearer', token);
-    console.log(res);
+    console.log(res.body);
   
     expect(res.statusCode).toEqual(200);
   });
 
   it('should reject unauthenticated request', async () => {
-    const res = await server(app).get('/');
-    expect(res.statusCode).toEqual(200);
+    const signUpResposne = await server(app).post(signInRoute).send(me);
+    const { data: {token} } = signUpResposne.body; // get our authentication token
+    const res = await server(app).post(newRequestRoute)
+      .set('Bearer', '');
+    console.log(res.body);
+  
+    expect(res.statusCode).toEqual(405);
   });
 
   it('requires title, imageUrl, amount, and description', async () => {
