@@ -3,6 +3,7 @@ const authenticate = require("../middlewares/authenticatorMiddleware");
 const RequestCtrl = require("./../controllers/RequestController");
 const AdminRequestCtrl = require("./../controllers/admin/RequestController");
 
+
 module.exports = () => {
   router.get("/:requestId", authenticate, RequestCtrl.findById);
   router.post("/", authenticate, RequestCtrl.create);

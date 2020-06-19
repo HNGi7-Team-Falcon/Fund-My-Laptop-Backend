@@ -1,10 +1,15 @@
 const Request = require("./../models/Request");
 const CustomError = require("./../utils/CustomError");
+const jwt = require("jsonwebtoken");
+
+const jwtSecret = process.env.JWT_SECRET;
 
 class RequestService {
   async create(data) {
     const request = new Request(data);
+    const token = await jwt.sign({ id: request._id }, jwtSecret, { expiresIn: 36000 });
     await request.save();
+
     return {
       //This token is not necessary here. This is a protected route so just get the user_id from the request (req)
       // token: token,
