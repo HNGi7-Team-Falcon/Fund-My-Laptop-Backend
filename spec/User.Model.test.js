@@ -14,12 +14,11 @@ beforeAll(async () => {
 });
 
 // clear all test data after every test.
-beforeEach(async () => {
+afterEach(async () => {
   await dbHandler.clearDatabase();
 });
 // Remove and close the db and server.
 afterAll(async () => {
-  console.log('afterall')
   await dbHandler.closeDatabase();
 });
 
@@ -75,6 +74,13 @@ describe('user', () => {
     const updated = await userModel.findOneAndUpdate(filter, update, { new: true });
     expect(updated.name).toBe(update.name);
   });
+
+  it('should be deleted correctly', async () => {
+    const result = await userService.create(mockUser4);
+    const filter = { _id: result.uid };
+    const operation = await userModel.deleteOne(filter);
+    expect(operation.ok).toBe(1);
+  })
 });
 
 const mockUser = {
@@ -94,6 +100,13 @@ const mockUser2 = {
 const mockUser3 = {
   name: 'Usman Suleiman',
   email: 'usmansbky@gmail.com',
+  password: 'ittadakimasu',
+  verified: true
+};
+
+const mockUser4 = {
+  name: 'Usman Suleiman',
+  email: 'usmansbkz@gmail.com',
   password: 'ittadakimasu',
   verified: true
 };
