@@ -2,7 +2,7 @@ const Request = require("./../models/Request");
 const CustomError = require("./../utils/CustomError");
 
 class RequestService {
-  async create(data) {
+  create(data) {
     const request = new Request(data);
     await request.save();
     return {
@@ -14,34 +14,34 @@ class RequestService {
     };
   }
 
-  async update(data) {
-    const filter = { _id: data.id };
-    const update = {...data};
-    delete update.id;
-    const request = await Request.findOneAndUpdate(filter, update, {
-      new: true
-    });
+   update(id,data) {
 
-    if (!request) throw new CustomError("Item may have been deleted");
-
-    return request;
+    return Request.findByIdAndUpdate(
+      id,
+      data,
+      {
+        new: true,
+        runValidators: true
+      }
+      )
   }
 
-  async delete(requestId) {
+  delete(requestId) {
     return Request.findByIdAndRemove(requestId);
   }
 
-  async findById(requestId) {
+  findById(requestId) {
     return Request.findById(requestId);
   }
 
-  async find(period1, period2) {
+  find(period1, period2) {
     return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
   }
 
-  async findAll() {
+  findAll() {
     return Request.find();
   }
+
 }
 
 module.exports = new RequestService();
