@@ -1,28 +1,23 @@
 const response = require("../utils/response");
+const CustomError = require('../utils/CustomError');
 const RecommendationServ = require("../services/RecommendationService");
 
 class RecommendationController {
   async delete(req, res) {
-    try {
-      const recommendation = await RecommendationServ.delete(
-        req.params.recommendationId
-      );
-      if (!request) {
-        return res
-          .status(404)
-          .send(
-            response(
-              `Recommendation not found with Id: ${req.params.recommendationId}`,
-              recommendation
-            )
-          );
-      }
-      res
-        .status(200)
-        .send(response("Recommendation deleted successfully", recommendation));
-    } catch (error) {
-      res.send(response(recommendation));
+
+    const id  = req.body.id;
+
+    if(!id){
+      throw new CustomError("Incomplete data provided", 400);
     }
+
+      const result = await RecommendationServ.delete(id);
+
+      if (!result) {
+          throw new CustomError(`Recommendation not found with ${id}`, 400);
+      }
+    
+        res.status(204).send(response("Recommendation deleted successfully", null,"Successful")); 
   }
 
   async getUserRecommendations(req, res) {
