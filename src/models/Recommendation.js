@@ -16,7 +16,7 @@ const RecommendSchema = new mongoose.Schema({
    },
    requesterID: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'user',
+      ref: 'User',
       required: true
    },
    date: {
