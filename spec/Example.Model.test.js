@@ -3,7 +3,7 @@
  * YOU ARE EXPECTED TO CREATE YOUR OWN FILE FOLLOWING THIS FORMAT AND ADD IT TO
  * THE SPEC FOLDER, AS YOU DID IN STAGE TWO
  * FOLLOW THE NAME FORMAT
- * @author Usman Suleiman
+ * @author Usman Suleiman @Usman
  */
 const dbHandler = require('./db-handler');
 const userService = require('../src/services/UserService'); // Import the db service here
@@ -37,4 +37,5 @@ const mockUser = {
   email: 'example@gmail.com',
   password: 'liquidxmetal',
   verified: true,
+  address: 'home'
 };
