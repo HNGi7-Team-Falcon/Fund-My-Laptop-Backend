@@ -1,12 +1,16 @@
 const response = require("./../utils/response");
 const UserServ = require("./../services/UserService");
 const User = require("../models/User");
+const VerifyEmail = require('../utils/EmailVerification');
 
 class UserContoller {
 
     async create(req, res) {
         console.log("why")
         const data = await UserServ.create(req.body);
+        // Mail containing verification link will be sent to the user.
+        const mailStatus =  await VerifyEmail.createVerificationLink(data, req);
+        console.log(mailStatus.message);
         res.status(201).send(response("User account created", data));
     }
 

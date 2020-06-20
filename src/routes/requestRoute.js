@@ -12,7 +12,7 @@ module.exports = () => {
   router.get("/", authenticate, RequestCtrl.getRequests);
 
   //ADMIN routes. adminMiddleware yet to be added
-  router.get("/admin/funded-requests", authenticate, AdminRequestCtrl.getFundedRequests);
+  // router.get("/admin/funded-requests", authenticate, AdminRequestCtrl.getFundedRequests);
   router.get("/admin/requests", authenticate, AdminRequestCtrl.getRequests);
 
   return router;

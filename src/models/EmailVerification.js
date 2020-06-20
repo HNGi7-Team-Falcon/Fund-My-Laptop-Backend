@@ -9,8 +9,22 @@
 
  const emailVerificationSchema = new mongoose.Schema({
 
-  //  TODO: Add the model here 
+   token: {
+     type: String, 
+     required: true
+    },
 
+   createdAt: {
+     type: Date, 
+     required: true, 
+     default: Date.now, 
+     expires: 120
+    },
+
+   _userId: {
+     type: mongoose.Schema.Types.ObjectId, 
+     ref: 'user'
+    }
  });
 
  module.exports = mongoose.model("EmailVerificationToken", emailVerificationSchema);
