@@ -14,7 +14,6 @@ module.exports = () => {
   router.use("/request", requestRoute());
   router.use("/vouch", recommentdationRoute());
   router.use("/payment", paymentRoute);
-  router.use("/trend", TrendCtrl.getTrends);
   router.use("/admin", adminRequestRoute());
 
 
