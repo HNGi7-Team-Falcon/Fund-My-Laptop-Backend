@@ -65,6 +65,10 @@ class RequestService {
     return Request.find({$and: [{isactive: true}, {isFunded: false}]});
 
   }
+
+  async activeAndFunded() {
+    return Request.find({$and: [{isactive: true}, {isFunded: true}]});
+  }
 }
 
 module.exports = new RequestService();

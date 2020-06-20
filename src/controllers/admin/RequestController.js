@@ -32,6 +32,10 @@ class RequestController {
     const data = await RequestServ.activeButNotFunded();
     res.status(201).send(response("Requests retrieved", data));
   }
+  async getActiveAndFundedRequests(req, res) {
+    const data = await RequestServ.activeAndFunded();
+    res.status(200).send(response("Requests retrieved", data));
+  }
 
 }
 
