@@ -1,14 +1,14 @@
 /**
  * YOU'RE NOT SUPPOSED TO BE HERE
  * DON'T TOUCH THIS FILE 
- * @author Usman Suleiman
+ * @author Usman Suleiman @Usman
  */
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server-core');
 
 const mongod = new MongoMemoryServer();
 
-jest.setTimeout(30000);
+jest.setTimeout(1000000);
 
 module.exports.connect = async () => {
     const uri = await mongod.getConnectionString(); 
