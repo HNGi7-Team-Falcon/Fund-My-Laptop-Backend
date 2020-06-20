@@ -35,7 +35,15 @@ class RequestService {
   findAll() {
     return Request.find();
   }
-
+  async findSuspended() {
+    return Request.find({isSuspended: true});
+  }
+  async suspend(requestId) {
+    return Request.findOneAndUpdate({_id: requestId}, {isSuspended: true}, {new: true});
+  }
+  async activeButNotFunded() {
+    return Request.find({$and: [{isactive: true}, {isFunded: false}]});
+  }
 }
 
 module.exports = new RequestService();
