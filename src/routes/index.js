@@ -4,7 +4,7 @@ const userRoute = require("./userRoute");
 const requestRoute = require("./requestRoute");
 const recommentdationRoute = require("./recommendationRoute");
 const paymentRoute = require("./paymentRoute");
-const TrendCtrl = require('../controllers/TrendController');
+//const TrendCtrl = require('../controllers/TrendController');
 const adminRequestRoute = require("./admin/requestRoute");
 
 module.exports = () => {
