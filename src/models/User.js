@@ -24,14 +24,15 @@ const UserSchema = new Schema({
   },
   number: {
     type: Number,
-    default: 0,
+    required: true
   },
   address: {
     type: String,
+    required: true
   },
   verified: {
     type: Boolean,
-    required: true,
+    default: false
   },
   investment_count: {
     type: Number,

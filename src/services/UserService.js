@@ -9,6 +9,7 @@ const jwtSecret = process.env.JWT_SECRET;
 
 class UserService {
   async create(data) {
+    data.email = data.email.toLowerCase();
     if (await User.findOne({ email: data.email })){
       throw new CustomError("Email already exists");
     }
@@ -30,7 +31,7 @@ class UserService {
   async login(data) {
     if (!data.email) throw new CustomError("No email specified");
     if (!data.password) throw new CustomError("No password");
-
+    data.email = data.email.toLowerCase();
     const user = await User.findOne({ email: data.email });
 
     if (!user) throw new CustomError("Invalid Credentials");
