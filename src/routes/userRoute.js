@@ -6,6 +6,6 @@ module.exports = () => {
      router.post("/login", UserCtrl.login);
      router.post("/favorite", UserCtrl.favorites); // new favorite
      router.put("/update/:id", UserCtrl.update);
-     router.delete("/delete/:id", UserCtrl.delete);
+
      return router;
 };

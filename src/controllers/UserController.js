@@ -6,9 +6,7 @@ class UserContoller {
   async create(req, res) {
     if (!req.body) throw new CustomError("No data provided");
 
-    async create(req, res) {
     const data = await UserServ.create(req.body);
-
     res.status(201).send(response("User account created", data));
   }
 
