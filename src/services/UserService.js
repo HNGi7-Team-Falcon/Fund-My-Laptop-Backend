@@ -23,6 +23,7 @@ class UserService {
 
     return {
       token,
+      email: user.email,
       uid: user._id,
     };
   }
