@@ -4,7 +4,7 @@
  * @author Usman Suleiman
  */
 const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
+const { MongoMemoryServer } = require('mongodb-memory-server-core');
 
 const mongod = new MongoMemoryServer();
 
