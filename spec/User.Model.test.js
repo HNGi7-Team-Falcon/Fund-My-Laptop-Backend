@@ -3,8 +3,8 @@
  * @author Usman Suleiman
  * Story title: TEST:User Model
  * Ticket Id: #45803
+ * URL https://app.clubhouse.io/startng/story/45803/test-user-model
  */
-const mongoose = require('mongoose');
 const dbHandler = require('./db-handler');
 const userService = require('../src/services/UserService');
 const userModel = require('../src/models/User');
@@ -16,7 +16,6 @@ beforeAll(async () => {
 
 // clear all test data after every test.
 afterEach(async () => {
-  console.log('clear')
   await dbHandler.clearDatabase();
 });
 // Remove and close the db and server.
@@ -41,20 +40,20 @@ describe('user', () => {
       .toThrow();
   });
 
-  it('requires a name, email, and password', () => {
-    expect(async () => {
+  it('requires a name, email, and password', async () => {
+    await expect(async () => {
       await userService.create(noName);
     })
       .rejects
       .toThrow();
 
-    expect(async () => {
+    await expect(async () => {
       await userService.create(noEmail);
     })
       .rejects
       .toThrow();
 
-    expect(async () => {
+    await expect(async () => {
       await userService.create(noPassword);
     })
       .rejects
@@ -69,15 +68,19 @@ describe('user', () => {
 
   it('can be updated correctly', async () => {
     const result = await userService.create(mockUser2);
-    expect(result.uid).toBeDefined();
-    const mockUpdate = {
-      id: result.uid,
-      name: 'Senbon Zakura',
-      email:mockUser2.email 
+    const filter = { _id: result.uid };
+    const update = {
+      name: 'Uzumaki Naruto'
     };
-    expect(async () => await userService.update(mockUpdate))
-      .not
-      .toThrow();
+    const updated = await userModel.findOneAndUpdate(filter, update, { new: true });
+    expect(updated.name).toBe(update.name);
+  });
+
+  it('should be deleted correctly', async () => {
+    const result = await userService.create(mockUser4);
+    const filter = { _id: result.uid };
+    const operation = await userModel.deleteOne(filter);
+    expect(operation.ok).toBe(1);
   });
 });
 
@@ -98,6 +101,13 @@ const mockUser2 = {
 const mockUser3 = {
   name: 'Usman Suleiman',
   email: 'usmansbky@gmail.com',
+  password: 'ittadakimasu',
+  verified: true
+};
+
+const mockUser4 = {
+  name: 'Usman Suleiman',
+  email: 'usmansbkz@gmail.com',
   password: 'ittadakimasu',
   verified: true
 };

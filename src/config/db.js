@@ -1,5 +1,20 @@
 const mongoose = require('mongoose');
-const uri = process.env.MONGODB_URI;
+// const { MongoMemoryServer } = require('mongodb-memory-server-core');
+
+
+let uri = process.env.MONGODB_URI;
+
+
+/**
+ * Uncomment this line of code to use a local MongoDB server
+ */
+// (async () => {
+//   if (process.env.NODE_ENV !== 'production') {
+//     const mongod = new MongoMemoryServer();
+//     uri = await mongod.getConnectionString();
+//     console.log('MongoDB', uri);
+//   }
+// })();
 
 const dbOptions = {
     useNewUrlParser: true,

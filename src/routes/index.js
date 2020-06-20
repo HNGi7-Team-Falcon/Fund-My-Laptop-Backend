@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const userRoute = require("./userRoute");
 const requestRoute = require("./requestRoute");
-const recommendationRoute = require("./recommendationRoute");
+const recommentdationRoute = require("./recommendationRoute");
 const paymentRoute = require("./paymentRoute");
 
 module.exports = () => {
@@ -10,7 +10,7 @@ module.exports = () => {
 
   router.use("/users", userRoute());
   router.use("/request", requestRoute());
-  router.use("/vouch", recommendationRoute());
+  router.use("/vouch", recommentdationRoute());
   router.use("/payment", paymentRoute);
 
   return router;
