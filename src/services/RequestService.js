@@ -2,6 +2,7 @@ const Request = require("./../models/Request");
 const CustomError = require("./../utils/CustomError");
 
 class RequestService {
+
   async create(data, req) {
     data = {
       //This token is not necessary here. This is a protected route so just get the user_id from the request (req)
