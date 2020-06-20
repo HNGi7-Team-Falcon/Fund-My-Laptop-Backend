@@ -35,7 +35,6 @@ class RequestService {
   findAll() {
     return Request.find();
   }
-<<<<<<< HEAD
   async findSuspended() {
     return Request.find({isSuspended: true});
   }
@@ -45,9 +44,6 @@ class RequestService {
   async activeButNotFunded() {
     return Request.find({$and: [{isactive: true}, {isFunded: false}]});
   }
-=======
-
->>>>>>> 458e08d0fc089ff21d56d066926670d2760d885a
 }
 
 module.exports = new RequestService();
