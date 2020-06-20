@@ -1,2 +1,4 @@
 /node_modules
-/.env
+/.env.development
+/.package-lock.json
+/.env.test
