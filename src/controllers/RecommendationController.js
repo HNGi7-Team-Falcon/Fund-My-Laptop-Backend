@@ -19,6 +19,16 @@ class RecommendationController {
     
         res.status(204).send(response("Recommendation deleted successfully", null,"Successful")); 
   }
+
+  async getUserRecommendations(req, res) {
+    const recommendations = await RecommendationServ.getUserRecommendations(req.params.user_id);
+    return res.status(200).json(
+        {
+            message: 'User recommendations', 
+            data: recommendations, 
+            success: true
+        });
+  }
 }
 
 module.exports = new RecommendationController();

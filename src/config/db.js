@@ -1,5 +1,17 @@
 const mongoose = require('mongoose');
-const uri = process.env.MONGODB_URI;
+// const { MongoMemoryServer } = require('mongodb-memory-server');
+
+
+let uri = process.env.MONGODB_URI;
+
+
+// (async () => {
+//   if (process.env.NODE_ENV !== 'production') {
+//     const mongod = new MongoMemoryServer();
+//     uri = await mongod.getConnectionString();
+//     console.log('MongoDB', uri);
+//   }
+// })();
 
 const dbOptions = {
     useNewUrlParser: true,

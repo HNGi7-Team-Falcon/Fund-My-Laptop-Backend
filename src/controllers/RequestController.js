@@ -13,14 +13,16 @@ class RequestController {
   }
 
   async update(req, res) {
-
-    if(req.body === {}){
-      throw new CustomError("Incomplete data provided", 400);
+    try {
+      const request = await RequestServ.findById(req.params.requestId);
+      if (!request) {
+        return res.status(404).send(response("Request not found", request));
+      }
+      const data = await RequestServ.update(req.body);
+      res.status(200).send(response("Request updated successfully", data));
+    } catch (error) {
+      res.send(response(error));
     }
-
-    const data = await RequestServ.update(req.params.id,req.body);
-    
-    res.status(200).send(response("Request updated successfully", data));
   }
 
   async findById(req, res) {
@@ -32,7 +34,7 @@ class RequestController {
       const request = await RequestServ.findById(req.params.id);
 
       if (!request) {
-        throw new CustomError(`Request not found with ${req.params.id}`, 404);
+        return res.status(404).send(response("Request not found", request));
       }
 
       res.status(200).send(response("Request details", request,"successful"));
