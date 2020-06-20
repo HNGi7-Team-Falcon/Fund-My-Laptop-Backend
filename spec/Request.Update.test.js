@@ -1,6 +1,6 @@
 /**
  * DON'T TOUCH THIS FILE - IT'S MY TASK
- * @author Usman Suleiman
+ * @author Usman Suleiman @Usman
  * Story title: TEST:Update Request Route
  * Ticket Id: #45822
  * URL: https://app.clubhouse.io/startng/story/45822/test-update-request-route
@@ -47,7 +47,7 @@ describe('PUT /api/request/:id', () => {
 
   it('should reject unauthenticated request', async () => {
     const res = await server(app).post(newRequestRoute).send(mockRequest);
-    expect(res.statusCode).toEqual(403);
+    expect(res.statusCode).toEqual(400);
   });
 });
 
