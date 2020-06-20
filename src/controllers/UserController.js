@@ -7,7 +7,6 @@ class UserContoller {
     if (!req.body) throw new CustomError("No data provided");
 
     const data = await UserServ.create(req.body);
-
     res.status(201).send(response("User account created", data));
   }
 

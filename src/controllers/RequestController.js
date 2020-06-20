@@ -3,12 +3,7 @@ const RequestServ = require("./../services/RequestService");
 
 class RequestController {
   async create(req, res) {
-    
-    if(req.body === {}){
-      throw new CustomError("Incomplete data provided", 400);
-    }
-
-    const data = await RequestServ.create(req.body);
+    const data = await RequestServ.create(req.body, req);
     res.status(201).send(response("Request created", data));
   }
 
@@ -57,10 +52,11 @@ class RequestController {
   
   }
 
+  // Get requests specific to User Auth (added relationship)
   async getRequests(req, res) {
-
-    const data = await RequestServ.findAll();
-
+    // Pull from DB
+    
+    const data = await RequestServ.get(req.body, req);
     res.status(200).send(response("Request Gotten Successfully", data));
   }
 }
