@@ -22,4 +22,4 @@ const makeBvnRequest = (userBVN, callback) => {
     return callback(response.body);
   });
 }
-  module.exports.verifyBVN = makeBvnRequest;
+  module.exports = makeBvnRequest;
