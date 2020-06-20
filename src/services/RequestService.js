@@ -2,7 +2,7 @@ const Request = require("./../models/Request");
 const CustomError = require("./../utils/CustomError");
 
 class RequestService {
-  create(data) {
+  async create(data) {
     const request = new Request(data);
     await request.save();
     return {
