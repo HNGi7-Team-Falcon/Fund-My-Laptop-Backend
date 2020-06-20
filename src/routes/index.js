@@ -14,7 +14,7 @@ module.exports = () => {
   router.use("/request", requestRoute());
   router.use("/vouch", recommentdationRoute());
   router.use("/payment", paymentRoute);
-  router.use("/admin", adminRequestRoute());
+  router.use("/admin/request", adminRequestRoute());
 
 
 
