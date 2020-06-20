@@ -16,7 +16,6 @@ const CustomError = require("./../utils/CustomError");
             }
         ]}
 
-        // stop here
      const  mcDataPost = JSON.stringify(email)
      const  options = {
          url:'',
