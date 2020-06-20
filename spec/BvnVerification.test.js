@@ -8,7 +8,7 @@
 const BvnVerificationService = require('../src/services/BvnVerification');
 
 test('Return full bvn details of user', done => {
-    BvnVerificationService.verifyBVN('123456789', function (response) {
+    BvnVerificationService('123456789', function (response) {
         const JSONresponse = JSON.parse(response);
         expect(JSONresponse).toStrictEqual(mock);
         done();
