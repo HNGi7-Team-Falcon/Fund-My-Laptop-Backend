@@ -10,6 +10,7 @@
  const EmailVerification = require('../models/EmailVerification');
  const EmailFactory = require('../EmailFactory');
  const CustomError = require('../utils/CustomError');
+const response = require('./response');
 
  const {sendVerificationMail} = EmailFactory;
 
@@ -40,23 +41,21 @@
     }
 
     let verificationUrl = 'http:\/\/' + req.headers.host + '\/signup\/verification\/' + data.token;
-    //Now send the mail to the user       
-    if(!sendVerificationMail(user.email, verificationUrl)){
+    //Now send the mail to the user 
+    if(!await sendVerificationMail(user.email, verificationUrl)){
       throw new CustomError("Email Could not be Sent. Try Again.")
-    }
+    }    
       
     return{
       message: "Kindly Check Your mail to verify your account.",
       status: "success",
       code: 200
     }
-
-
   }
 
   // handles all log
   logger(msg) {
-    let debug = false;
+    let debug = true;
     if(debug)
       console.log(msg);
   }

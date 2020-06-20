@@ -36,10 +36,12 @@ module.exports = {
         </div>
         `
       }
-      console.log("===Sending Verification link now...")
-      return new Promise((resolve, reject)=>{
-        sendGrid.send(msg).then(resolve).catch(reject);
-      });
+    console.log("===Sending Verification link now...")
+    return new Promise((resolve, reject)=>{
+      sendGrid.send(msg).then(resolve).catch(reject);
+    }).catch(err=>{console.log("Error in the code: "+err.message)});
+
+    // return await sendGrid.send(msg);
 
   }
 }
