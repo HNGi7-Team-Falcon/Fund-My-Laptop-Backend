@@ -47,7 +47,7 @@ describe('PUT /api/request/:id', () => {
 
   it('should reject unauthenticated request', async () => {
     const res = await server(app).post(newRequestRoute).send(mockRequest);
-    expect(res.statusCode).toEqual(403);
+    expect(res.statusCode).toEqual(400);
   });
 });
 

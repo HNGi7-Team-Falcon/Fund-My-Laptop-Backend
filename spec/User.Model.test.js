@@ -88,6 +88,8 @@ const mockUser = {
   name: 'Usman Suleiman',
   email: 'usmansbk1@gmail.com',
   password: 'ittadakimasu',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
 
@@ -95,6 +97,8 @@ const mockUser2 = {
   name: 'Usman Suleiman',
   email: 'usmansbkx@gmail.com',
   password: 'ittadakimasu',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
 
@@ -102,6 +106,8 @@ const mockUser3 = {
   name: 'Usman Suleiman',
   email: 'usmansbky@gmail.com',
   password: 'ittadakimasu',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
 
@@ -109,29 +115,39 @@ const mockUser4 = {
   name: 'Usman Suleiman',
   email: 'usmansbkz@gmail.com',
   password: 'ittadakimasu',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
 
 const unverifiedUser = {
   name: 'Usman moon',
   email: 'usmansbk2@gmail.com',
-  password: 'alacakazm'
+  password: 'alacakazm',
+  number: '1234567890',
+  address: 'home',
 };
 
 const noName = {
   email: 'usmansbk3@gmail.com',
   password: 'ittadakimasu',
-  verified: true
+  number: '1234567890',
+  verified: true,
+  address: 'home'
 };
 
 const noEmail = {
   name: 'Usman Suleiman',
   password: 'ittadakimasu',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
 
 const noPassword = {
   name: 'Usman Suleiman',
   email: 'usmansbk1@gmail.com',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
