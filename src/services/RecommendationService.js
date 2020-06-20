@@ -2,8 +2,8 @@ const CustomError = require("./../utils/CustomError");
 const Recommendation = require("../models/Recommendation");
 
 class RecommendationService {
-  async delete(recommendationId) {
-    return Recommendation.findByIdAndRemove(recommendationId);
+  async delete(id) {
+    return Recommendation.findByIdAndRemove(id);
   }
 
   async getUserRecommendations(id) {
@@ -17,4 +17,3 @@ class RecommendationService {
 }
 
 module.exports = new RecommendationService();
-
