@@ -37,5 +37,6 @@ const mockUser = {
   email: 'example@gmail.com',
   password: 'liquidxmetal',
   verified: true,
-  address: 'home'
+  address: 'home',
+  number: '1234567'
 };
