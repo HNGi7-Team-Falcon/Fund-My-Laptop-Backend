@@ -32,12 +32,10 @@ describe('user', () => {
       .not.toThrow();
   });
 
-  it('needs to be verified', () => {
+  it('can be unverified', () => {
     expect(async () => {
       await userService.create(unverifiedUser);
-    })
-      .rejects
-      .toThrow();
+    }).not.toThrow();
   });
 
   it('requires a name, email, and password', async () => {
@@ -61,8 +59,8 @@ describe('user', () => {
   });
 
   it('exists after being created', async () => {
-    await userService.create(mockUser3);
-    const createdUser = await userModel.findOne();
+    const newUser = await userService.create(mockUser3);
+    const createdUser = await userModel.findOne({_id: newUser.uid });
     expect(createdUser.name).toBe(mockUser3.name);
   });
 
