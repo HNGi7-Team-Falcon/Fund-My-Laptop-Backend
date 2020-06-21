@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('../utils/env');
 
 const uri = process.env.MONGODB_URI;
 
