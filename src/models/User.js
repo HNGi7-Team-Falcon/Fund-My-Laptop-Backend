@@ -55,6 +55,11 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+
+  isEmailVerified: {
+    type: Boolean,
+    default: false
+  }
 });
 
 // Encrypt password using bcrypt

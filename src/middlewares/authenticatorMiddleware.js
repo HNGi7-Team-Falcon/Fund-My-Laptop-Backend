@@ -3,9 +3,6 @@ const User = require("../models/User");
 
 const jwtSecret = process.env.JWT_SECRET;
 
-const jwt = require("jsonwebtoken");
-const User = require("../models/user");
-
 module.exports = async function (req, res, next) {
   const user = new User(req.body);
   //token provided by client

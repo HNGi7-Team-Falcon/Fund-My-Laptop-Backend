@@ -1,14 +1,15 @@
 /**=================================================================
  * ====   TITLE:: IMPLEMENTATION OF EMAIL VERIFICATION ROUTE    ====  
  * ====   AUTHOR:: HACKINWALE <hackinwale.developer@gmail.com>  ====
- * ====   DATE::            19TH JUNE 2020                      ====
+ * ====   DATE::            21TH JUNE 2020                      ====
  * =================================================================
  */
 
- class EmailVerificationController{
+ const router = require('express').Router();
+ const EmailVerCtrl = require('../controllers/EmailVerification');
 
-  // TODO: Code here soon...
-
+ module.exports = () => {
+   router.get("/verification/:token", EmailVerCtrl.verifyEmail);
+   router.get("/resend/verification", EmailVerCtrl.resendVerification);
+   return router;
  }
-
- module.exports = new EmailVerificationController();
