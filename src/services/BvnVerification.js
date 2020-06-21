@@ -1,6 +1,6 @@
 //var userBVN = '123456789';
-require('dotenv').config();
 var request = require('request');
+require('../utils/env');
 
 
 if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
