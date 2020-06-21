@@ -3,7 +3,7 @@ const CustomError = require("./../utils/CustomError");
 
 class RequestService {
 
-  async create(req) {
+  async create(data, req) {
     // Create wasn't initially returning imageURL & description
     const { title, imageURL, amount, description } = req.body;
 
