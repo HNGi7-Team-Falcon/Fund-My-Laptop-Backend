@@ -5,7 +5,7 @@ const VerifyEmail = require('../utils/EmailVerification');
 
 class UserContoller {
   async create(req, res) {
-    let {number} = req.body;
+    let {number=''} = req.body;
     number = number.trim()
 
     if(number.charAt(0) !== '+') {
