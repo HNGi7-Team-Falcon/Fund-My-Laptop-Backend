@@ -8,7 +8,7 @@
 const server = require('supertest');
 const app = require('../server');
 const dbHandler = require('./db-handler');
-const jwt = required('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 const mongoose = require('mongoose');
