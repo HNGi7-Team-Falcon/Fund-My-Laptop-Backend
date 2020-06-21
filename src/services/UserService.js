@@ -9,13 +9,13 @@ const jwtSecret = process.env.JWT_SECRET;
 
 class UserService {
   async create(data) {
-    if (!data.email) throw new CustomError("No email specified");
-    if (!data.password) throw new CustomError("No password");
+    if (!data.email) throw new CustomError("No email specified",400);
+    if (!data.password) throw new CustomError("No password",400);
 
     data.email = data.email.toLowerCase();
 
     if (await User.findOne({ email: data.email })){
-      throw new CustomError("Email already exists");
+      throw new CustomError("Email already exists",400);
     }
 
     const user = new User(data);

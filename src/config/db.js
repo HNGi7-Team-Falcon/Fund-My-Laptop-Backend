@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
+const dotenv = require("dotenv").config()
 const { MongoMemoryServer } = require('mongodb-memory-server-core');
 
-
-let uri = process.env.MONGODB_URI;
-console.log(uri)
 
 /**
  * Uncomment this line of code to use a local MongoDB server
@@ -13,18 +11,29 @@ console.log(uri)
     uri = 'mongodb://localhost:27017/myapp'
   }
 
-const dbOptions = {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-};
+  const DB = process.env.DATABASE.replace(
+      '<PASSWORD>',
+      process.env.DATABASE_PASSWORD
+    );
 
-function initDbConfig() {
-    mongoose
-    .connect(uri, dbOptions)
-    .then(() => console.log("Connected to database!"))
-    .catch((error) => console.log("Error!. Couldn't connect to database ", error));
+function initDbConfig(){
+
+  mongoose
+    .connect(DB, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true
+    })
+    .then(() => {
+      console.log('DB connection successful');
+    })
+    .catch(err => {
+      console.log({
+        Error: err,
+        Message: 'Unable to connect to server'
+      });
+    });
 }
 
 module.exports = initDbConfig;
