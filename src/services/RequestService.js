@@ -3,18 +3,18 @@ const CustomError = require("./../utils/CustomError");
 
 class RequestService {
 
-  async create(data, req) {
-    data = {
-      //This token is not necessary here. This is a protected route so just get the user_id from the request (req)
-      // token: token,
-      uid: data._id,
-      title: data.title,
-      amount: data.amount,
-      isFunded: data.isFunded,
-      user: req.user._id, // For relationship between User and Requests
-      // email: request.email,
-    };
-    const request = new Request(data, req);
+  async create(data, user) {
+    // Create wasn't initially returning imageURL & description
+    const { title, imageURL, amount, description } = data;
+
+    const request = new Request({
+      title,
+      imageURL,
+      amount,
+      description,
+      user: user.id,
+    });
+
     const newdata = await request.save();
     return newdata;
   }
@@ -53,7 +53,7 @@ class RequestService {
     // Get all User Requests
     const requests = await Request.find({ user: req.user });
 
-    return requests;
+    return requests; 
   }
   async findSuspended() {
     return Request.find({isSuspended: true});

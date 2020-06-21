@@ -1,11 +1,8 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
 
 // Load env vars
-dotenv.config({
-  path: '.env',
-});
+require('./src/utils/env');
 
 // Load models
 const Request = require('./src/models/Request');
