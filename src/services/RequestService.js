@@ -3,16 +3,16 @@ const CustomError = require("./../utils/CustomError");
 
 class RequestService {
 
-  async create(data, req) {
+  async create(data, user) {
     // Create wasn't initially returning imageURL & description
-    const { title, imageURL, amount, description } = req.body;
+    const { title, imageURL, amount, description } = data;
 
     const request = new Request({
       title,
       imageURL,
       amount,
       description,
-      user: req.user._id
+      user: user.id,
     });
 
     const newdata = await request.save();

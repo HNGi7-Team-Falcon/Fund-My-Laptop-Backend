@@ -3,7 +3,7 @@ const RequestServ = require("./../services/RequestService");
 
 class RequestController {
   async create(req, res) {
-    const data = await RequestServ.create(req.body, req);
+    const data = await RequestServ.create(req.body, req.user);
     res.status(201).send(response("Request created", data));
   }
 

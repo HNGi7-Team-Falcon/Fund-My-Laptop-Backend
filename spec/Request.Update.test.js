@@ -26,7 +26,7 @@ beforeAll(async () => {
   // Create a new request
   const res = await server(app).post(newRequestRoute).send(mockRequest)
     .set('Authorization', 'Bearer ' + token);
-  id = res.body._id;
+  id = res.body.data._id;
 });
 
 afterAll(async () => {
@@ -47,7 +47,7 @@ describe('PUT /api/request/:id', () => {
 
   it('should reject unauthenticated request', async () => {
     const res = await server(app).post(newRequestRoute).send(mockRequest);
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toEqual(500);
   });
 });
 
