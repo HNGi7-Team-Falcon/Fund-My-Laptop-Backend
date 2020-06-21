@@ -4,14 +4,9 @@
  * @author Usman Suleiman @Usman
  */
 const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server-core');
-
-const mongod = new MongoMemoryServer();
-
-jest.setTimeout(1000000);
 
 module.exports.connect = async () => {
-    const uri = await mongod.getConnectionString(); 
+    const uri = process.env.MONGODB_URI; 
     const dbOptions = {
         useNewUrlParser: true,
         useCreateIndex: true,
@@ -27,7 +22,6 @@ module.exports.connect = async () => {
 module.exports.closeDatabase = async () => {
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
-  await mongod.stop();
 };
 
 module.exports.clearDatabase = async () => {
