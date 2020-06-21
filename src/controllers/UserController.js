@@ -14,13 +14,14 @@ class UserContoller {
       number = NGNCode.concat(number);
     }
 
-        console.log("why")
-        const data = await UserServ.create(req.body);
-        // Mail containing verification link will be sent to the user.
-        const mailStatus =  await VerifyEmail.createVerificationLink(data, req);
-        console.log(mailStatus.message);
-        res.status(201).send(response("User account created", data));
+    const data = await UserServ.create(req.body);
+    if (process.env.NODE_ENV === 'production') {
+      // Mail containing verification link will be sent to the user.
+      const mailStatus =  await VerifyEmail.createVerificationLink(data, req);
+      console.log(mailStatus.message);
     }
+    res.status(201).send(response("User account created", data));
+  }
 
     
   async login(req, res) {

@@ -56,6 +56,8 @@ const me = {
   email: 'anti_lengend@seeker.com',
   password: 'villainsalsoworkhard',
   verified: true,
+  number: '1234',
+  address: 'home'
 };
 
 const mockRequest = {
