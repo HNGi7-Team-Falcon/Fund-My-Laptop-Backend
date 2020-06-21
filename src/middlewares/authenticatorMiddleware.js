@@ -1,13 +1,9 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
 
 const jwtSecret = process.env.JWT_SECRET;
 
-const jwt = require("jsonwebtoken");
-const User = require("../models/user");
-
 module.exports = async function (req, res, next) {
-  const user = new User(req.body);
+  
   //token provided by client
   const tokenProvidedByUser =
     req.header("x-authorization") || req.header("authorization");
@@ -28,7 +24,7 @@ module.exports = async function (req, res, next) {
          **valid token, giving client access to resource
          */
         req.token = tokenProvidedByUser;
-        req.user = user;
+        
         next();
       }
     } catch (err) {

@@ -1,18 +1,12 @@
 const response = require("./../utils/response");
 const UserServ = require("./../services/UserService");
+const CustomError = require("../utils/CustomError");
 
 class UserContoller {
   async create(req, res) {
-    let {number} = req.body;
-    number = number.trim()
+    let {email, password} = req.body;
 
-    if(number.charAt(0) !== '+') {
-      const NGNCode = "+234";
-      number = number.substring(1);
-      number = NGNCode.concat(number);
-    }
-
-    const data = await UserServ.create(req.body);
+    const data = await UserServ.create({email,password});
 
     res.status(201).send(response("User account created", data));
   }

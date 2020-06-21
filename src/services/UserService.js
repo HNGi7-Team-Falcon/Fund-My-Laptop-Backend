@@ -9,14 +9,19 @@ const jwtSecret = process.env.JWT_SECRET;
 
 class UserService {
   async create(data) {
+    if (!data.email) throw new CustomError("No email specified");
+    if (!data.password) throw new CustomError("No password");
+
     data.email = data.email.toLowerCase();
+
     if (await User.findOne({ email: data.email })){
       throw new CustomError("Email already exists");
     }
 
     const user = new User(data);
+
     const token = jwt.sign({ id: user._id }, jwtSecret, {
-      expiresIn: 36000,
+      expiresIn: 360000,
     });
     user.token = token;
     await user.save();
