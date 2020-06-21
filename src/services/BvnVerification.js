@@ -1,22 +1,25 @@
 //var userBVN = '123456789';
-var secretKey = 'FLWSECK_TEST-SANDBOXDEMOKEY-X';
+require('dotenv').config();
 var request = require('request');
 
-class BvnVerification {
-  verifyBvn(userBVN){
-    var options = {
-      'method': 'GET',
-      'url': `https://api.flutterwave.com/v3/kyc/bvns/${userBVN}`,
-      'headers': {
-        'Authorization': `Bearer ${secretKey}`
-      }
-    };
 
-  request(options, function (error, response) { 
-    if (error) throw new Error(error);
-    var result = JSON.parse(response.body);
-    console.log(result);
-    });
-  }
+if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+  var secretKey = 'FLWSECK_TEST-SANDBOXDEMOKEY-X';//development
+} else {
+  var secretKey = process.env.BVN_FLUTTERWAVE_SECRET_KEY;//production
 }
-module.exports = new BvnVerification();
+
+const makeBvnRequest = (userBVN, callback) => {
+  var options = {
+    'method': 'GET',
+    'url': `https://api.flutterwave.com/v3/kyc/bvns/${userBVN}`,
+    'headers': {
+      'Authorization': `Bearer ${secretKey}`
+    }
+  }
+  request(options, (error, response) => {
+    if (error) { return callback(error); }
+    return callback(response.body);
+  });
+}
+  module.exports = makeBvnRequest;

@@ -4,6 +4,11 @@ const mongoose = require('mongoose');
 //@ Values: Takes in title of post, imageURL from cloudinary, amount, desc & date of request
 
 const RequestSchema = new mongoose.Schema({
+   user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'user'
+      // For relationship with the logged in User
+   },
    title: {
       type: String,
       required: true
@@ -15,6 +20,18 @@ const RequestSchema = new mongoose.Schema({
    amount: {
       type: Number,
       required: true
+   },
+   isFunded: {
+      type: Boolean,
+      default: false
+   },
+   isSuspended: {
+      type: Boolean,
+      default: false
+   },
+   isActive: {
+      type: Boolean,
+      default: true
    },
    description: {
       type: String,
