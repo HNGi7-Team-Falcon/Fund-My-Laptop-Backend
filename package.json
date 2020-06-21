@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node -r dotenv/config src/bin/www.js",
-    "dev": "nodemon -r dotenv/config src/bin/www.js",
+    "dev": "env NODE_ENV=development nodemon -r dotenv/config src/bin/www.js",
     "test": "env NODE_ENV=test jest"
   },
   "keywords": [],
