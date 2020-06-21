@@ -7,10 +7,9 @@
  */
 
 const axios = require("axios");
-const dotenv = require("dotenv");
 const response = require("../utils/response");
 const CustomError = require("../utils/CustomError");
-dotenv.config();
+require('../utils/env');
 
 //flutterwave encryption and secret key
 const key = process.env.FLUTTERWAVE_ENCRYPT_KEY;
