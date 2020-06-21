@@ -4,6 +4,7 @@
  * @author Usman Suleiman @Usman
  */
 const mongoose = require('mongoose');
+require('../src/utils/env');
 
 module.exports.connect = async () => {
     const uri = process.env.MONGODB_URI; 
@@ -14,19 +15,18 @@ module.exports.connect = async () => {
         useFindAndModify: false,
     };
    
-    if (!mongoose.connection.readyState) {
-      await mongoose.connect(uri, dbOptions);
-    }
+    await mongoose.connect(uri, dbOptions);
 };
 
 module.exports.closeDatabase = async () => {
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
+  await mongoose.disconnect();
 };
 
 module.exports.clearDatabase = async () => {
   const collections = mongoose.connection.collections;
   for (let key in collections) {
-    // await collections[key].deleteMany({});
+    await collections[key].deleteMany({});
   }
 }

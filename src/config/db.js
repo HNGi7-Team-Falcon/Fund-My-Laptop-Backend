@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-require('../utils/env');
 
 const uri = process.env.MONGODB_URI;
 
@@ -13,7 +12,7 @@ const dbOptions = {
 function initDbConfig() {
     mongoose
     .connect(uri, dbOptions)
-    .then(() => console.log("Connected to database!", uri))
+    .then(() => console.log("Connected to database!"))
     .catch((error) => console.log("Error!. Couldn't connect to database ", error));
 }
 
