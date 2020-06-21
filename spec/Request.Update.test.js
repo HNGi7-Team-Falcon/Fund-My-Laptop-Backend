@@ -1,6 +1,6 @@
 /**
  * DON'T TOUCH THIS FILE - IT'S MY TASK
- * @author Usman Suleiman
+ * @author Usman Suleiman @Usman
  * Story title: TEST:Update Request Route
  * Ticket Id: #45822
  * URL: https://app.clubhouse.io/startng/story/45822/test-update-request-route
@@ -14,19 +14,9 @@ const newRequestRoute = '/api/request/';
 const signUpRoute = '/api/users/';
 const signInRoute = '/api/users/login';
 
-let id;
-
 beforeAll(async () => {
   // spin database
   await dbHandler.connect();
-
-  // Sign me up
-  const { body: { data: { token } } } = await server(app).post(signUpRoute).send(me);
-
-  // Create a new request
-  const res = await server(app).post(newRequestRoute).send(mockRequest)
-    .set('Authorization', 'Bearer ' + token);
-  id = res.body._id;
 });
 
 afterAll(async () => {
@@ -36,6 +26,15 @@ afterAll(async () => {
 
 describe('PUT /api/request/:id', () => {
   it('should allow authenticated request', async () => {
+    // Sign me up
+    const { body: { data: { token: signupToken } } } = await server(app).post(signUpRoute).send(me);
+
+    // Create a new request
+    const signUpRes = await server(app).post(newRequestRoute).send(mockRequest)
+      .set('Authorization', 'Bearer ' + signupToken);
+    const id = signUpRes.body.data._id;
+
+    // sign in
     const signInResposne = await server(app).post(signInRoute).send(me);
     const { data: {token} } = signInResposne.body; // get our authentication token
     const res = await server(app).put(newRequestRoute + id)
@@ -47,7 +46,7 @@ describe('PUT /api/request/:id', () => {
 
   it('should reject unauthenticated request', async () => {
     const res = await server(app).post(newRequestRoute).send(mockRequest);
-    expect(res.statusCode).toEqual(403);
+    expect(res.statusCode).toEqual(400);
   });
 });
 
@@ -56,6 +55,8 @@ const me = {
   email: 'anti_lengend@seeker.com',
   password: 'villainsalsoworkhard',
   verified: true,
+  number: '1234',
+  address: 'home'
 };
 
 const mockRequest = {

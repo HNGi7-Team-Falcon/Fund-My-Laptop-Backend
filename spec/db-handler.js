@@ -1,17 +1,13 @@
 /**
  * YOU'RE NOT SUPPOSED TO BE HERE
  * DON'T TOUCH THIS FILE 
- * @author Usman Suleiman
+ * @author Usman Suleiman @Usman
  */
 const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server-core');
-
-const mongod = new MongoMemoryServer();
-
-jest.setTimeout(30000);
+require('../src/utils/env');
 
 module.exports.connect = async () => {
-    const uri = await mongod.getConnectionString(); 
+    const uri = process.env.MONGODB_URI; 
     const dbOptions = {
         useNewUrlParser: true,
         useCreateIndex: true,
@@ -19,15 +15,13 @@ module.exports.connect = async () => {
         useFindAndModify: false,
     };
    
-    if (!mongoose.connection.readyState) {
-      await mongoose.connect(uri, dbOptions);
-    }
+    await mongoose.connect(uri, dbOptions);
 };
 
 module.exports.closeDatabase = async () => {
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
-  await mongod.stop();
+  await mongoose.disconnect();
 };
 
 module.exports.clearDatabase = async () => {

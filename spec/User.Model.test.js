@@ -1,6 +1,6 @@
 /**
  * DON'T TOUCH THIS FILE - IT'S MY TASK
- * @author Usman Suleiman
+ * @author Usman Suleiman @Usman
  * Story title: TEST:User Model
  * Ticket Id: #45803
  * URL https://app.clubhouse.io/startng/story/45803/test-user-model
@@ -32,12 +32,10 @@ describe('user', () => {
       .not.toThrow();
   });
 
-  it('needs to be verified', () => {
+  it('can be unverified', () => {
     expect(async () => {
       await userService.create(unverifiedUser);
-    })
-      .rejects
-      .toThrow();
+    }).not.toThrow();
   });
 
   it('requires a name, email, and password', async () => {
@@ -61,8 +59,8 @@ describe('user', () => {
   });
 
   it('exists after being created', async () => {
-    await userService.create(mockUser3);
-    const createdUser = await userModel.findOne();
+    const newUser = await userService.create(mockUser3);
+    const createdUser = await userModel.findOne({_id: newUser.uid });
     expect(createdUser.name).toBe(mockUser3.name);
   });
 
@@ -88,6 +86,8 @@ const mockUser = {
   name: 'Usman Suleiman',
   email: 'usmansbk1@gmail.com',
   password: 'ittadakimasu',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
 
@@ -95,6 +95,8 @@ const mockUser2 = {
   name: 'Usman Suleiman',
   email: 'usmansbkx@gmail.com',
   password: 'ittadakimasu',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
 
@@ -102,6 +104,8 @@ const mockUser3 = {
   name: 'Usman Suleiman',
   email: 'usmansbky@gmail.com',
   password: 'ittadakimasu',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
 
@@ -109,29 +113,39 @@ const mockUser4 = {
   name: 'Usman Suleiman',
   email: 'usmansbkz@gmail.com',
   password: 'ittadakimasu',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
 
 const unverifiedUser = {
   name: 'Usman moon',
   email: 'usmansbk2@gmail.com',
-  password: 'alacakazm'
+  password: 'alacakazm',
+  number: '1234567890',
+  address: 'home',
 };
 
 const noName = {
   email: 'usmansbk3@gmail.com',
   password: 'ittadakimasu',
-  verified: true
+  number: '1234567890',
+  verified: true,
+  address: 'home'
 };
 
 const noEmail = {
   name: 'Usman Suleiman',
   password: 'ittadakimasu',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };
 
 const noPassword = {
   name: 'Usman Suleiman',
   email: 'usmansbk1@gmail.com',
+  number: '1234567890',
+  address: 'home',
   verified: true
 };

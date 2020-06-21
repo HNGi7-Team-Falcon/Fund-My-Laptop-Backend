@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-require('dotenv').config();
+require('../utils/env');
 const User = require("./../models/User");
 const CustomError = require("./../utils/CustomError");
 const Favs = require("./../models/Favorites"); 
@@ -39,7 +39,7 @@ class UserService {
     const isCorrect = await bcrypt.compare(data.password, user.password);
     if (!isCorrect) throw new CustomError("Invalid Credentials");
 
-    const token = jwt.sign({ id: user._id }, jwtSecret, {
+    const token = jwt.sign({ id: user._id, role: user.role }, jwtSecret, {
       expiresIn: 36000,
     });
     user.token = token;

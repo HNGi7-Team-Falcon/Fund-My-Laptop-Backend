@@ -4,6 +4,7 @@ const userRoute = require("./userRoute");
 const requestRoute = require("./requestRoute");
 const recommentdationRoute = require("./recommendationRoute");
 const paymentRoute = require("./paymentRoute");
+const trendRoute = require('./trendRoute');
 const adminRequestRoute = require("./admin/requestRoute");
 const emailVerificationRoute = require('../routes/EmailVerification');
 const { route } = require("./paymentRoute");
@@ -15,6 +16,7 @@ module.exports = () => {
   router.use("/request", requestRoute());
   router.use("/vouch", recommentdationRoute());
   router.use("/payment", paymentRoute);
+  router.use("/trend", trendRoute);
   router.use("/admin/request", adminRequestRoute());
   router.use("/email", emailVerificationRoute());
 

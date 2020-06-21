@@ -1,12 +1,11 @@
 /**
  * DON'T TOUCH THIS FILE - IT'S MY TASK
- * @author Usman Suleiman
+ * @author Usman Suleiman @Usman
  * Story title: TEST:Request Model
  * Ticket Id: #45816
  * URL https://app.clubhouse.io/startng/story/45816/test-request-model
  */
 const dbHandler = require('./db-handler');
-const requestService = require('../src/services/RequestService'); // Import the db service here
 const requestModel = require('../src/models/Request');
 
 // Connect to a test databse before running any tests.
@@ -26,28 +25,28 @@ afterAll(async () => {
 
 describe('request', () => {
   it('can be created correctly', () => {
-    expect(async () => await requestService.create(mockRequest))
+    expect(async () => await requestModel.create(mockRequest))
       .not.toThrow();
   });
 
   it('requires title, imageURL, amount, and descriptoin', () => {
-    expect(async () => await requestService.create(noTitle))
+    expect(async () => await requestModel.create(noTitle))
       .rejects.toThrow();
-    expect(async () => await requestService.create(noAmount))
+    expect(async () => await requestModel.create(noAmount))
       .rejects.toThrow();
-    expect(async () => await requestService.create(noImage))
+    expect(async () => await requestModel.create(noImage))
       .rejects.toThrow();
-    expect(async () => await requestService.create(noDescription))
+    expect(async () => await requestModel.create(noDescription))
       .rejects.toThrow();
   });
 
   it('should accept amount in number', async () => {
-    const result = await requestService.create(numberString);
+    const result = await requestModel.create(numberString);
     expect(result.name).toBeFalsy();
   });
 
   it('should update correctly', async () => {
-    const result = await requestService.create(mockRequest);
+    const result = await requestModel.create(mockRequest);
     const filter = { _id: result._id};
     const update = {
       title: 'Alienware'
@@ -57,7 +56,7 @@ describe('request', () => {
   });
 
   it('should be deleted', async () => {
-    const result = await requestService.create(mockRequest);
+    const result = await requestModel.create(mockRequest);
     const filter = { _id: result._id };
     const operation = await requestModel.deleteOne(filter);
     expect(operation.ok).toBe(1);

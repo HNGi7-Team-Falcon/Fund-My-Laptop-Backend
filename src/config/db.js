@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server-core');
+require('../utils/env');
 
 let uri = process.env.MONGODB_URI;
 
@@ -22,7 +22,7 @@ const dbOptions = {
 function initDbConfig() {
     mongoose
     .connect(uri, dbOptions)
-    .then(() => console.log("Connected to database!"))
+    .then(() => console.log("Connected to database!", uri))
     .catch((error) => console.log("Error!. Couldn't connect to database ", error));
 }
 
