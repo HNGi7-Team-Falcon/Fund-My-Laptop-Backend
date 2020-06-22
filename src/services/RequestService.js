@@ -2,7 +2,6 @@ const Request = require("./../models/Request");
 const CustomError = require("./../utils/CustomError");
 
 class RequestService {
-
   async create(data, user) {
     // Create wasn't initially returning imageURL & description
     const { title, imageURL, amount, description } = data;
@@ -19,18 +18,16 @@ class RequestService {
     return newdata;
   }
 
-   update(id,data) {
-
-    return Request.findByIdAndUpdate(
-      id,
-      data,
-      {
-        new: true,
-        runValidators: true
-      }
-      )
+  update(id, data) {
+    return Request.findByIdAndUpdate(id, data, {
+      new: true,
+      runValidators: true,
+    });
   }
 
+  /**
+   * @author Jezeh Priesten @TjeY
+   */
   delete(requestId) {
     return Request.findByIdAndRemove(requestId);
   }
@@ -41,7 +38,9 @@ class RequestService {
 
   //@boluakins story: 49330
   find(period1, period2) {
-    return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
+    return Request.find({
+      $and: [{ isFunded: true }, { date: { $gte: period1, $lte: period2 } }],
+    });
   }
 
   // Gets all requests irrespective of user (no relationship to user)
@@ -54,24 +53,27 @@ class RequestService {
     // Get all User Requests
     const requests = await Request.find({ user: req.user });
 
-    return requests; 
+    return requests;
   }
 
   //@boluakins story: 49299
   async findSuspended() {
-    return Request.find({isSuspended: true});
+    return Request.find({ isSuspended: true });
   }
   async suspend(requestId) {
-    return Request.findOneAndUpdate({_id: requestId}, {isSuspended: true}, {new: true});
+    return Request.findOneAndUpdate(
+      { _id: requestId },
+      { isSuspended: true },
+      { new: true }
+    );
   }
-   //@boluakins story: 49334
+  //@boluakins story: 49334
   async activeButNotFunded() {
-    return Request.find({$and: [{isactive: true}, {isFunded: false}]});
-
+    return Request.find({ $and: [{ isactive: true }, { isFunded: false }] });
   }
 
   async activeAndFunded() {
-    return Request.find({$and: [{isactive: true}, {isFunded: true}]});
+    return Request.find({ $and: [{ isactive: true }, { isFunded: true }] });
   }
 }
 

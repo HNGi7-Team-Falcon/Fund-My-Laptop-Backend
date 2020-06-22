@@ -1,3 +1,13 @@
+/**
+ * DON'T TOUCH THIS FILE
+ * Modifications on this file should go through
+ * @author Jezeh Priesten @TjeY
+ * No Story was created for this task
+ * Story title:  
+ * Ticket Id:
+ * URL:
+ */
+
 // const jwt = require("jsonwebtoken");
 // const User = require("../models/User");
 
