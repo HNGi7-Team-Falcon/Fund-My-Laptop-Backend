@@ -12,14 +12,6 @@ const errorMiddlewares = require("./src/middlewares/errorMiddlewares");
 const routes = require("./src/routes");
 
 preMiddlewares(app);
-
-passport.use(new Strategy({ 
-   consumerKey: TWITTER_CONSUMER_KEY,
-   consumerSecret: TWITTER_CONSUMER_SECRET,
-   callbackURL: 'https://www.fundmylaptop.com/'
-},  
-(accessToken, refreshToken, profile, cb) => {    
-	return cb(null, profile);}));
 	
 passport.serializeUser((user, cb) => {  
 	cb(null, user);
