@@ -39,7 +39,7 @@ module.exports = {
     console.log("===Sending Verification link now...")
     return new Promise((resolve, reject)=>{
       sendGrid.send(msg).then(resolve).catch(reject);
-    }).catch(err=>{console.log("Error in the code: "+err.message)});
+    }).catch(err=>{console.log("Error in the mail code: "+err.message)});
 
     // return await sendGrid.send(msg);
 
