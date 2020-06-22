@@ -39,6 +39,7 @@ class RequestService {
     return Request.findById(requestId);
   }
 
+  //boluakins task 49330
   find(period1, period2) {
     return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
   }

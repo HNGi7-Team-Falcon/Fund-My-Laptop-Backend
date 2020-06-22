@@ -3,7 +3,7 @@ const RequestServ = require("../../services/RequestService");
 
 class RequestController {
 
-  //GET returns all requests that have been funded & completely paid for. Filter by period
+  //GET returns all requests that have been funded & completely paid for. Filter by period - task 49330
   async getCompletedRequests(req, res) {
     const period1 = req.body.period1;
     const period2 = req.body.period2;
