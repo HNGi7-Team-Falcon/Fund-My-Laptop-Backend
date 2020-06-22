@@ -7,7 +7,7 @@ class VerifyService {
     if (!data.videoUrl) throw new CustomError("Video Url is required")
     if (!data.photoId) throw new CustomError("Photo ID is required")
 
-    if (!(await this.verifyBVN)) throw new CustomError("BVN verfication failed")
+    if (!(await this.verifyBVN(data.bvn))) throw new CustomError("BVN verfication failed")
 
     const verify = new Verify(data);
     await verify.save();
@@ -27,8 +27,10 @@ class VerifyService {
     return verify;
   }
 
-  async verifyBVN() {
-  
+  async verifyBVN(bvn) {
+    let result = `https://rave-api-v2.herokuapp.com/v3/kyc/bvns/${bvn}`
+
+    if (!result.success) return false
 
     return true
   }
