@@ -14,4 +14,4 @@ describe('db', () => {
   it('can connect succssfully', () => {
     expect(async () => await dbHandler.connect()).not.toThrow();
   });
-  });
+  });  
