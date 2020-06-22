@@ -28,9 +28,20 @@ class VerifyService {
   }
 
   async verifyBVN(bvn) {
-    let result = `https://rave-api-v2.herokuapp.com/v3/kyc/bvns/${bvn}`
+    var request = require('request');
+    var options = {
+      'method': 'POST',
+      'url': `https://rave-api-v2.herokuapp.com/v3/kyc/bvns/${bvn}`,
+      'headers': {
+        'Authorization': 'Bearer {{SEC_KEY}}'
+      }
+    };
 
-    if (!result.success) return false
+    request(options, function (error, response) {
+      if (error) throw new CustomError(error.message);
+      if (!response.success) return false
+    });
+
 
     return true
   }
