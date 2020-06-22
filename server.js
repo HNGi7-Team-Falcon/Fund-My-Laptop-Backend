@@ -13,7 +13,8 @@ preMiddlewares(app);
 app.use("/api", routes());
 
 // Web routes
-app.use("/", (req, res) => {
+app.use(express.static(path.join(__dirname, "public")));
+app.get("*", (req, res) => {
   res.status(200).sendFile(path.join(__dirname + "/public/index.html"));
 });
 
