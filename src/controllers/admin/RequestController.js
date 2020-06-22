@@ -3,7 +3,6 @@ const RequestServ = require("../../services/RequestService");
 
 class RequestController {
 
-  //GET returns all requests that have been funded & completely paid for. Filter by period - task 49330
   async getCompletedRequests(req, res) {
     const period1 = req.body.period1;
     const period2 = req.body.period2;
@@ -28,6 +27,8 @@ class RequestController {
     const data = await RequestServ.suspend(requestId);
     res.status(201).send(response("Request suspended", data));
   }
+
+  //task 49334 @boluakins
   async getactiveButNotFundedRequests(req, res) {
     const data = await RequestServ.activeButNotFunded();
     res.status(201).send(response("Requests retrieved", data));
