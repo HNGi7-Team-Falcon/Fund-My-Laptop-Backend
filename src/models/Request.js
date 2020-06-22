@@ -1,3 +1,7 @@
+/*
+*  @author: @oluseyeo
+*  @story: 43822
+*/
 const mongoose = require('mongoose');
 
 //@ DESC: model for new requests by fundee
