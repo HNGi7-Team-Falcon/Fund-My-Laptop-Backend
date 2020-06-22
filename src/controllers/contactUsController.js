@@ -4,13 +4,13 @@ const Contact = require("../models/Contact");
 
 class ContactUsController {
     async contact(req, res) {
-        let {name, email, content} = req.body;
+        let {name, email, subject, content} = req.body;
 
-        if(!name, !email, !content) {
+        if(!name, !email, !subject, !content) {
             throw new CustomError("Incomplete data send", 400);
         }
 
-        const contactData = new Contact({name,email, content});
+        const contactData = new Contact({name, email, subject, content});
 
          await contactData.save();
 
