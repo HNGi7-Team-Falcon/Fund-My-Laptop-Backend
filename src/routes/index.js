@@ -17,7 +17,8 @@ module.exports = () => {
   router.use("/vouch", recommentdationRoute());
   router.use("/payment", paymentRoute);
   router.use("/trend", trendRoute);
-  //tasks 49334, 49330, 49299  @boluakins
+
+  //@boluakins stories: 49299, 49330, 49334
   router.use("/admin/request", adminRequestRoute());
   router.use("/email", emailVerificationRoute());
 

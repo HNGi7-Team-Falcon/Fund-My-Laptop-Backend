@@ -39,6 +39,7 @@ class RequestService {
     return Request.findById(requestId);
   }
 
+  //@boluakins story: 49330
   find(period1, period2) {
     return Request.find({$and: [{isFunded: true}, {date: {$gte: period1, $lte: period2}}]});
   }
@@ -55,13 +56,15 @@ class RequestService {
 
     return requests; 
   }
+
+  //@boluakins story: 49299
   async findSuspended() {
     return Request.find({isSuspended: true});
   }
   async suspend(requestId) {
     return Request.findOneAndUpdate({_id: requestId}, {isSuspended: true}, {new: true});
   }
-   //task 49334 @boluakins
+   //@boluakins story: 49334
   async activeButNotFunded() {
     return Request.find({$and: [{isactive: true}, {isFunded: false}]});
 

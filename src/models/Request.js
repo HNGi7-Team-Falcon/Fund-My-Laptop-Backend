@@ -21,14 +21,20 @@ const RequestSchema = new mongoose.Schema({
       type: Number,
       required: true
    },
+
+   //@boluakins story: 49330
    isFunded: {
       type: Boolean,
       default: false
    },
+
+   //@boluakins story: 49299
    isSuspended: {
       type: Boolean,
       default: false
    },
+
+   //@boluakins story: 49334
    isActive: {
       type: Boolean,
       default: true
