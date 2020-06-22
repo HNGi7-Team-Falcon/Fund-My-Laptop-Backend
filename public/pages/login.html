@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <title>FundMyLaptop | Login Page</title>
   <style>
     body {
       background-image: url('https://res.cloudinary.com/dwpwl6img/image/upload/v1592479832/Polygon_9.png'), url('https://res.cloudinary.com/dwpwl6img/image/upload/v1592479833/Ellipse_57.png'),
@@ -211,11 +201,50 @@ border-radius: 5px;
 
 
   </style>
-</head>
 
-<body>
- <section>
+ <section class="conatiner-fluid">
   <div class="row ">
+    <div class="col-12">
+      <!--Header navigation bar-->
+		<header id="header">
+			<ul class="logo">
+				<li>
+					<a href="/home">FundMy<span class="lap">Laptop</span></a>
+				</li>
+			</ul>
+			<ul class="navs">
+				<li>
+					<span class="home"><a href="#hero_section">Home</a></span>
+				</li>
+				<li><a href="#bottom_hero">About Us</a></li>
+				<li><a href="#faq">FAQ</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+			<ul class="login">
+				<li>
+					<span class="log"><a href="/login">Login</a></span>
+				</li>
+				<li>
+					<span class="sign"><a href="/signup">Sign Up</a></span>
+				</li>
+			</ul>
+			<div class="side-menu-trigger">
+				<span></span>
+			</div>
+		</header>
+		<div class="side-menu">
+			<ul class="auth-links">
+				<li style="animation-delay: .5s"><a href="/login">Login</a></li>
+				<li style="animation-delay: .7s"><a href="/signup">Sign up</a></li>
+			</ul>
+			<ul class="site-links" style="animation-delay: 1.1s">
+				<li><a href="/home">Home</a></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="#faq">FAQ</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+		</div>
+    </div>
     <div class="col-sm-12 col-md-12 col-lg-12">
       <div class="welcome-section">
         <p class="welcome-text">Welcome</p>
@@ -245,6 +274,3 @@ border-radius: 5px;
     </div>
   </div>
  </section>
-</body>
-
-</html>
