@@ -1,0 +1,302 @@
+
+    <style>
+        
+        body{
+            background: #E5E5E5;
+        }
+        #nav-bar{
+            
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-btn{
+            border: 1px solid #FB3F5C;
+            box-sizing: border-box;
+            border-radius: 6px;
+            width: 140px;
+            height: 45px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 21px;
+            color: #FB3F5C;
+            
+        }
+        .navbar{
+            background-image:linear-gradient(to right, #E5E5E5,#E5E5E5);
+            
+        }
+        .navbar-nav{
+            float: right;
+            text-align: right;
+        }
+        .navbar-nav li{
+            padding: 0 10px !important;
+        }
+        .navbar-nav li a:hover{
+            color:  #FB3F5C !important;
+        }
+        .navbar-nav li a{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 21px;
+            color: #2A3A64 !important;
+            opacity: 0.75;
+        }
+        .contact-title{
+            margin-top: 100px;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 53px;
+            line-height: 62px;
+            color: #2A3A64;
+        }
+        .content{
+            margin-top: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #FB3F5C;
+        }
+        .texts{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 23px;
+            text-align: justify;
+        }
+        .address{
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 15px;
+            text-align: justify;
+            color: rgba(42, 58, 100, 0.8);
+        }
+        .follow{
+            display: inline block;
+        }
+        .icons{
+            margin: 0 5px;
+        }
+        .form{
+		    width:540px;
+            margin-top: 100px;
+            padding-left: 10%;
+        }
+        .name-input{
+            background: #FFFFFF;
+            border: 2px solid #2A3A64;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        .form h3{
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 23px;
+            text-align: justify;
+            color: #2A3A64;
+        }
+        .subject-input{
+            border: 2px solid #2A3A64;
+            box-sizing: border-box;
+            border-radius: 5px;
+            width: 100%;
+            height: 74px;
+        }
+        .message-input{
+            border: 2px solid #2A3A64;
+            box-sizing: border-box;
+            border-radius: 5px;
+            width: 100%;
+            height: 104px;
+        }
+        .btn{
+            margin-top: 10px;
+            background: #FB3F5C;
+            border-radius: 6px;
+            width: 196px;
+            height: 45px;
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .btn:hover{
+            background: #ffffff;
+            color: #FB3F5C;
+            border:2px solid #FB3F5C;
+        }
+        .footer{
+            height:100%;
+            margin-top: 140px;
+            width: 100%;
+            background: #2A3A64;
+            padding: 70px 0 30px 0;
+            color: #FFFFFF;
+        }
+		
+		.getLoan{
+		    margin:0 -20px 0 10px;
+		}
+		
+		#name .row{
+		   display:flex;
+		   justify-content:space-between;
+		   padding-right:75px;
+		}
+		
+		@media(max-width:1250px){
+		    .getLoan{
+			    margin:0 10px;
+			}
+			
+			.column{
+			   display:flex;
+			   flex-direction:column;
+			}
+			
+			.form{
+		       width:420px;
+               margin-top: 100px;
+               padding-left: 10%;
+            }
+			
+			#name row div input{
+			    width:400px;
+			}
+		}
+		
+		@media(max-width:800px){
+		    .form{
+		       width:90%;
+               margin-top: 100px;
+               padding-left: 10%;
+            }
+		}
+    
+    </style>
+
+    <section id="nav-bar" class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" style="color:#2A3A64" href="#">Fund<span style='color: #FB3F5C;'>MyLaptop</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/faq">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/contact" >Contact Us</a>
+            </li>
+            <li class="nav-item nav-btn text-center" style="margin: 0 10px 10px 10px;" >
+                    <a class="nav-link " style="color:#FB3F5C !important;" href="/invest" >Invest</a>
+            </li>
+            <li class="nav-item nav-btn text-center getLoan" style="background: #FB3F5C;">
+                    <a class="nav-link " style="color: #FFFFFF !important;" href="/getloan" >Get Loan</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="contact-title">Contact</br>us</h1>
+                    <div class="content">
+                        <p class="texts">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Numquam reiciendis, aut delectus hic minus exercitationem 
+                            quaerat nam, nesciunt pariatur sit, aspernatur tempore! 
+                            Voluptates repellendus laboriosam tempora vitae odit, 
+                            ducimus fugiat?
+                            </br>
+                            </br>
+                            
+                       </p>
+                       <p class="address">
+                            Plot 1415 Adetokunbo Ademola Street,</br></br> +234 81 225 6780
+                       </p>
+                       <p class="follow">
+                           Follow us
+                                <a class="fb-ic icons"> <i class="fab fa-facebook-square white-text mr-1"> </i> </a>
+                                <a class="tw-ic icons"> <i class="fab fa-twitter white-text mr-1"> </i> </a>
+                                <a class="li-ic icons"> <i class="fab fa-instagram white-text mr-1"> </i> </a>
+                       </p>
+                    </div>
+                </div>
+                <div class="col-md-6" id="name">
+                    <div class="row form column">
+                        <div class="col-md-3">
+                            <h3>Name</h3>
+                            <input class="name-input" type="text"/>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="col-md-3">
+                            <h3>Email</h3>
+                            <input class="name-input" type="text"/>
+                        </div>
+                    </div>
+                    <div class="form" style="margin-top:20px">
+                        <h3>Subject</h3>
+                        <input class="subject-input"  type="text">
+
+                    </div>
+                    <div class="form" style="margin-top:20px">
+                            <h3>Message</h3>
+                            <input class="message-input" placeholder="Tell us about yourself" type="text">
+                            <input class="btn" type="button" Value='Submit' />
+                    </div>
+                    
+
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container" >
+                <div class="row">
+                    <div class="col-md-5">
+                            Our Address</br></br>
+                            Plot 1415 Adetokunbo Ademola Street,</br>
+                            PMB 12724, Victoria Island, Lagos Nigeria 
+                        </br></br></br>
+                        &copy; 2020, Fundmylaptop chief Marlian. All Rights Reserved.
+                        </div>
+                        <div class="col-md-4">
+                                Our Contact 
+                            </br></br>
+                            +234 81 555-0120</br>
+                            +234 81 555-0129</br>
+                            +234 81 555-0129</br></br>
+							
+							hello.fundmylaptop@OfficialMarlians.com</br>
+
+                        </div>
+                        <div class="col-md-3">
+                                Legal
+                            </br></br>
+                            Terms & Conditions</br></br>
+                            Privacy Policy</br>
+                            
+                        </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+    </section>

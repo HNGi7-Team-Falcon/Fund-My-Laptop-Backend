@@ -1,0 +1,2366 @@
+<style>
+	
+
+	#top_hero {
+		background-image: url(https://res.cloudinary.com/dt9pwfpi5/image/upload/v1592504757/firsthero_-_Copy_gt1cdi.png);
+		background-repeat: no-repeat;
+		background-attachment: fix;
+		background-position: right;
+		margin-bottom: 30px;
+	}
+
+	ul {
+		list-style-type: none;
+	}
+
+	#header {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-pack: start;
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		width: 100%;
+	}
+
+	.logo {
+		font-size: 25px;
+		margin-right: 13%;
+		margin-top: 21px;
+		padding-left: 50px;
+	}
+
+	span.lap {
+		color: #fb3f5c;
+	}
+
+	.navs {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		font-size: 21px;
+		margin-right: 0;
+		color: white;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+
+	.navs>li {
+		margin-right: 40px;
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+
+	.navs>li:hover {
+		padding-bottom: 5px;
+		border-bottom: 3px solid #fb3f5c;
+	}
+
+	span.home {
+		color: #fb3f5c;
+	}
+
+	.login {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		font-size: 20px;
+		padding-left: 0;
+	}
+
+	.login>li {
+		margin-right: 30px;
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+
+	span.log {
+		padding-top: 11px;
+		padding-bottom: 11px;
+		padding-right: 40px;
+		padding-left: 40px;
+		border: 2px solid #fb3f5c;
+		border-radius: 10px;
+		color: white;
+	}
+
+	span.log:hover {
+		background-color: #fb3f5c;
+		color: white;
+	}
+
+	span.sign {
+		background-color: #fb3f5c;
+		color: white;
+		padding-top: 11px;
+		padding-bottom: 11px;
+		padding-right: 40px;
+		padding-left: 40px;
+		border-radius: 10px;
+	}
+
+	span.sign:hover {
+		background-color: #fd0a2f;
+		border: 0.5px solid #fb3f5c;
+	}
+
+	#text_container {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		width: 50%;
+		padding-left: 50px;
+		margin-top: 250px;
+	}
+
+	#boldtext {
+		font-size: 48px;
+		font-weight: bold;
+		color: #1d2e3f;
+	}
+
+	#boldtext>p {
+		margin-bottom: 0px;
+	}
+
+	span.platform {
+		color: #fb3f5c;
+	}
+
+	#plaintext {
+		font-size: 20px;
+		line-height: 32px;
+		color: rgba(41, 46, 61, 0.8);
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	#bottom_hero {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+		padding-top: 100px;
+		padding-bottom: 30px;
+		background-image: url(https://res.cloudinary.com/dt9pwfpi5/image/upload/v1592502430/secondhero_rdncfg.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.bottomhero_text {
+		padding-right: 60px;
+		width: 40%;
+	}
+
+	.bottomhero_text>h2>p {
+		font-weight: bold;
+		font-size: 36px;
+		color: #1d2e3f;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	.colored_div {
+		width: 150px;
+		height: 6px;
+		background-color: #fb3f5c;
+	}
+
+	.empty_div {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+
+	p.words {
+		font-size: 18px;
+		line-height: 29px;
+		color: #68747f;
+	}
+
+	.learn_btn {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		width: 40%;
+		background-color: #fb3f5c;
+		color: white;
+		font-size: 24px;
+		font-weight: 500;
+		padding: 15px;
+		border-radius: 10px;
+	}
+
+	/* New Styles */
+	h1,
+	p {
+		font-style: normal;
+	}
+
+	h1 {
+		font-weight: bold;
+		color: var(--h-textblack-color);
+	}
+
+	p {
+		font-family: DM Sans;
+		font-weight: normal;
+		font-size: 18.0755px;
+		line-height: 29px;
+	}
+
+	hr {
+		width: 124px;
+		margin-left: auto;
+		margin-right: auto;
+		border: 3px solid var(--primary-pink);
+	}
+
+	/* Class specific styles */
+	.main {
+		padding-top: 100px;
+	}
+
+	.helpdiv {
+		padding-left: 137px;
+		padding-right: 137px;
+	}
+
+	.helpdiv h1 {
+		text-align: center;
+		margin-bottom: 13px;
+	}
+
+	.helpdiv hr {
+		margin-bottom: 101px;
+	}
+
+	.helpdiv .helpflex {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+
+	.helpdiv .helpflex .helploan {
+		-ms-flex-preferred-size: 47%;
+		flex-basis: 47%;
+		width: 47%;
+	}
+
+	.helpdiv .helpflex .helploan .helploan-box .pattern1 {
+		position: absolute;
+		width: 100%;
+		height: auto;
+		bottom: -8%;
+		right: 12%;
+	}
+
+	.helpdiv .helpflex .helploan .helploan-box {
+		background: white;
+		-webkit-box-shadow: 1px 2.5px 4px rgba(222, 208, 208, 0.3), inset 1px 2.5px 4px rgba(222, 208, 208, 0.3);
+		box-shadow: 1px 2.5px 4px rgba(222, 208, 208, 0.3), inset 1px 2.5px 4px rgba(222, 208, 208, 0.3);
+		padding: 45px;
+		position: relative;
+	}
+
+	.helpdiv .helpflex .helploan .helploan-box h2,
+	.helpdiv .helpflex .helpinvest .helpinvest-box h2 {
+		font-weight: 500;
+		font-size: 40px;
+		color: #1d2e3f;
+	}
+
+	.helpdiv .helpflex .helploan .helploan-box p,
+	.helpdiv .helpflex .helpinvest .helpinvest-box p {
+		margin-bottom: 23px;
+	}
+
+	.helpdiv .helpflex .helpinvest {
+		-ms-flex-preferred-size: 47%;
+		flex-basis: 47%;
+		width: 47%;
+	}
+
+	.helpdiv .helpflex .helpinvest .helpinvest-box {
+		background: white;
+		-webkit-box-shadow: 1px 2.5px 4px rgba(222, 208, 208, 0.3), inset 1px 2.5px 4px rgba(222, 208, 208, 0.3);
+		box-shadow: 1px 2.5px 4px rgba(222, 208, 208, 0.3), inset 1px 2.5px 4px rgba(222, 208, 208, 0.3);
+		padding: 45px;
+		position: relative;
+	}
+
+	.faqdiv {
+		padding: 198px 221px 198px 221px;
+	}
+
+	.faqdiv .faq h1 {
+		text-align: center;
+	}
+
+	.faqdiv .faq hr {
+		margin-bottom: 56px;
+		margin-top: 21px;
+	}
+
+	.testimoniesdiv {
+		padding-left: 141px;
+		padding-right: 141px;
+	}
+
+	.testimoniesdiv .testimonials {
+		background-image: url(https://res.cloudinary.com/dcjxlbq4z/image/upload/v1592469191/hng%20fundmylaptop/Rectangle_363_vtruep.png);
+		padding-top: 58px;
+		padding-bottom: 300px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.testimoniesdiv .testimonials h1 {
+		text-align: center;
+	}
+
+	.testimoniesdiv .testimonials hr {
+		margin-bottom: 33px;
+		margin-top: 19px;
+	}
+
+	.testimoniesdiv .testimonials .subtitle {
+		font-family: Muli;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18.0758px;
+		text-align: center;
+		color: #292e3d;
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider {
+		margin-top: 50px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .box {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-preferred-size: 32%;
+		flex-basis: 32%;
+		max-width: 32%;
+		padding: 17px;
+		margin: 10px;
+		background: #ffffff;
+		-webkit-box-shadow: 0px 3.53427px 3.53427px rgba(187, 178, 178, 0.25);
+		box-shadow: 0px 3.53427px 3.53427px rgba(187, 178, 178, 0.25);
+		border-radius: 6.18978px;
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .profile {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		margin-right: 15px;
+		width: 20%;
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .profile div {
+		-ms-flex-item-align: center;
+		-ms-grid-row-align: center;
+		align-self: center;
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .profile img {
+		width: 100%;
+		height: auto;
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .profile .name {
+		font-family: Muli;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 13.0539px;
+		line-height: 27px;
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .profile .date {
+		font-family: Muli;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 10px;
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .testimony {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		width: 80%;
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .testimony p:before {
+		content: "\201B";
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .testimony p:after {
+		content: "\2019";
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .testimony p {
+		margin-bottom: 10px;
+	}
+
+	.testimoniesdiv .testimonials .testimonials-slider .testimony .checked {
+		color: #f3f56c;
+	}
+
+	.slider-arrows {
+		text-align: right;
+		margin-top: 30px;
+	}
+
+	.slider-arrows span {
+		padding: 20px;
+		background-color: rgba(29, 46, 63, 0.6);
+		color: #ffffff;
+	}
+
+	.slider-arrows span:hover {
+		background-color: #1d2e3f;
+	}
+
+	.impactdiv {
+		padding-left: 141px;
+		padding-right: 141px;
+	}
+
+	.impactdiv .impact {
+		background-image: url(https://res.cloudinary.com/dcjxlbq4z/image/upload/v1592477112/hng%20fundmylaptop/undraw_connected_world_wuay_1_yxaa6i.png);
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 200px;
+	}
+
+	.impactdiv .impact h1 {
+		font-family: DM Sans;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 48px;
+		text-align: center;
+		color: rgba(29, 46, 63, 0.8);
+	}
+
+	.impactdiv .impact .counter {
+		font-family: DM Sans;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 75px;
+		line-height: 98px;
+		text-align: center;
+		margin: 0;
+		color: #fb3f5c;
+	}
+
+	.impactdiv .impact h3 {
+		margin: 0;
+	}
+
+	.impactdiv .impact div {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+
+	.impactdiv .impact div .each {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		margin: 50px;
+		text-align: center;
+	}
+
+	/* UI Elements */
+	/*Medium Pink Button*/
+	a.medium-buttons {
+		display: inline-block;
+		background-color: var(--primary-pink);
+		padding: 0.9em 1.5em;
+		margin: 0 0.3em 0.3em 0;
+		border-radius: 0.12em;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		text-decoration: none;
+		color: var(--primary-white);
+		text-align: center;
+		-webkit-transition: all 0.2s;
+		transition: all 0.2s;
+		border-radius: 10px;
+	}
+
+	a.medium-buttons:hover {
+		color: #000000;
+		background-color: #ffffff;
+	}
+
+	/* FAQ Accordion */
+	/* Style the element that is used to open and close the accordion class */
+	p.accordion {
+		cursor: pointer;
+		padding: 18px;
+		width: 100%;
+		text-align: left;
+		border: none;
+		outline: none;
+		-webkit-transition: 0.4s;
+		transition: 0.4s;
+		margin-bottom: 10px;
+		border: 1px solid #444855;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		border-radius: 10px;
+	}
+
+	/* Add a background color to the accordion if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+	p.accordion.active,
+	p.accordion:hover {
+		background-color: var(--primary-pink);
+		color: var(--primary-white);
+	}
+
+	/* Unicode character for "greater" sign (>) */
+	p.accordion:after {
+		content: "\003E";
+		font-size: 50px;
+		color: #444855;
+		float: right;
+		margin-left: 5px;
+	}
+
+	/* Unicode character for "minus" sign (-) */
+	p.accordion.active:after {
+		content: "\2212";
+	}
+
+	div.panel {
+		padding: 0 18px;
+		background-color: white;
+		max-height: 0;
+		overflow: hidden;
+		-webkit-transition: 0.4s ease-in-out;
+		transition: 0.4s ease-in-out;
+		opacity: 0;
+		margin-bottom: 10px;
+	}
+
+	div.panel.show {
+		opacity: 1;
+		max-height: 500px;
+		/* Whatever you like, as long as its more than the height of the content (on all screen sizes) */
+	}
+
+	footer {
+		background-color: rgba(4, 23, 42, 0.03);
+		font-size: 0.75em;
+		font-family: sans-serif;
+	}
+
+	footer a {
+		text-decoration: none;
+	}
+
+	footer ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	footer h1 {
+		margin: 0.7em 0;
+		font-size: 1.8rem;
+	}
+
+	.footer-top {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		margin: 0 10em;
+		font-size: 1rem;
+		line-height: 2em;
+		color: #04172a;
+	}
+
+	.footer-top li a {
+		color: #04172a;
+	}
+
+	.footer-top-color {
+		color: #fb3f5c;
+	}
+
+	.footer-icons>a>img {
+		margin-right: 1em;
+	}
+
+	footer hr {
+		border: 2px solid rgba(4, 23, 42, 0.05);
+		width: 80%;
+		margin: 1em 12em !important;
+	}
+
+	/*
+  * Putting together the landing page.
+  * Corrective css styles
+  * Extra styling for missing elements
+  * Optimizing responsiveness
+*/
+	/* fixing hover color for buttons(changing the color to the design style guide accent color) */
+	span.sign:hover {
+		background-color: #6c63ff;
+		border: none;
+		color: #04172a;
+	}
+
+	/* corrective styles + extra code to make hero responsive */
+	@media (max-width: 1200px) {
+		#top_hero {
+			background-position-x: calc(400px - 3vw);
+		}
+	}
+
+	@media (max-width: 900px) {
+		#top_hero {
+			background: none;
+		}
+	}
+
+	#header {
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+		width: 90%;
+		margin: auto;
+	}
+
+	.logo {
+		margin-right: auto;
+		padding-left: 0;
+	}
+
+	.login {
+		padding-left: 0;
+		padding-left: calc(1.5625rem + 3.75vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.login {
+			padding-left: 4.375rem;
+		}
+	}
+
+	.intro-wrapper {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		width: 90vw;
+		margin: auto;
+		margin-top: 180px;
+	}
+
+	@media (max-width: 900px) {
+		.intro-wrapper {
+			display: block;
+			margin-top: 80px;
+		}
+	}
+
+	#text_container {
+		display: block;
+		margin-top: 0;
+		max-width: 45%;
+		padding-left: 0;
+	}
+
+	@media (max-width: 900px) {
+		#text_container {
+			text-align: center;
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+	.laptop-hero-image {
+		max-width: 45%;
+	}
+
+	.laptop-hero-image img {
+		width: 100%;
+	}
+
+	@media (max-width: 900px) {
+		.laptop-hero-image {
+			max-width: 60%;
+			margin: auto;
+		}
+	}
+
+	#boldtext h1 {
+		font-size: calc(1.425rem + 2.1vw);
+		min-width: 0vw;
+		line-height: 1.25;
+		margin-bottom: 12px;
+	}
+
+	@media (min-width: 1200px) {
+		#boldtext h1 {
+			font-size: 3rem;
+		}
+	}
+
+	#plaintext p {
+		font-size: 1.15rem;
+		margin: 0 auto 15px 0;
+		margin-bottom: calc(1.3125rem + 0.75vw);
+		min-width: 0vw;
+		width: 90%;
+	}
+
+	@media (min-width: 1200px) {
+		#plaintext p {
+			margin-bottom: 1.875rem;
+		}
+	}
+
+	@media (max-width: 900px) {
+		#plaintext p {
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
+	#buttons {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		margin-top: 15px;
+	}
+
+	#buttons .fml-btn.alt-empty {
+		margin-right: calc(1.375rem + 1.5vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		#buttons .fml-btn.alt-empty {
+			margin-right: 2.5rem;
+		}
+	}
+
+	@media (max-width: 900px) {
+		#buttons {
+			width: -webkit-fit-content;
+			width: -moz-fit-content;
+			width: fit-content;
+			margin: 15px auto auto auto;
+		}
+	}
+
+	/* Reusable style for buttons */
+	.fml-btn {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-right: calc(1.375rem + 1.5vw);
+		min-width: 0vw;
+		padding-left: calc(1.375rem + 1.5vw);
+		min-width: 0vw;
+		border-radius: 12px;
+		background: #fb3f5c;
+		color: white;
+		font-size: calc(1.275rem + 0.3vw);
+		min-width: 0vw;
+		border: 1.5px solid rgba(0, 0, 0, 0);
+	}
+
+	@media (min-width: 1200px) {
+		.fml-btn {
+			padding-right: 2.5rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.fml-btn {
+			padding-left: 2.5rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.fml-btn {
+			font-size: 1.5rem;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.fml-btn {
+			font-size: 1.125rem;
+		}
+	}
+
+	.fml-btn.alt-empty {
+		border: 1.5px solid #fb3f5c;
+		color: black;
+		background: none;
+	}
+
+	.fml-btn:hover,
+	.fml-btn.alt-empty:hover {
+		background-color: #6c63ff;
+		color: #04172a;
+		border: 1.5px solid rgba(0, 0, 0, 0);
+	}
+
+	.fml-btn:active,
+	.fml-btn.alt-empty:active {
+		background: #04172a;
+		border: 1.5px solid rgba(0, 0, 0, 0);
+		color: white;
+	}
+
+	/* responsive header styles continue */
+	.laptop-hero-image {
+		margin-left: calc(1.59375rem + 4.125vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.laptop-hero-image {
+			margin-left: 4.6875rem;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.laptop-hero-image {
+			margin: auto;
+		}
+	}
+
+	@media (max-width: 900px) {
+
+		.navs,
+		.login {
+			display: none;
+		}
+	}
+
+	/* side menu trigger/hamburger */
+	.side-menu-trigger {
+		width: 24px;
+		height: 24px;
+		position: relative;
+		cursor: pointer;
+		display: none;
+		z-index: 999;
+	}
+
+	@media (max-width: 900px) {
+		.side-menu-trigger {
+			display: inline-block;
+		}
+	}
+
+	.side-menu-trigger span {
+		background-color: #1d2e3f;
+		display: block;
+		position: absolute;
+		top: 3px;
+		border-radius: 2px;
+		-webkit-transition: -webkit-transform 0.3s ease;
+		transition: -webkit-transform 0.3s ease;
+		transition: transform 0.3s ease;
+		transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+		width: 25px;
+		height: 3px;
+	}
+
+	.side-menu-trigger span:before,
+	.side-menu-trigger span:after {
+		content: "";
+		position: absolute;
+		width: 25px;
+		height: 3px;
+		border-radius: 2px;
+		-webkit-transition: -webkit-transform 0.3s ease;
+		transition: -webkit-transform 0.3s ease;
+		transition: transform 0.3s ease;
+		transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+		background-color: #1d2e3f;
+	}
+
+	.side-menu-trigger span:before {
+		top: 9px;
+	}
+
+	.side-menu-trigger span:after {
+		top: 18px;
+	}
+
+	.side-menu-trigger span.is-active {
+		background: white;
+		-webkit-transform: translate3d(0, 10px, 0) rotate(45deg);
+		transform: translate3d(0, 10px, 0) rotate(45deg);
+	}
+
+	.side-menu-trigger span.is-active:before,
+	.side-menu-trigger span.is-active:after {
+		background-color: white;
+	}
+
+	.side-menu-trigger span.is-active:before {
+		opacity: 0;
+		-webkit-transform: rotate(45deg) translate3d(-5.71429px, -6px, 0);
+		transform: rotate(45deg) translate3d(-5.71429px, -6px, 0);
+	}
+
+	.side-menu-trigger span.is-active:after {
+		-webkit-transform: translate3d(0, -18px, 0) rotate(90deg);
+		transform: translate3d(0, -18px, 0) rotate(90deg);
+	}
+
+	.side-menu-trigger.is-active .side-menu-trigger:before,
+	.side-menu-trigger:after {
+		background-color: white;
+	}
+
+	/* side menu styles */
+	.side-menu {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background: #04172a;
+		-webkit-transform: translate(100%);
+		transform: translate(100%);
+		opacity: 0;
+		-webkit-transition: all 0.5s ease-in;
+		transition: all 0.5s ease-in;
+	}
+
+	.side-menu.is-active {
+		-webkit-transform: translate(0);
+		transform: translate(0);
+		-webkit-transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+		transition: all 0.5s cubic-bezier(1, 0, 0, 1);
+		opacity: 1;
+	}
+
+	.auth-links {
+		padding: 10vh 40px 0 40px;
+		margin-bottom: 40px;
+	}
+
+	.auth-links li {
+		position: relative;
+		list-style-type: none;
+		margin-bottom: 15px;
+	}
+
+	.auth-links li a {
+		color: white;
+		font-size: 2.5rem;
+	}
+
+	.site-links {
+		padding: 0 40px 0 40px;
+		position: relative;
+	}
+
+	.site-links li {
+		list-style-type: none;
+		margin-bottom: 15px;
+	}
+
+	.site-links li a {
+		color: white;
+		font-size: 1.3rem;
+	}
+
+	/* Bottom hero */
+	/* reusable container style */
+	.wide-container {
+		width: 90vw;
+		margin: auto;
+	}
+
+	#bottom_hero {
+		display: block;
+	}
+
+	#bottom_hero .wide-container {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+	}
+
+	@media (max-width: 900px) {
+		#bottom_hero .wide-container {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+			flex-direction: column;
+		}
+	}
+
+	#bottom_hero .wide-container>* {
+		-webkit-box-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+	}
+
+	.welcome-image {
+		-ms-flex-negative: 1;
+		flex-shrink: 1;
+		-ms-flex-item-align: center;
+		-ms-grid-row-align: center;
+		align-self: center;
+	}
+
+	@media (max-width: 900px) {
+		.welcome-image {
+			margin-top: 20px;
+		}
+	}
+
+	.welcome-image img {
+		width: 100%;
+	}
+
+	.bottomhero_text {
+		padding: 0;
+		padding-left: calc(1.6875rem + 5.25vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.bottomhero_text {
+			padding-left: 5.625rem;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.bottomhero_text {
+			padding: 0;
+			margin-bottom: 15px;
+			-webkit-box-ordinal-group: 0;
+			-ms-flex-order: -1;
+			order: -1;
+			width: 100%;
+			text-align: center;
+		}
+
+		.bottomhero_text h2 p {
+			text-align: center;
+			font-size: calc(1.3375rem + 1.05vw);
+			min-width: 0vw;
+		}
+	}
+
+	@media (max-width: 900px) and (min-width: 1200px) {
+		.bottomhero_text h2 p {
+			font-size: 2.125rem;
+		}
+	}
+
+	.bottomhero_text p {
+		line-height: 1.3;
+	}
+
+	.bottomhero_text p.words {
+		text-align: justify;
+		line-height: 1.6;
+	}
+
+	/* main section */
+	.helpdiv {
+		padding: 0;
+	}
+
+	@media (max-width: 900px) {
+		.helpdiv .helpflex {
+			display: block;
+		}
+
+		.helpdiv .helpflex>* {
+			width: 100% !important;
+		}
+
+		.helpdiv .helpflex .helploan {
+			margin-bottom: 40px;
+		}
+
+		.helpdiv .helpflex .helploan-box,
+		.helpdiv .helpflex .helpinvest-box {
+			background: #fff !important;
+		}
+	}
+
+	/* faq section */
+	.faqdiv {
+		padding: 0 30px;
+		padding-top: calc(2.3625rem + 13.35vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.faqdiv {
+			padding-top: 12.375rem;
+		}
+	}
+
+	p.accordion {
+		position: relative;
+	}
+
+	p.accordion:after {
+		position: absolute;
+		margin: 0;
+		right: 15px;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+		font-size: calc(1.4375rem + 2.25vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		p.accordion:after {
+			font-size: 3.125rem;
+		}
+	}
+
+	/* testimonies section */
+	.testimoniesdiv {
+		position: relative;
+		padding: 0;
+		width: 100%;
+		background: rgba(4, 23, 42, 0.05);
+		padding-top: calc(1.5625rem + 3.75vw);
+		min-width: 0vw;
+		margin-top: calc(2.25rem + 12vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.testimoniesdiv {
+			padding-top: 4.375rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.testimoniesdiv {
+			margin-top: 11.25rem;
+		}
+	}
+
+	.testimoniesdiv .testimonials {
+		padding-bottom: calc(1.75rem + 6vw);
+		min-width: 0vw;
+		background-image: none;
+	}
+
+	@media (min-width: 1200px) {
+		.testimoniesdiv .testimonials {
+			padding-bottom: 6.25rem;
+		}
+	}
+
+	.testimoniesdiv svg {
+		z-index: -2;
+	}
+
+	.testimoniesdiv .circle-top-left {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+	.testimoniesdiv .circle-bottom-right {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+
+	.testimoniesdiv .poly-top-right {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.testimoniesdiv .poly-bottom-left {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+
+	.testimonials-slider {
+		overflow-x: auto;
+	}
+
+	.testimonials-slider::-webkit-scrollbar {
+		display: none;
+	}
+
+	@media (pointer: coarse) {
+		.slider-arrows {
+			display: none;
+		}
+	}
+
+	.slider-arrows span {
+		padding: 10px 20px;
+	}
+
+	.box {
+		width: 525px;
+		max-width: 525px;
+		min-width: 525px;
+	}
+
+	@media (max-width: 599px) {
+		.box {
+			min-width: 80%;
+		}
+	}
+
+	.box .testimony p {
+		font-size: 16px;
+	}
+
+	/* imapact/stat section */
+	.impactdiv {
+		padding: 0;
+		width: 100%;
+	}
+
+	.impactdiv .impact {
+		padding: 0;
+		padding-top: calc(2.375rem + 13.5vw);
+		min-width: 0vw;
+		padding-bottom: calc(2.375rem + 13.5vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.impactdiv .impact {
+			padding-top: 12.5rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.impactdiv .impact {
+			padding-bottom: 12.5rem;
+		}
+	}
+
+	.impactdiv .impact>h1 {
+		font-size: calc(1.425rem + 2.1vw);
+		min-width: 0vw;
+		width: 70%;
+		margin: auto;
+	}
+
+	@media (min-width: 1200px) {
+		.impactdiv .impact>h1 {
+			font-size: 3rem;
+		}
+	}
+
+	@media (max-width: 599px) {
+		.impactdiv .impact>h1 {
+			font-size: 36px;
+			width: 95%;
+		}
+	}
+
+	@media (max-width: 599px) {
+		.impactdiv .impact>div {
+			display: block;
+		}
+	}
+
+	/* subscribe section */
+	.subscribe {
+		padding-top: calc(2.35rem + 13.2vw);
+		min-width: 0vw;
+		padding-bottom: calc(2.35rem + 13.2vw);
+		min-width: 0vw;
+		background: url("https://res.cloudinary.com/udemic/image/upload/v1592652956/sample/fundmylaptop/fundmylaptop/fundmylaptop-email-bg_bxewb6.jpg");
+		background-size: cover;
+		background-repeat: none;
+	}
+
+	@media (min-width: 1200px) {
+		.subscribe {
+			padding-top: 12.25rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.subscribe {
+			padding-bottom: 12.25rem;
+		}
+	}
+
+	.subscribe form {
+		max-width: 660px;
+		margin: auto;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+	}
+
+	@media (max-width: 900px) {
+		.subscribe form {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			max-width: 70%;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+		}
+	}
+
+	@media (max-width: 599px) {
+		.subscribe form {
+			max-width: 90%;
+		}
+	}
+
+	.subscribe form input {
+		border: none;
+		width: 75%;
+		height: 65px;
+		font-size: calc(1.25625rem + 0.075vw);
+		min-width: 0vw;
+		padding-left: 20px;
+	}
+
+	@media (min-width: 1200px) {
+		.subscribe form input {
+			font-size: 1.3125rem;
+		}
+	}
+
+	.subscribe form input:focus {
+		outline-color: #fb3f5c;
+	}
+
+	@media (max-width: 900px) {
+		.subscribe form input {
+			width: 100%;
+			padding-left: 0;
+			text-align: center;
+			height: 55px;
+			margin-bottom: 15px;
+		}
+	}
+
+	.subscribe form button {
+		width: 25%;
+		font-size: calc(1.25625rem + 0.075vw);
+		min-width: 0vw;
+		padding: 15px 0;
+		text-align: center;
+	}
+
+	@media (min-width: 1200px) {
+		.subscribe form button {
+			font-size: 1.3125rem;
+		}
+	}
+
+	@media (min-width: 900px) {
+		.subscribe form button {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.subscribe form button {
+			width: -webkit-fit-content;
+			width: -moz-fit-content;
+			width: fit-content;
+			padding: 15px 20px;
+		}
+	}
+
+	/* reusable section title */
+	.section-title {
+		font-size: calc(1.405rem + 1.86vw);
+		min-width: 0vw;
+		width: -webkit-fit-content;
+		width: -moz-fit-content;
+		width: fit-content;
+		margin: auto;
+		position: relative;
+		color: #1d2e3f;
+		line-height: 1;
+		font-weight: bold;
+		font-family: "DM Sans", Arial, Helvetica, sans-serif;
+		text-align: center;
+		padding-bottom: 1.25rem;
+	}
+
+	@media (min-width: 1200px) {
+		.section-title {
+			font-size: 2.8rem;
+		}
+	}
+
+	.section-title:before {
+		content: "";
+		height: 6px;
+		background: #fb3f5c;
+		position: absolute;
+		bottom: 0;
+		width: calc(40px + 10%);
+		margin: auto;
+		text-align: center;
+		left: 50%;
+		-webkit-transform-origin: center;
+		transform-origin: center;
+		-webkit-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+
+	/* Blog section */
+	.blog {
+		padding-top: calc(1.85625rem + 7.275vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.blog {
+			padding-top: 7.3125rem;
+		}
+	}
+
+	.card-deck {
+		width: 100%;
+		display: -ms-grid;
+		display: grid;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-gap: 20px;
+		margin-top: calc(1.59375rem + 4.125vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.card-deck {
+			margin-top: 4.6875rem;
+		}
+	}
+
+	.card {
+		border-radius: 23px;
+		-webkit-box-shadow: 0px 18.42px 18.42px rgba(202, 198, 198, 0.3);
+		box-shadow: 0px 18.42px 18.42px rgba(202, 198, 198, 0.3);
+	}
+
+	.card .card-img {
+		width: 100%;
+	}
+
+	.card .card-img img {
+		width: 100%;
+		-o-object-fit: cover;
+		object-fit: cover;
+	}
+
+	.card .card-content {
+		padding: calc(1.325rem + 0.9vw);
+		min-width: 0vw;
+		text-align: center;
+	}
+
+	@media (min-width: 1200px) {
+		.card .card-content {
+			padding: 2rem;
+		}
+	}
+
+	.card .card-content pre,
+	.card .card-content h4,
+	.card .card-content p {
+		text-align: justify;
+	}
+
+	.card .card-content pre {
+		font-size: 1rem;
+		line-height: 1.5;
+		margin-bottom: calc(1.28125rem + 0.375vw);
+		min-width: 0vw;
+		width: 100%;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+	}
+
+	@media (min-width: 1200px) {
+		.card .card-content pre {
+			margin-bottom: 1.5625rem;
+		}
+	}
+
+	.card .card-content h4 {
+		font-size: 1.25rem;
+		color: #1d2e3f;
+	}
+
+	.card .card-content p {
+		font-size: 1.125rem;
+		line-height: 1.6;
+		margin: 0;
+		margin-bottom: calc(1.28125rem + 0.375vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.card .card-content p {
+			margin-bottom: 1.5625rem;
+		}
+	}
+
+	.sponsors {
+		padding-top: calc(1.95rem + 8.4vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.sponsors {
+			padding-top: 8.25rem;
+		}
+	}
+
+	.sponsors .sponsors-container {
+		width: 100%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		padding: 0;
+		padding-top: calc(1.3125rem + 0.75vw);
+		min-width: 0vw;
+		padding-bottom: calc(1.3125rem + 0.75vw);
+		min-width: 0vw;
+		background: rgba(79, 93, 106, 0.2);
+		overflow-x: auto;
+		margin-top: calc(1.4375rem + 2.25vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.sponsors .sponsors-container {
+			padding-top: 1.875rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.sponsors .sponsors-container {
+			padding-bottom: 1.875rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.sponsors .sponsors-container {
+			margin-top: 3.125rem;
+		}
+	}
+
+	.sponsors .sponsors-container .sponsors-item {
+		background: white;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		margin: 0 35px;
+		min-width: 100px !important;
+		min-height: 100px;
+		color: black;
+		font-size: calc(1.305rem + 0.66vw);
+		min-width: 0vw;
+	}
+
+	@media (min-width: 1200px) {
+		.sponsors .sponsors-container .sponsors-item {
+			font-size: 1.8rem;
+		}
+	}
+
+	/* footer section */
+	footer {
+		background-color: rgba(0, 0, 0, 0);
+		padding-top: calc(2.0625rem + 9.75vw);
+		min-width: 0vw;
+		margin-top: calc(1.75rem + 6vw);
+		min-width: 0vw;
+		background-repeat: none;
+		position: relative;
+		background-image: -webkit-gradient(linear, left bottom, left top, color-stop(90%, #fec5ce), color-stop(90%, rgba(9, 9, 121, 0)), color-stop(66%, rgba(0, 212, 255, 0)));
+		background-image: linear-gradient(0deg, #fec5ce 90%, rgba(9, 9, 121, 0) 90%, rgba(0, 212, 255, 0) 66%);
+	}
+
+	@media (min-width: 1200px) {
+		footer {
+			padding-top: 9.375rem;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		footer {
+			margin-top: 6.25rem;
+		}
+	}
+
+	footer:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 300px;
+		background: url("https://res.cloudinary.com/udemic/image/upload/v1592729501/sample/fundmylaptop/fundmylaptop/footer-clip_1_jgwp3c.svg");
+		background-size: cover;
+		z-index: -100;
+	}
+
+	footer .footer-top {
+		margin: 0;
+		width: 100%;
+		display: -ms-grid;
+		display: grid;
+		-ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+
+	footer .footer-bottom {
+		margin: 0;
+		width: 100%;
+		margin-top: 30px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: end;
+		-ms-flex-pack: end;
+		justify-content: flex-end;
+	}
+
+	footer .footer-bottom p {
+		color: #04172a;
+	}
+
+	@media (max-width: 900px) {
+		footer .footer-bottom {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+			flex-direction: column;
+		}
+	}
+
+	footer .footer-bottom .copyright {
+		margin-right: auto;
+	}
+
+	@media (max-width: 900px) {
+		footer .footer-bottom .copyright {
+			-webkit-box-ordinal-group: 6;
+			-ms-flex-order: 5;
+			order: 5;
+		}
+	}
+
+	footer .footer-bottom>*+* {
+		margin-left: 20px;
+	}
+
+	@media (max-width: 900px) {
+		footer .footer-bottom>*+* {
+			margin-left: 0;
+		}
+	}
+</style>
+<!--Hero section container-->
+<div id="hero_section">
+	<!--Topmost hero section-->
+	<div id="top_hero">
+		<!--Header navigation bar-->
+		<header id="header">
+			<ul class="logo">
+				<li>
+					<a href="/home">FundMy<span class="lap">Laptop</span></a>
+				</li>
+			</ul>
+			<ul class="navs">
+				<li>
+					<span class="home"><a href="#hero_section">Home</a></span>
+				</li>
+				<li><a href="#bottom_hero">About Us</a></li>
+				<li><a href="#faq">FAQ</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+			<ul class="login">
+				<li>
+					<span class="log"><a href="/login">Login</a></span>
+				</li>
+				<li>
+					<span class="sign"><a href="/signup">Sign Up</a></span>
+				</li>
+			</ul>
+			<div class="side-menu-trigger">
+				<span></span>
+			</div>
+		</header>
+		<div class="side-menu">
+			<ul class="auth-links">
+				<li style="animation-delay: .5s"><a href="/login">Login</a></li>
+				<li style="animation-delay: .7s"><a href="/signup">Sign up</a></li>
+			</ul>
+			<ul class="site-links" style="animation-delay: 1.1s">
+				<li><a href="/home">Home</a></li>
+				<li><a href="/about">About</a></li>
+				<li><a href="/faq">FAQ</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+		</div>
+		<!--Contains text and buttons-->
+		<div class="intro-wrapper">
+			<div id="text_container">
+				<div id="boldtext">
+					<h1>
+						A <span class="platform">Platform</span> For Fundees And Funders
+					</h1>
+				</div>
+				<div id="plaintext">
+					<p>
+						Becoming a dev definitely means you have to have a laptop. As a
+						dev your laptop is your most essential work tool. HNG
+						internships Project #FundMyLaptop exists solely to make this
+						happen.
+					</p>
+				</div>
+				<div id="buttons">
+					<a href="#"><button class="fml-btn alt-empty">Invest</button></a>
+					<a href="#"><button class="fml-btn">Get a loan</button></a>
+				</div>
+			</div>
+			<div class="laptop-hero-image">
+				<img src="https://res.cloudinary.com/udemic/image/upload/v1592653334/sample/fundmylaptop/fundmylaptop/fundmylaptop-macbook_mebt7v.png" alt="macbook" />
+			</div>
+		</div>
+	</div>
+	<!--Bottom hero section-->
+	<!--All text container-->
+	<div id="bottom_hero">
+		<div class="wide-container">
+			<div class="welcome-image">
+				<img src="https://res.cloudinary.com/udemic/image/upload/v1592652954/sample/fundmylaptop/fundmylaptop/fundmylaptop-workspace_tziqr4.jpg" alt="workspace" />
+			</div>
+			<div class="bottomhero_text">
+				<h2>
+					<p>Welcome To FundMyLaptop</p>
+				</h2>
+				<div class="empty_div">
+					<div class="colored_div"></div>
+				</div>
+				<p class="words">
+					Fundmylaptop is a platform that conncets those in need of a laptop
+					or to repair a laptop with no funding at the mo ment with
+					investors willing to help by investing in them and getting back
+					there money with interest fundaraising. Fundmylaptop is a platform
+					that conncets those in need of a laptop or to repair a laptop with
+					no funding at the mo ment with investors willing to help by
+					investing in them and getting back there money with interest
+					fundaraising.
+				</p>
+				<a href="/aboutus"><button class="fml-btn">Learn More</button></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Landingpage without hero -->
+<div class="main">
+	<div class="wide-container">
+		<div class="helpdiv">
+			<h1>How Can We Help You</h1>
+			<hr />
+			<div class="helpflex">
+				<div class="helploan">
+					<div class="helploan-box">
+						<img src="https://res.cloudinary.com/dcjxlbq4z/image/upload/v1592444349/hng%20fundmylaptop/helploan-icon_xlfel3.svg" alt="helploan-icon" />
+						<h2>
+							Need a <span style="color: var(--primary-pink);">loan</span>?
+						</h2>
+						<p>
+							Becoming a dev defintely means you have to have a laptop. As a
+							dev your laptop is your most essential work tool. HNG
+							Imterships Project #FundMyLaptop exists solely to make this
+							happen.
+						</p>
+						<a href="#" class="medium-buttons">Get a loan</a>
+
+
+					</div>
+				</div>
+				<div class="helpinvest">
+					<div class="helpinvest-box">
+						<img src="https://res.cloudinary.com/udemic/image/upload/v1592652952/sample/fundmylaptop/fundmylaptop/fundmylaptop-grow-money-icon_hzvgob.svg" />
+						<h2>
+							Want to
+							<span style="color: var(--primary-pink);">invest</span>?
+						</h2>
+						<p>
+							Becoming a dev defintely means you have to have a laptop. As a
+							dev your laptop is your most essential work tool. HNG
+							Imterships Project #FundMyLaptop exists solely to make this
+							happen.
+						</p>
+						<a href="#" class="medium-buttons">Get loan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="faq" class="faqdiv">
+			<div class="faq">
+				<h1>Frequently Asked Questions</h1>
+				<hr />
+				<p class="accordion">How do I get a laptop</p>
+				<div class="panel">
+					Lorem Ipsum is simply dummy text of the printing and typesetting
+					industry Lorem Ipsum has been the industry's standard dummy text
+					ever since the 1500s when an unknown printer took a galley of type
+					and scrambled it to make a type specimen book it has.
+				</div>
+
+				<p class="accordion">How do I get a loan</p>
+				<div class="panel">
+					Lorem Ipsum is simply dummy text of the printing and typesetting
+					industry Lorem Ipsum has been the industry's standard dummy text
+					ever since the 1500s when an unknown printer took a galley of type
+					and scrambled it to make a type specimen book it has.
+				</div>
+
+				<p class="accordion">How do I invest in this platform</p>
+				<div class="panel">
+					Lorem Ipsum is simply dummy text of the printing and typesetting
+					industry Lorem Ipsum has been the industry's standard dummy text
+					ever since the 1500s when an unknown printer took a galley of type
+					and scrambled it to make a type specimen book it has.
+				</div>
+
+				<p class="accordion">
+					How do I get a laptop
+				</p>
+				<div class="panel">
+					Lorem Ipsum is simply dummy text of the printing and typesetting
+					industry Lorem Ipsum has been the industry's standard dummy text
+					ever since the 1500s when an unknown printer took a galley of type
+					and scrambled it to make a type specimen book it has.
+				</div>
+
+				<p class="accordion">
+					How do I get a loan
+				</p>
+				<div class="panel">
+					Lorem Ipsum is simply dummy text of the printing and typesetting
+					industry Lorem Ipsum has been the industry's standard dummy text
+					ever since the 1500s when an unknown printer took a galley of type
+					and scrambled it to make a type specimen book it has.
+				</div>
+
+				<p class="accordion">
+					How do I invest in this platform
+				</p>
+				<div class="panel">
+					Lorem Ipsum is simply dummy text of the printing and typesetting
+					industry Lorem Ipsum has been the industry's standard dummy text
+					ever since the 1500s when an unknown printer took a galley of type
+					and scrambled it to make a type specimen book it has.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="testimoniesdiv">
+		<svg class="circle-top-left" width="76" height="144" viewBox="0 0 76 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="4" cy="72" r="72" fill="#F88295" />
+		</svg>
+		<svg class="circle-bottom-right" width="79" height="144" viewBox="0 0 79 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="71.9998" cy="71.9998" r="71.9998" fill="#F88295" />
+		</svg>
+		<svg class="poly-top-right" width="93" height="134" viewBox="0 0 93 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1.29224 30.3801C-1.27065 27.2362 0.530833 22.4969 4.53491 21.8493L133.412 1.00476C137.416 0.35714 140.62 4.28693 139.179 8.07837L92.792 130.112C91.3508 133.903 86.3457 134.713 83.7829 131.569L1.29224 30.3801Z" fill="#F88295" />
+		</svg>
+		<svg class="poly-bottom-left" width="89" height="134" viewBox="0 0 89 134" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M-50.3543 7.11294C-51.7215 3.29419 -48.442 -0.572535 -44.4513 0.152848L83.9963 23.5004C87.987 24.2257 89.6959 28.9992 87.0724 32.0926L2.62907 131.658C0.00550541 134.751 -4.98289 133.844 -6.35006 130.026L-50.3543 7.11294Z"
+				fill="#F88295" />
+		</svg>
+
+
+		<div class="wide-container">
+			<div class="testimonials">
+				<h1>Fundmylaptop loves Testimonies</h1>
+				<hr />
+				<p class="subtitle">
+					Fundmylaptop loves feedbacks. Here is what our clients say about
+					us and also their experiences using this platform
+				</p>
+				<div class="testimonials-slider">
+					<div class="box">
+						<div class="profile">
+							<img src="https://res.cloudinary.com/dcjxlbq4z/image/upload/v1592469191/hng%20fundmylaptop/portrait-attracive-young-businesswoman-wearing-260nw-1036909795_1_ufdf4y.png" alt="" />
+							<div>
+								<p class="name">Anita M.</p>
+								<small>
+									<p class="date">October 7, 2019</p>
+								</small>
+							</div>
+						</div>
+						<div class="testimony">
+							<p>
+								Perfect.Very confortable and pleasant enviroment. we sat in
+								the pool area where it was very cool. i enjoyed my stay and
+								i will love to visit again.
+							</p>
+							<span class="ratings">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+							</span>
+						</div>
+					</div>
+
+					<div class="box">
+						<div class="profile">
+							<img src="https://res.cloudinary.com/dcjxlbq4z/image/upload/v1592469191/hng%20fundmylaptop/portrait-attracive-young-businesswoman-wearing-260nw-1036909795_1_ufdf4y.png" alt="" />
+							<div>
+								<p class="name">Anita M.</p>
+								<small>
+									<p class="date">October 7, 2019</p>
+								</small>
+							</div>
+						</div>
+						<div class="testimony">
+							<p>
+								Perfect.Very confortable and pleasant enviroment. we sat in
+								the pool area where it was very cool. i enjoyed my stay and
+								i will love to visit again.
+							</p>
+							<span class="ratings">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+							</span>
+						</div>
+					</div>
+
+					<div class="box">
+						<div class="profile">
+							<img src="https://res.cloudinary.com/dcjxlbq4z/image/upload/v1592469191/hng%20fundmylaptop/portrait-attracive-young-businesswoman-wearing-260nw-1036909795_1_ufdf4y.png" alt="" />
+							<div>
+								<p class="name">Anita M.</p>
+								<small>
+									<p class="date">October 7, 2019</p>
+								</small>
+							</div>
+						</div>
+						<div class="testimony">
+							<p>
+								Perfect.Very confortable and pleasant enviroment. we sat in
+								the pool area where it was very cool. i enjoyed my stay and
+								i will love to visit again.
+							</p>
+							<span class="ratings">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+							</span>
+						</div>
+					</div>
+
+					<div class="box">
+						<div class="profile">
+							<img src="https://res.cloudinary.com/dcjxlbq4z/image/upload/v1592469191/hng%20fundmylaptop/portrait-attracive-young-businesswoman-wearing-260nw-1036909795_1_ufdf4y.png" alt="" />
+							<div>
+								<p class="name">Anita M.</p>
+								<small>
+									<p class="date">October 7, 2019</p>
+								</small>
+							</div>
+						</div>
+						<div class="testimony">
+							<p>
+								Perfect.Very confortable and pleasant enviroment. we sat in
+								the pool area where it was very cool. i enjoyed my stay and
+								i will love to visit again.
+							</p>
+							<span class="ratings">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="slider-arrows">
+					<span class="slider-btn left">&#10094;</span>
+					<span class="slider-btn right">&#10095;</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="impactdiv">
+		<div class="impact">
+			<h1>
+				Successfully provided 1500+ laptops to interns in over 20countries.
+			</h1>
+			<div>
+				<div class="each">
+					<h1 class="counter">1500+</h1>
+					<h3>laptops</h3>
+				</div>
+				<div class="each">
+					<h1 class="counter">30+</h1>
+					<h3>countries</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="subscribe">
+		<form action="#">
+			<input type="text" placeholder="Your email address" />
+			<button class="fml-btn">SUBSCRIBE</button>
+		</form>
+	</div>
+</div>
+<!-- Blog section-->
+<div class="blog">
+	<div class="wide-container">
+		<h2 class="section-title">Our Blog</h2>
+		<div class="card-deck">
+			<a href="#">
+				<div class="card">
+					<div class="card-img">
+						<img src="https://res.cloudinary.com/udemic/image/upload/v1592652954/sample/fundmylaptop/fundmylaptop/fundmylaptop-blog-img-1_scmlpi.jpg" alt="girl with laptop" />
+					</div>
+					<div class="card-content">
+						<pre>BY ADMIN AUGUST 20, 2020.  DESIGNER</pre>
+						<h4>HOW I DOT FUNDED TO GET A LAPTOP FROM THIS PLATFORM</h4>
+						<p>
+							Voluptatibus repudiandae mollitia eveniet provid
+							ent consectetur adipisicing elit. Officia dolore, quo quos nihil recusandae delectus repudiandae o
+
+
+						</p>
+						<button class="fml-btn">View More</button>
+					</div>
+				</div>
+			</a>
+			<a href="#">
+				<div class="card">
+					<div class="card-img">
+						<img src="https://res.cloudinary.com/udemic/image/upload/v1592652955/sample/fundmylaptop/fundmylaptop/fundmylaptop-blog-img-3_aod4wb.jpg" alt="apple ipad pro" />
+					</div>
+					<div class="card-content">
+						<pre>BY ADMIN AUGUST 20, 2020.  DESIGNER</pre>
+						<h4>HOW I DOT FUNDED TO GET A LAPTOP FROM THIS PLATFORM</h4>
+						<p>
+							Voluptatibus repudiandae mollitia eveniet provid
+							ent consectetur adipisicing elit. Officia dolore, quo quos nihil recusandae delectus repudiandae o
+
+						</p>
+						<button class="fml-btn">View More</button>
+
+					</div>
+				</div>
+			</a>
+			<a href="#">
+				<div class="card">
+					<div class="card-img">
+						<img src="https://res.cloudinary.com/udemic/image/upload/v1592652954/sample/fundmylaptop/fundmylaptop/fundmylaptop-blog-img-2_knyidn.jpg" alt=" outdoor using laptop" />
+					</div>
+					<div class="card-content">
+						<pre>BY ADMIN AUGUST 20, 2020.  DESIGNER</pre>
+						<h4>HOW I DOT FUNDED TO GET A LAPTOP FROM THIS PLATFORM</h4>
+						<p>
+							Voluptatibus repudiandae mollitia eveniet provid
+							ent consectetur adipisicing elit. Officia dolore, quo quos nihil recusandae delectus repudiandae o
+
+
+						</p>
+						<button class="fml-btn">View More</button>
+
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+<!-- Sponsors section -->
+<div class="sponsors">
+	<div class="wide-container">
+		<h2 class="section-title">
+			Our Sponsors
+		</h2>
+		<div class="sponsors-container">
+			<div class="sponsors-item">
+				Logo
+			</div>
+			<div class="sponsors-item">
+				Logo
+			</div>
+			<div class="sponsors-item">
+				Logo
+			</div>
+			<div class="sponsors-item">
+				Logo
+			</div>
+			<div class="sponsors-item">
+				Logo
+			</div>
+			<div class="sponsors-item">
+				Logo
+			</div>
+			<div class="sponsors-item">
+				Logo
+			</div>
+			<div class="sponsors-item">
+				Logo
+			</div>
+			<div class="sponsors-item">
+				Logo
+			</div>
+			<div class="sponsors-item">
+				Logo
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- footer----------->
+<footer>
+	<!-- top section----- -->
+	<div class="wide-container">
+		<div class="footer-top">
+			<div class="footer-top-1">
+				<ul>
+					<li>
+						<h1>FundMy<span class="footer-top-color">Laptop</span></h1>
+					</li>
+					<li>
+						<p>info@fundmylaptop.com</p>
+					</li>
+					<li>
+						<p>12345 67890</p>
+					</li>
+					<div class="footer-icons">
+						<a href="#">
+							<img src="https://res.cloudinary.com/dytnzt4jf/image/upload/v1592431707/Facebook_epztwm.png" alt="facebook icon" /></a>
+						<a href="#">
+							<img src="https://res.cloudinary.com/dytnzt4jf/image/upload/v1592430002/Instagram_rts1mp.png" alt="instagram icon" /></a>
+						<a href="#">
+							<img src="https://res.cloudinary.com/dytnzt4jf/image/upload/v1592431827/twitter_y2z4io.png" alt="twitter icon" /></a>
+					</div>
+				</ul>
+			</div>
+
+			<div class="footer-top-2">
+				<ul>
+					<li>
+						<h1>Take a loan</h1>
+					</li>
+					<li><a href="#">Take a loan</a></li>
+					<li><a href="#">Loan fee & interest rate</a></li>
+					<li><a href="#">Loan EMI Calculator</a></li>
+					<li><a href="#">How to apply for a loan</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-top-3">
+				<ul>
+					<li>
+						<h1>Invest</h1>
+					</li>
+					<li><a href="#">Invest your money</a></li>
+					<li><a href="#">Invest fee & return rate</a></li>
+					<li><a href="#">How to invest</a></li>
+				</ul>
+			</div>
+
+			<div class="footer-top-4">
+				<ul>
+					<li>
+						<h1>About us</h1>
+					</li>
+					<li><a href="#">Why choose FundMyLaptop</a></li>
+					<li><a href="#">How P2P lending works</a></li>
+					<li><a href="/about">About FundMyLaptop</a></li>
+					<li><a href="/contact">Contact us</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- bottom section----- -->
+		<div class="footer-bottom">
+			<p class="copyright">
+				2020 &copy; Copyright All rights reserved>
+			</p>
+			<p><a href="/faq">FAQ</a></p>
+			<p><a href="/privacy-policy">Privacy Policy</a></p>
+			<p>
+				<a href="/terms-and-conditions">Terms & Conditions</a>
+			</p>
+		</div>
+	</div>
+</footer>
+<script>
+	// FAQ Accordion JS
+	document.addEventListener("DOMContentLoaded", function(event) {
+		var acc = document.getElementsByClassName("accordion");
+		var panel = document.getElementsByClassName("panel");
+		for (var i = 0; i < acc.length; i++) {
+			acc[i].onclick = function() {
+				var setClasses = !this.classList.contains("active");
+				setClass(acc, "active", "remove");
+				setClass(panel, "show", "remove");
+
+				if (setClasses) {
+					this.classList.toggle("active");
+					this.nextElementSibling.classList.toggle("show");
+				}
+			};
+		}
+
+		function setClass(els, className, fnName) {
+			for (var i = 0; i < els.length; i++) {
+				els[i].classList[fnName](className);
+			}
+		}
+	});
+
+	//Hamburger menu
+	const trigger = document.querySelector(".side-menu-trigger");
+	const hamburgerIcon = document.querySelector(".side-menu-trigger span");
+	const sideMenu = document.querySelector(".side-menu");
+	let isActive = false;
+
+	trigger.addEventListener("click", () => {
+		isActive = !isActive;
+		if (isActive) {
+			sideMenu.classList.add("is-active");
+			hamburgerIcon.classList.add("is-active");
+		} else {
+			sideMenu.classList.remove("is-active");
+			hamburgerIcon.classList.remove("is-active");
+		}
+	});
+
+	//testimonials carousel
+	const sliderButtons = document.querySelectorAll(".slider-btn");
+	const slideArea = document.querySelector(".testimonials-slider");
+
+	sliderButtons.forEach(button => {
+		button.addEventListener("click", e => {
+			const testimonialWidth = document
+				.querySelector(".testimonials-slider .box")
+				.getBoundingClientRect().width;
+			if (e.target.classList.contains("left")) {
+				slideArea.scroll({
+					left: -testimonialWidth + slideArea.scrollLeft,
+					behavior: "smooth"
+				});
+			} else {
+				slideArea.scroll({
+					left: testimonialWidth + slideArea.scrollLeft,
+					behavior: "smooth"
+				});
+			}
+			console.log('slideArea ', slideArea.scrollLeft);
+			console.log('width: ', testimonialWidth);
+		});
+	});
+</script>

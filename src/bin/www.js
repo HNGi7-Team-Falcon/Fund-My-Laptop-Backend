@@ -1,7 +1,7 @@
 const app = require('../../server');
 require('dotenv').config()
 const databaseConfig = require('../config/db');
-const port = process.env.PORT;
+const port = process.env.PORT || 2020;
 
 
 app.listen(port, () => {
