@@ -13,8 +13,7 @@ module.exports = (app) => {
    consumerKey: TWITTER_CONSUMER_KEY,
    consumerSecret: TWITTER_CONSUMER_SECRET,
    callbackURL: 'https://www.fundmylaptop.com/'
-},  
-(accessToken, refreshToken, profile, cb) => {    
+   },(accessToken, refreshToken, profile, cb) => {    
 	return cb(null, profile);}));
 
   return app;
