@@ -40,14 +40,15 @@ const response = require('./response');
       throw new CustomError("Failed to generate token. Try signup again", 403);
     }
 
-    let verificationUrl = 'http:\/\/' + req.headers.host + '\/signup\/verification\/' + data.token;
+    let verificationUrl = 'http:\/\/' + req.headers.host + '\/api\/email\/verification\/' + data.token;
     //Now send the mail to the user 
     if(!await sendVerificationMail(user.email, verificationUrl)){
       throw new CustomError("Email Could not be Sent. Try Again.")
     }    
       
+    this.logger("Sending mail...")
     return{
-      message: "Kindly Check Your mail to verify your account.",
+      message: "Check Your Mailbox for Link",
       status: "success",
       code: 200
     }
@@ -55,9 +56,12 @@ const response = require('./response');
 
   // handles all log
   logger(msg) {
-    let debug = true;
-    if(debug)
+    let debug = false;
+    if(debug){
+      console.log("============MailUtil==LOGGER=======");
       console.log(msg);
+    }
+      
   }
 
  }
