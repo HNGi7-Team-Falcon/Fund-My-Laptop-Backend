@@ -15,7 +15,7 @@ class UserContoller {
     }
 
     const data = await UserServ.create(req.body);
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV !== 'test') {
       // Mail containing verification link will be sent to the user.
       const mailStatus =  await VerifyEmail.createVerificationLink(data, req);
       console.log(mailStatus.message);
