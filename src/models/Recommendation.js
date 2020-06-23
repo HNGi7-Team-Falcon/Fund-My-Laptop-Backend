@@ -1,3 +1,7 @@
+/*
+*  @author: @oluseyeo
+*  @story: 49296
+*/
 const mongoose = require('mongoose');
 
 //@ DESC: model for public recommendation

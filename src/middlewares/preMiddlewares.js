@@ -9,6 +9,12 @@ module.exports = (app) => {
   app.use(express.urlencoded({ extended: false }));
   app.use(express.static("/public"));
   app.use("/uploads", express.static("/uploads"));
+  passport.use(new Strategy({ 
+   consumerKey: TWITTER_CONSUMER_KEY,
+   consumerSecret: TWITTER_CONSUMER_SECRET,
+   callbackURL: 'https://www.fundmylaptop.com/'
+   },(accessToken, refreshToken, profile, cb) => {    
+	return cb(null, profile);}));
 
   return app;
 };

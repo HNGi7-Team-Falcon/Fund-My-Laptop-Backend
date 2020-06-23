@@ -1,3 +1,4 @@
+const passport = require('passport');
 const router = require("express").Router();
 
 const userRoute = require("./userRoute");
@@ -11,12 +12,23 @@ const { route } = require("./paymentRoute");
 
 module.exports = () => {
   router.get("/test", (req, res) => res.send("Yeah it works!"));
+  router.get('/login/twitter', passport.authenticate('twitter'));
+  router.get('/logout', (req, res, next) => { 
+    req.logout();  
+    res.redirect('/');
+  });
+  router.get('/return', passport.authenticate('twitter', { failureRedirect: '/' }),  
+    (req, res, next) => {res.redirect('/');
+
+  });
 
   router.use("/users", userRoute());
   router.use("/request", requestRoute());
   router.use("/vouch", recommentdationRoute());
   router.use("/payment", paymentRoute);
   router.use("/trend", trendRoute);
+
+  //@boluakins stories: 49299, 49330, 49334
   router.use("/admin/request", adminRequestRoute());
   router.use("/email", emailVerificationRoute());
 

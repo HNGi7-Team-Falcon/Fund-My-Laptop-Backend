@@ -1,3 +1,7 @@
+/*
+*  @author: @oluseyeo
+*  @story: 43822
+*/
 const mongoose = require('mongoose');
 
 //@ DESC: model for new requests by fundee
@@ -21,14 +25,20 @@ const RequestSchema = new mongoose.Schema({
       type: Number,
       required: true
    },
+
+   //@boluakins story: 49330
    isFunded: {
       type: Boolean,
       default: false
    },
+
+   //@boluakins story: 49299
    isSuspended: {
       type: Boolean,
       default: false
    },
+
+   //@boluakins story: 49334
    isActive: {
       type: Boolean,
       default: true
