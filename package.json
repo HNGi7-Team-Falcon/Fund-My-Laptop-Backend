@@ -28,7 +28,7 @@
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "passport-twitter": "^1.0.4",
-    "pm2": "^4.4.0",
+    "pm2": "^5.2.0",
     "randomstring": "^1.1.5"
   },
   "devDependencies": {
